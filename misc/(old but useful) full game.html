@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Serpent's Crown</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #0d0000 0%, #1a0000 25%, #260000 75%, #330000 100%);
+            color: #f5f5dc;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            font-weight: 600;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .chapter-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 500;
+            color: #ff6b6b;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .story-text {
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.6) 0%, rgba(38, 0, 0, 0.7) 100%);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            line-height: 1.8;
+            font-size: 1.1em;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .narrator-text {
+            font-style: italic;
+            color: #f5f5dc;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .dialogue {
+            margin: 15px 0;
+            padding: 10px 0;
+        }
+
+        .character-name {
+            font-weight: 600;
+            color: #ffd700;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .character-speech {
+            margin-left: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #8b0000;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .choices-container {
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.8) 0%, rgba(38, 0, 0, 0.8) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #8b0000;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.1);
+        }
+
+        .next-container {
+            background: linear-gradient(135deg, rgba(38, 0, 0, 0.6) 0%, rgba(26, 0, 0, 0.6) 100%);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .choice-button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: linear-gradient(45deg, #330000, #260000);
+            border: 1px solid #ffd700;
+            border-radius: 10px;
+            color: #f5f5dc;
+            font-size: 1em;
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-button:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #4d0000, #330000);
+            border-color: #ffd700;
+        }
+
+        .next-button {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border: 2px solid #4d0000;
+            border-radius: 10px;
+            color: #260000;
+            font-size: 1em;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #ffed4e, #fff176);
+        }
+
+        .character-portrait {
+            width: 180px;
+            height: 180px;
+            border-radius: 20%;
+            margin: 0 auto 10px;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            display: block;
+            object-fit: cover;
+        }
+
+        .character-scene {
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.8) 0%, rgba(38, 0, 0, 0.8) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 0 50px rgba(38, 0, 0, 0.5);
+        }
+
+        .character-scene .character-name {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .character-scene .character-speech {
+            margin-left: 0;
+            border-left: none;
+            padding-left: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #f5f5dc;
+        }
+
+        .fable-border {
+            border-color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 0 50px rgba(38, 0, 0, 0.5);
+        }
+
+        .kit-border {
+            border-color: #8b0000;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5), 0 0 50px rgba(38, 0, 0, 0.5);
+        }
+
+        .kit-border .character-name {
+            color: #ff6b6b;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .tris-border {
+            border-color: #98fb98;
+            box-shadow: 0 0 30px rgba(152, 251, 152, 0.5), 0 0 50px rgba(38, 0, 0, 0.5);
+        }
+
+        .tris-border .character-name {
+            color: #90ee90;
+            text-shadow: 0 0 15px rgba(144, 238, 144, 0.4);
+        }
+
+        .chance-border {
+            border-color: #87ceeb;
+            box-shadow: 0 0 30px rgba(135, 206, 235, 0.5), 0 0 50px rgba(38, 0, 0, 0.5);
+        }
+
+        .chance-border .character-name {
+            color: #add8e6;
+            text-shadow: 0 0 15px rgba(173, 216, 230, 0.4);
+        }
+
+        .mood-indicator {
+            background: rgba(38, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #8b0000;
+        }
+
+        .mood-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .mood-name {
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .fable-mood { color: #ffd700; }
+        .kit-mood { color: #ff6b6b; }
+        .tris-mood { color: #90ee90; }
+        .chance-mood { color: #add8e6; }
+
+        .mood-hearts {
+            font-size: 1.1em;
+        }
+
+        .sfx {
+            color: #ffd700;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.8em;
+            }
+            
+            .chapter-title {
+                font-size: 1.4em;
+            }
+            
+            .game-container {
+                padding: 15px;
+            }
+            
+            .character-portrait {
+                width: 100px;
+                height: 100px;
+            }
+
+            .mood-name {
+                font-size: 0.9em;
+            }
+
+            .mood-hearts {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="title">The Serpent's Crown</h1>
+        <h2 class="chapter-title" id="chapter-indicator">Chapter 1: The Pyre</h2>
+
+        <div id="content-area">
+            <!-- All content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Simple game state
+        const gameState = {
+            currentScene: 'start',
+            relationships: {
+                fable: 3,
+                kit: 3,
+                tris: 3,
+                chance: 3
+            },
+            choices: []
+        };
+
+        const ENVIRONMENT_IMAGES = {
+            townSquare: 'https://cdn.openart.ai/stable_diffusion/d2c0c995f0a139a9c919f094f61122828e1dd940_2000x2000.webp'
+
+            }
+        
+        const CHARACTER_IMAGES = {
+            fable: 'https://i.imgur.com/PzuiPOp.png',
+            kit: 'https://i.imgur.com/uA8uQ0f.png',
+            tris: 'https://i.imgur.com/otp8Kbs.jpeg',
+            chance: 'https://i.imgur.com/C8NPgC9.jpeg',
+            captain: 'https://i.imgur.com/ZC3C5wL.jpeg'
+        };
+
+        // All scenes defined in one place
+        const scenes = {
+            start: {
+                content: `
+                    <div class="story-text fade-in">
+                        <img src="${ENVIRONMENT_IMAGES.townSquare}" alt="town square" style="width:100%; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);" />
+                        <div class="narrator-text">
+                            Dawn bleeds over the town Square. The air tastes of smoke and iron. A thousand eyes press on you from the gathered crowd, their faces half-hidden in the rising fog. You do not stand among them, but before them. You have been punished for the crime of magic. Your sentence? <br> <b>Death.</b>
+                            <br><br>
+                            You stand bound at the pyre, wrists raw beneath coarse rope. The stake at your back is damp with yesterday's rain, but the kindling piled beneath your feet is dry, almost eager to erupt into flames around you.
+                            <br><br>
+                            The Crown's banners hang from the gallows arch, and you see the serpent swallowing its own tail in an endless unbroken cycle. The symbol of eternity, they say. You see it more as a neverending wheel of suffering.
+                            <br><br>
+                            Someone moves to the stage and the crowd stirs as the Inquisitors move into place. They form a ring of steel. Helmets gleam, halberds fixed. At their head: the Captain of the Inquisition, voice hard and ceremonial.
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('captain_speech')">Next</button>
+                    </div>
+                `
+            },
+
+            captain_speech: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="dialogue">
+                             <img src="${CHARACTER_IMAGES.captain}" alt="captain" class="character-portrait" />
+                            <div class="character-name">CAPTAIN:</div>
+                            <div class="character-speech">"By decree of His Radiance, bearer of the Serpent Throne, this heretic shall be purged of corruption. The sin of sorcery shall be burned from the flesh, as the serpent devours its tail. May the rot of magic be cleansed from our ever holy land"</div>
+                        </div>
+                        <div class="narrator-text">
+                            Murmurs ripple through the people. Some clutch charms of warding. Others avert their eyes. A child is hoisted onto their father's shoulders to watch. Magic is a poison. It has been outlawed for almost as long as anyone can remember. 
+                            <br><br>
+                            The torchbearer steps forward.
+                            <br><br>
+                            And in your chest, the storm stirs. Something dark rumbles. 
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('first_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            first_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">How do you face the crowd?</h3>
+                        <button class="choice-button" onclick="makeChoice('defiant1', 'defiant_response')">Spit toward the Captain. "I will never bow to your cowardice"</button>
+                        <button class="choice-button" onclick="makeChoice('begging1', 'begging_response')">Call out to the crowd. "Please, help me! Someone!"</button>
+                        <button class="choice-button" onclick="makeChoice('silent1', 'silent_response')">Lower your head. Let them think you've surrendered.</button>
+                    </div>
+                `
+            },
+
+            defiant_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Gasps from the crowd. The Captain sneers, and there's something like disgust in his cold eyes.</div>
+                        <div class="dialogue">
+                            <img src="${CHARACTER_IMAGES.captain}" alt="captain" class="character-portrait" />
+                            <div class="character-name">CAPTAIN:</div>
+                            <div class="character-speech">"Arrogant to the end. Light it. I want to hear the screams."</div>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fire_scene')">Next</button>
+                    </div>
+                `,
+                effects: { kit: -1, fable: 1, tris: 1 }
+            },
+
+            begging_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Whispers ripple. A few avert their eyes. A woman mutters a prayer. Some hearts still beat with compassion.</div>
+                        <div class="dialogue">
+                            <img src="${CHARACTER_IMAGES.captain}" alt="captain" class="character-portrait" />
+                            <div class="character-name">CAPTAIN:</div>
+                            <div class="character-speech">"Pitiful. Your plea falls on deaf ears. Everyone knows you don't deserve saving."</div>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fire_scene')">Next</button>
+                    </div>
+                `,
+                effects: { fable: 1, kit:-1}
+            },
+
+            silent_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The silence weighs heavy. Some think you broken. Others see the quiet dignity of the condemned.</div>
+                        <div class="dialogue">
+                            <img src="${CHARACTER_IMAGES.captain}" alt="captain" class="character-portrait" />
+                            <div class="character-name">CAPTAIN:</div>
+                            <div class="character-speech">"Good. Meet the judgment of The Gods quietly."</div>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fire_scene')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 1, fable: -1}
+            },
+
+            fire_scene: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The torch lowers toward the pyre. Smoke curls upward. Your heart hammers. The storm in your veins pounds against its cage. Your heart races and your breath catches in your lungs. You feel your power snap-<br><br>Then—release.</div>
+                        <div class="sfx">⚡ A THUNDERCLAP. VIOLET FIRE EXPLODES. ⚡</div>
+                        <div class="narrator-text">The ropes burn away, not to ash but to sparks. The flames leap skyward, searing violet, roaring louder than the bells. The pyre shatters, throwing Inquisitors sprawling.<br><br>The crowd screams, scattering in terror. Mothers clutch their children. The Captain stares in disbelief.<br><br>Your chest heaves. Sparks lick across your hands. You are unbound, yet trembling.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fire_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            fire_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">What is your first instinct?</h3>
+                        <button class="choice-button" onclick="makeChoice('aggressive2', 'aggressive_response')">Lash out at the nearest Inquisitors in fear and anger.</button>
+                        <button class="choice-button" onclick="makeChoice('fleeing2', 'fleeing_response')">Stumble toward the panicked crowd hoping for help.</button>
+                        <button class="choice-button" onclick="makeChoice('frozen2', 'frozen_response')">Stare at your hands, unable to move, frozen in place.</button>
+                    </div>
+                `
+            },
+
+            aggressive_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Bolts of violet fire arc outward. Inquisitors shield themselves, shouting "heretic!" The power feels wild, uncontrolled, dangerous.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
+                    </div>
+                `,
+                effects: { kit: -2, fable: 1}
+            },
+
+            fleeing_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The crowd recoils in fear, parting as if you carry plague. A woman spits at your feet as hands grab at you, but some eyes show pity rather than hatred.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
+                    </div>
+                `,
+                effects: { fable: 2, kit:-1}
+            },
+
+            frozen_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The Captain seizes the moment, shouting, "Seize the prisoner! Before the corruption spreads!" But your stillness unnerves some of the crowd.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
+                    </div>
+                `,
+                effects: { Fable: -2, kit: 1}
+            },
+
+            strangers_arrive: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Before the Inquisition can regroup, movement splits the chaos.<br><br>Two strangers stride into the square.<br><br>The first: broad-shouldered, hair black streaked silver, eyes warm yet weary. He grins as if executions amuse him. The second: lean, scarred armor, amber eyes sharp as a hawk's. His steps are measured, efficient, merciless. 
+                        <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <strong style="color: #ffd700;">Fable Voss.</strong>
+                        <br>
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" /> 
+                        <strong style="color: #ff6b6b;">Kit Alderidge.</strong><br><br>The two men rush forward in perfect synchronized movements. They manage to pull you out of the grasp of the Inquisitors that surround you and grant you a moment of repreive.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_speaks')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_speaks: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (grinning)</div>
+                        <div class="character-speech">"Some timing you've got. Lucky for you, ours is just as good."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_speaks')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_speaks: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (cold, precise)</div>
+                        <div class="character-speech">"Less talking, more moving. More guards will be here any moment."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('respond_to_strangers')">Next</button>
+                    </div>
+                `
+            },
+
+            respond_to_strangers: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to these strangers?</h3>
+                        <button class="choice-button" onclick="makeChoice('suspicious3', 'suspicious_response')">"Who are you? Why are you here?"</button>
+                        <button class="choice-button" onclick="makeChoice('grateful3', 'grateful_response')">"You saved me... thank you."</button>
+                        <button class="choice-button" onclick="makeChoice('defiant3', 'defiant_response2')">"I don't need rescuing."</button>
+                    </div>
+                `
+            },
+
+            suspicious_response: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (stoic)</div>
+                        <div class="character-speech">"We're your salvation."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_response_1')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 1, fable: 1 }
+            },
+
+            fable_response_1: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (smiling)</div>
+                        <div class="character-speech">"We're here to help. Trust me, you'll like us better than the pyre."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_choice_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            grateful_response: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (soft chuckle)</div>
+                        <div class="character-speech">"Don't thank us yet. Wait until we've actually got you out."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_response_1')">Next</button>
+                    </div>
+                `,
+                effects: { fable: 1, kit: 1 }
+            },
+
+            kit_response_1: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (frowning)</div>
+                        <div class="character-speech">"Keep moving."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_choice_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            defiant_response2: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (nodding)</div>
+                        <div class="character-speech">"Maybe you will survive this"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_response_2')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 1, fable: -1 }
+            },
+
+            fable_response_2: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (mock wounded)</div>
+                        <div class="character-speech">"Ah, but everyone needs saving once in a while, don't they? Come on, let us play hero."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_choice_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            final_choice_setup: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="sfx">🔔 BELLS TOLL. BOOTS THUNDER. 🔔</div>
+                        <div class="narrator-text">The Inquisition rallies at the square's edge.<br><br>The Captain rises, face twisted in rage. His soldiers form ranks, lanterns burning blood-red.</div>
+                        <div class="dialogue">
+                            <div class="character-name">CAPTAIN:</div>
+                            <div class="character-speech">"Seize the prisoner! Do not let the heretic escape!"</div>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_final')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_final: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (urgent, extending hand)</div>
+                        <div class="character-speech">"Choice time, spark. With us — or with them?"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            final_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">The final choice:</h3>
+                        <button class="choice-button" onclick="makeChoice('take_hand', 'take_hand_ending')">Take Fable's hand. "Fine. Lead the way."</button>
+                        <button class="choice-button" onclick="makeChoice('refuse_run', 'refuse_ending')">Refuse and try to run alone. "I'll make my own path."</button>
+                        <button class="choice-button" onclick="makeChoice('hesitate', 'hesitate_ending')">Stand frozen as the Inquisitors advance.</button>
+                    </div>
+                `
+            },
+
+            take_hand_ending: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You grasp Fable's hand firmly. His grip is strong, reassuring. Kit nods approvingly as the three of you move as one.</div>
+                        <div class="narrator-text">Together you vanish into the labyrinth of alleys. Behind you, the square fills with fire and steel.<br><br>The Captain kneels by the broken pyre, hand outstretched to the lingering violet flame.</div>
+                        <div class="dialogue">
+                            <div class="character-name">CAPTAIN (grimly):</div>
+                            <div class="character-speech">"Another spark. Mark them. Hunt them. They will not escape the Crown."</div>
+                        </div>
+                        <div class="narrator-text" style="text-align: center; font-size: 1.3em; color: #ffd700; margin-top: 30px;"><strong>END OF CHAPTER ONE</strong><br><br>Your choices have shaped your path and the bonds you have begun to forge...</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="startChapter2()">Begin Chapter 2</button>
+                    </div>
+                `,
+                effects: { fable: 2, kit: 1 }
+            },
+
+            refuse_ending: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You turn to flee alone, but strong hands grab your arms. "Stubborn fool," Kit mutters. Fable shakes his head, "They always choose the hard way."</div>
+                        <div class="narrator-text">Together you vanish into the labyrinth of alleys. Behind you, the square fills with fire and steel.<br><br>The Captain kneels by the broken pyre, hand outstretched to the lingering violet flame.</div>
+                        <div class="dialogue">
+                            <div class="character-name">CAPTAIN (grimly):</div>
+                            <div class="character-speech">"Another spark. Mark them. Hunt them. They will not escape the Crown."</div>
+                        </div>
+                        <div class="narrator-text" style="text-align: center; font-size: 1.3em; color: #ffd700; margin-top: 30px;"><strong>END OF CHAPTER ONE</strong><br><br>Your choices have shaped your path and the bonds you have begun to forge...</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="startChapter2()">Begin Chapter 2</button>
+                    </div>
+                `,
+                effects: { kit: -1, fable: -1 }
+            },
+
+            hesitate_ending: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Frozen by indecision, you feel Kit's iron grip on your arm. "No time for doubt," he growls, dragging you forward. Fable mutters, "We'll work on the confidence later."</div>
+                        <div class="narrator-text">Together you vanish into the labyrinth of alleys. Behind you, the square fills with fire and steel.<br><br>The Captain kneels by the broken pyre, hand outstretched to the lingering violet flame.</div>
+                        <div class="dialogue">
+                            <div class="character-name">CAPTAIN (grimly):</div>
+                            <div class="character-speech">"Mark them. Hunt them. They will not escape the Crown."</div>
+                        </div>
+                        <div class="narrator-text" style="text-align: center; font-size: 1.3em; color: #ffd700; margin-top: 30px;"><strong>END OF CHAPTER ONE</strong><br><br>Your choices have shaped your path and the bonds you have begun to forge...</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="startChapter2()">Begin Chapter 2</button>
+                    </div>
+                `,
+                effects: { kit: -1, fable: -1}
+            },
+
+            // Chapter 2 starts here
+            chapter2_start: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">
+                            The alley swallows you whole. Damp stone walls press close, blocking out the dying light of the square. Your breath comes in ragged gasps as Fable and Kit guide you through the maze of narrow passages.
+                            <br><br>
+                            The alleys of the city are a snarl of stone and shadow. Lanterns flare red behind you as Inquisitors give chase, their boots striking like war drums against cobblestone. The sound echoes off the walls, a thunderous rhythm that speaks of death closing in.
+                            <br><br>
+                            Fable runs ahead, his cloak streaming behind him like a banner. He leads you, cutting through side streets with the fluid grace of a man who knows every stone and every shadow that haunts the city. Kit stays close behind, movements precise and deadly, scanning for threats as if the city itself were a trap.
+                            <br><br>
+                            You stumble along with them, smoke still clinging to your lungs and burning as your run, even now sparks still twitch at your fingertips. Remnants of the power that both saved and damned you.
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_chase_1')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_chase_1: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (calling over his shoulder, grinning despite the danger)</div>
+                        <div class="character-speech">"Not exactly the most graceful of escapes, is it? Try not to trip over your own feet—it rather ruins the legend we're building!"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_chase_1')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_chase_1: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (sharp, tactical)</div>
+                        <div class="character-speech">"Save the wit for later, General. Left turn—NOW. Patrol incoming from the east gate."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_trap')">Next</button>
+                    </div>
+                `
+            },
+
+            courtyard_trap: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The three of you burst into a moonlit courtyard, ancient stones gleaming silver under the night sky. Then your hearts sink—a dead end. High walls rise on all sides like the ribs of some massive beast. Behind you, the clatter of pursuit grows louder. Lanterns blaze red as blood in the mouth of the alley.<br><br>You're trapped.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+                    </div>
+                `
+            },
+
+            courtyard_banter: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (drawing steel, his grin turning predatory)</div>
+                        <div class="character-speech">"Well, this is unexpected. Time to improvise. I suppose we'll have to give them a show after all."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_strategy')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_strategy: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (checking his weapons with deadly calm)</div>
+                        <div class="character-speech">"Stop calling my contingency plans 'improvisations,' General. We planned for exactly this scenario."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_banter')">Next</button>
+                    </div>
+                `
+            },
+
+            final_banter: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (laughing as he tests his blade's edge)</div>
+                        <div class="character-speech">"Ah, but you take all the spontaneous joy out of causing beautiful, chaotic mayhem, my dear Captain."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_pride')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_pride: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (adjusting his blades with practiced precision)</div>
+                        <div class="character-speech">"Yes, sir. With considerable pride."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            courtyard_choice: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The Inquisitors pour into the courtyard, a tidal wave of steel and righteous fury. At their head, the Captain you recognize from the square, his face twisted with rage at your escape.</div>
+                    </div>
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">The Inquisitors have you cornered. What do you do?</h3>
+                        <button class="choice-button" onclick="makeChoice('aggressive_magic', 'aggressive_magic_response')">Channel your rage into raw magic, consequences be damned, you're going to make them pay.</button>
+                        <button class="choice-button" onclick="makeChoice('clever_escape', 'clever_escape_response')">Search the courtyard for anything useful—barrels, loose stones, anything.</button>
+                        <button class="choice-button" onclick="makeChoice('defensive_panic', 'defensive_panic_response')">Freeze in terror. "I... I don't know how to control it!"</button>
+                        <button class="choice-button" onclick="makeChoice('diplomatic_attempt', 'diplomatic_response')">Try to negotiate. "Wait! There's been a mistake!"</button>
+                    </div>
+                `
+            },
+
+            aggressive_magic_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="sfx">⚡ VIOLET FIRE ERUPTS FROM YOUR HANDS⚡</div>
+                        <div class="narrator-text">Power explodes from you like a dam bursting. Violet flames lance through the air, wild and devastating, it moves in all directions. Inquisitors cry out, stumbling back as their armor glows cherry-red from the heat. Some fall, groaning. The very stones crack beneath your feet.<br><br>But Kit's iron grip closes on your arm like a shackle.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_warning')">Next</button>
+                    </div>
+                `,
+                effects: { kit: -1, fable: 1 }
+            },
+
+            kit_warning: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (sharp warning)</div>
+                        <div class="character-speech">"Reckless! You'll burn us all to ash before you finish them. Control it, now"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_delight')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_delight: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (laughing with wild delight)</div>
+                        <div class="character-speech">"Sweet burning hells, what a magnificent show you put on, spark!"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('sewer_escape')">Next</button>
+                    </div>
+                `
+            },
+
+            clever_escape_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Your eyes dart across the courtyard like a hawk scanning for prey. There—a stack of old wine barrels near the wall, probably forgotten from some long-ago feast. Perfect.<br><br>You sprint forward and shoulder into them with all your strength. They topple like dominoes, crashing down in a cascade of splintered wood and spreading wine. The Inquisitors shout in alarm, their neat formation scattering as they leap aside.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_impressed')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 2, fable: 1 }
+            },
+
+            fable_impressed: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (grabbing your arm)</div>
+                        <div class="character-speech">"Sharp eyes, spark. I think you're going to fit in beautifully with our merry band of misfits."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_approves')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_approves: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (approving nod)</div>
+                        <div class="character-speech">"Quick thinking"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('sewer_escape')">Next</button>
+                    </div>
+                `
+            },
+
+            defensive_panic_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The words catch in your throat like shards of glass. Your hands shake uncontrollably, sparks dancing between your fingers in chaotic patterns. Fear grips you, but it is not fear of the Inquisitors, but of yourself, of the power writhing within you like a caged beast.<br><br>But you're not alone.<br><br>Fable steps in front of you, his blades singing as they clear their sheaths. Kit moves to cover your flank, every motion efficient and deadly.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_protective')">Next</button>
+                    </div>
+                `,
+                effects: { fable: -1, kit: -1 }
+            },
+
+            fable_protective: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (soft, protective)</div>
+                        <div class="character-speech">"Easy there, little spark. Breathe. You're not alone this time—we've got you."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_tough_love')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_tough_love: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (snapping orders)</div>
+                        <div class="character-speech">"Watch and learn!"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('sewer_escape')">Next</button>
+                    </div>
+                `
+            },
+
+            diplomatic_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You step forward, hands raised in a gesture of peace, hoping against hope that reason might prevail.</div>
+                        <div class="dialogue">
+                            <div class="character-name">INQUISITION CAPTAIN (snarling):</div>
+                            <div class="character-speech">"The only mistake here is that you're still breathing. Take them all!"</div>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_diplomatic')">Next</button>
+                    </div>
+                `,
+                effects: { kit:-1, fable:1 }
+            },
+
+            fable_diplomatic: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (drawing blades)</div>
+                        <div class="character-speech">"Well, that went about as expected. Points for trying diplomacy, though!"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('sewer_escape')">Next</button>
+                    </div>
+                `
+            },
+
+            sewer_escape: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Whether through magic, wit, luck, or the god's protection, you burst through the Inquisition's ranks. Fable rushes forward, downing a third in a swift, graceful movement. Kit takes down two of the guards before you even have time to move.In the midst of the chaos, Fable kicks open a sewer grate, gesturing you down.</div>
+                        <div class="dialogue">
+                             <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (one hand out to guide you)</div>
+                       <div class="character-speech">"Down we go! Not glamorous, but neither is dying in an alley."</div>
+                    </div>  
+                        </div>
+                        <div class="narrator-text">You plunge into darkness. The stench of damp stone and rot replaces smoke and blood. You hear Kit and Fable finish taking out the last of the guards before the sounds of chaos fade as the three of you vanish into the undercity.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tunnel_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            tunnel_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">In the tunnels beneath the city:</h3>
+                        <button class="choice-button" onclick="makeChoice('stop_demand_answers', 'demand_answers_response')">Stop in your tracks, and refuse to go further. "Tell me what is going on. Now."</button>
+                        <button class="choice-button" onclick="makeChoice('follow_ask_where', 'ask_where_response')">Follow Fable and Kit, "Where exactly are you taking me?"</button>
+                        <button class="choice-button" onclick="makeChoice('nervous_follow', 'nervous_response')">Walk behind both men, watching their movements silently until, "...Are we safe here?"</button>
+                    </div>
+                `
+            },
+
+            demand_answers_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You plant your feet in the muck and refuse to move another step. Your voice echoes off the tunnel walls, firm and commanding.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_explains')">Next</button>
+                    </div>
+                `,
+                effects: { kit: -1, fable: -1 }
+            },
+
+            fable_explains: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (turning, patient)</div>
+                        <div class="character-speech">"I'm sure this has been a lot. All you need to know right now is that Kit and I belong to a resistance group called the Morte Custodi. One that could help you harness what you've awakened."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_stubborn')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_stubborn: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (sharp)</div>
+                        <div class="character-speech">"That is, if you trusting the people who just saved your life. Twice."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('safehouse_arrival')">Next</button>
+                    </div>
+                `
+            },
+
+            ask_where_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Fable walks confidently ahead of you, while Kit takes up the rear, ever watchful.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_safe')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 1 }
+            },
+
+            fable_safe: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (over shoulder)</div>
+                        <div class="character-speech">"We're taking you somewhere safe. Somewhere the Crown's reach doesn't extend. We are part of a group that handles things like this."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_purpose')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_purpose: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (tactical)</div>
+                        <div class="character-speech">"We can help you learn to control your powers."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('safehouse_arrival')">Next</button>
+                    </div>
+                `
+            },
+
+            nervous_response: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You stare at the backs of both men walking confidently in front of you, their certainty both reassuring and unsettling.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_reassuring')">Next</button>
+                    </div>
+                `,
+                effects: { fable: 1, kit:-1}
+            },
+
+            fable_reassuring: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (softly)</div>
+                        <div class="character-speech">"Not yet, but we will be soon. The tunnels have kept us hidden for years and we're taking you to a safe location. We're part of a group called the Morte Custodi. We can protect you."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_urgent')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_urgent: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (urgent)</div>
+                        <div class="character-speech">"Walk faster. The Inquisition know these passages exist—they just don't know which ones we use."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('safehouse_arrival')">Next</button>
+                    </div>
+                `
+            },
+
+            safehouse_arrival: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The three of you make your way through winding tunnels beneath the city. You hold your arm over your nose, nearly overcome by the stench of the sewers at times. Still, it's better than dying on a pyre, or in an alleyway, so you stay quiet. But just when you think you can't take it anymore, you see a light in the darkness ahead.<br>Fable walks up to the wall and presses a stone. The hidden door swings open. Fable lights a torch, guiding you through stone corridors carved long before the Crown's reign. Moss glistens in the cracks like emerald tears.<br><br>At last, he pushes open a heavy iron door.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('safehouse_interior')">Next</button>
+                    </div>
+                `
+            },
+
+            safehouse_interior: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Inside is the safehouse of the Morte Custodi. The room smells of smoke, ink, herbs, and parchment. It's an armory. It's a scholar's den hidden beneath the world. It's an infirmary. You see a table which overflows with maps and documents, candles burned low casting dancing shadows over the pages. Cots line the walls, and bundles of herbs hang from the beams, their scent sharp enough to sting your nose.<br><br>Two figures wait in the amber light.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('meet_tris_chance')">Next</button>
+                    </div>
+                `
+            },
+
+            meet_tris_chance: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The first: a woman in pale robes, her hands faintly aglow with a greenish healing magic. Her face is expressionless, her voice measured when she speaks. <br>
+                        <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <strong style="color: #90ee90;">Tris.</strong><br><br>
+                        </div>
+                        The second: a man leaning back in a chair with casual indifference to the tension crackling through the room. His white curls catch the firelight, his pale lavender eyes studying you with obvious amusement.
+                         <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <strong style="color: #90ee90;">Chance.</strong><br><br>
+                        </div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tris_efficient')">Next</button>
+                    </div>
+                `
+            },
+
+            tris_efficient: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (curt, efficient)</div>
+                        <div class="character-speech">"Sit. You're injured. I'll tend to it."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('chance_grin')">Next</button>
+                    </div>
+                `
+            },
+
+            chance_grin: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (drawling, with a grin)</div>
+                        <div class="character-speech">"Oh, don't look so grim, love. If she wanted you dead, she'd have done it already. Much more efficiently than the Inquisition, I might add."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('introductions')">Next</button>
+                    </div>
+                `
+            },
+
+            introductions: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (grinning as ever)</div>
+                        <div class="character-speech">"Everyone, meet our newest friend, alive and well, thanks to my impeccable timing and considerable charm."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_strategy_credit')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_strategy_credit: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (dryly)</div>
+                        <div class="character-speech">"And my strategy. Don't forget the strategy that actually got us out alive."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('chance_dreams')">Next</button>
+                    </div>
+                `
+            },
+
+            chance_dreams: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (to you, lazily)</div>
+                        <div class="character-speech">"No, no. Thank me. I was the one who saw you first. In my dreams, no less. Woke up one night muttering about you and look—here you are. Exactly as I pictured. Just a little more... singed, perhaps."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('dreams_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            dreams_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Chance's claim about dreams?</h3>
+                        <button class="choice-button" onclick="makeChoice('wary_dreams', 'wary_dreams_response')">"Dreams? You expect me to believe that you saw me in your dreams?"</button>
+                        <button class="choice-button" onclick="makeChoice('curious_dreams', 'curious_dreams_response')">"Well...what exactly did you see?"</button>
+                        <button class="choice-button" onclick="makeChoice('playful_dreams', 'playful_dreams_response')">"And here I thought I'd only haunt nightmares."</button>
+                    </div>
+                `
+            },
+
+            wary_dreams_response: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (mock wounded)</div>
+                        <div class="character-speech">"Oh, suspicious already? How cruel." He winks at you, "But it's true, love, I can see into dreams. And you certainly haunted mine, for a time."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_dreams_1')">Next</button>
+                    </div>
+                `,
+                effects: { chance: -2, kit: 1, tris: 1 }
+            },
+
+            kit_dreams_1: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (crossing his arms)</div>
+                        <div class="character-speech">"Dreams are unreliable."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tris_practical_1')">Next</button>
+                    </div>
+                `
+            },
+
+            tris_practical_1: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (brisk)</div>
+                        <div class="character-speech">"You can argue about it later, let me finish my work here first." She gestures down to the burns on you from the pyre.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('treatment_scene')">Next</button>
+                    </div>
+                `
+            },
+
+            curious_dreams_response: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (leaning closer, eyes gleaming)</div>
+                        <div class="character-speech">"A pyre. A crowd baying for blood. You standing tall even as the flames reached for you. I told the others and, well...you know the rest."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tris_practical_2')">Next</button>
+                    </div>
+                `,
+                effects: { chance: 1, fable: 1, tris: -1 }
+            },
+
+            tris_practical_2: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (flat)</div>
+                        <div class="character-speech">"Chance helped Kit and Fable found you. His dreams are useful, at least."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_stories')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_stories: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (chuckling to himself)</div>
+                        <div class="character-speech">"Useful is certainly one word for them."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('treatment_scene')">Next</button>
+                    </div>
+                `
+            },
+
+            playful_dreams_response: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (smirking)</div>
+                        <div class="character-speech">"Oh, don't worry love, you were only half nightmare and I happened to find the other half... intriguing."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_likes')">Next</button>
+                    </div>
+                `,
+                effects: { chance: 1, fable: 1, kit: -1 }
+            },
+
+            fable_likes: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (laughing)</div>
+                        <div class="character-speech">"I think I like this one already."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_idiots')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_idiots: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (arms folded)</div>
+                        <div class="character-speech">"You survived at least"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('treatment_scene')">Next</button>
+                    </div>
+                `
+            },
+
+            treatment_scene: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Tris finishes her work, binding your wound with brisk, efficient movements. Her gaze flicks over you, assessing. Methodical. Clinical. Professional.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tris_done')">Next</button>
+                    </div>
+                `
+            },
+
+            tris_done: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (quietly, but firm)</div>
+                        <div class="character-speech">"There. You'll live. You should be ready for training in a day or so."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('treatment_choice')">Next</button>
+                    </div>
+                `
+            },
+
+            treatment_choice: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Tris's treatment?</h3>
+                        <button class="choice-button" onclick="makeChoice('grateful_treatment', 'grateful_treatment_response')">Thank you. I appreciate the kindness."</button>
+                        <button class="choice-button" onclick="makeChoice('cold_treatment', 'cold_treatment_response')">"I didn't ask for any of this."</button>
+                        <button class="choice-button" onclick="makeChoice('observant_treatment', 'observant_treatment_response')">"How often do you do this sort of thing?"</button>
+                    </div>
+                `
+            },
+
+            grateful_treatment_response: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (expressionless)</div>
+                        <div class="character-speech">"I patch people up because corpses make poor allies."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_insight')">Next</button>
+                    </div>
+                `,
+                effects: { tris: -1, fable: 1, kit: 1}
+            },
+
+            fable_insight: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (softly, to you)</div>
+                        <div class="character-speech">"She says that to everyone."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_stance_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            cold_treatment_response: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (shrugging faintly)</div>
+                        <div class="character-speech">"Then next time, refuse. Bleed out in the gutter if you prefer. Makes no difference to me."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_independence')">Next</button>
+                    </div>
+                `,
+                effects: { tris: -2, kit: -2 , fable:-4}
+            },
+
+            kit_independence: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (diapproving)</div>
+                        <div class="character-speech">"You need to trust us."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_stance_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            observant_treatment_response: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (pausing briefly)</div>
+                        <div class="character-speech">"More often than I'd like."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('chance_compliment')">Next</button>
+                    </div>
+                `,
+                effects: { tris: 1, chance: -1, fable:1 }
+            },
+
+            chance_compliment: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (grinning)</div>
+                        <div class="character-speech">"She'll never admit it, but she's the best field medic this side of the capital. Cold hands, warm results."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_stance_setup')">Next</button>
+                    </div>
+                `
+            },
+
+            final_stance_setup: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The safehouse grows quiet except for the distant drip of water and the whisper of flame. Fable leans against the table of maps, studying you with new interest. Kit methodically sharpens his blade. Tris busies herself organizing medical supplies. Chance sprawls in his chair, still watching you with one eye half-lidded, as if you're a particularly interesting puzzle.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('fable_future')">Next</button>
+                    </div>
+                `
+            },
+
+            fable_future: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (serious, though still faintly smiling)</div>
+                        <div class="character-speech">"You know the Inquisition won't stop hunting now. You've revealed yourself, shown your power. You've got a choice—waste that spark running from shadow to shadow, or put it to use for something greater."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('kit_rules')">Next</button>
+                    </div>
+                `
+            },
+
+            kit_rules: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (flat, no-nonsense)</div>
+                        <div class="character-speech">"Join our group."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('chance_company')">Next</button>
+                    </div>
+                `
+            },
+
+            chance_company: {
+                content: `
+                    <div class="character-scene chance-border fade-in">
+                        <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                        <div class="character-name">CHANCE (lazily, with that perpetual smirk)</div>
+                        <div class="character-speech">"Or you could stay simply because you enjoy the company. Some of us are exceptionally good company, after all."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('tris_pragmatic')">Next</button>
+                    </div>
+                `
+            },
+
+            tris_pragmatic: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (cold, practical)</div>
+                        <div class="character-speech">"You leave and you die, that's just how it goes for our kind. So, don't make a stupid choice, okay?"</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('final_stance')">Next</button>
+                    </div>
+                `
+            },
+
+            final_stance: {
+                content: `
+                    <div class="choices-container fade-in">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">What is your stance?</h3>
+                        <button class="choice-button" onclick="makeChoice('defiant_stance', 'defiant_stance_response')">"I don't want to hide anymore. I want to fight back."</button>
+                        <button class="choice-button" onclick="makeChoice('uncertain_stance', 'uncertain_stance_response')">"...I don't know if I can do this."</button>
+                        <button class="choice-button" onclick="makeChoice('strategic_stance', 'strategic_stance_response')">"If I stay, I need to know your cause. All of it. I need to know what I am fighting for. "</button>
+                    </div>
+                `
+            },
+
+            defiant_stance_response: {
+                content: `
+                    <div class="character-scene fable-border fade-in">
+                        <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                        <div class="character-name">FABLE (delighted)</div>
+                        <div class="character-speech">"Now that's the spirit! The spark that refuses to be snuffed out."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('ending')">Next</button>
+                    </div>
+                `,
+                effects: { fable: 1, kit: -1, chance: 1, tris: -1 }
+            },
+
+            uncertain_stance_response: {
+                content: `
+                    <div class="character-scene tris-border fade-in">
+                        <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                        <div class="character-name">TRIS (briefly soft)</div>
+                        <div class="character-speech">"Fear is honest, but don't let it stope you from making the right choice."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('ending')">Next</button>
+                    </div>
+                `,
+                effects: { tris: -2, chance: 1, kit: -1, fable:-2 }
+            },
+
+            strategic_stance_response: {
+                content: `
+                    <div class="character-scene kit-border fade-in">
+                        <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                        <div class="character-name">KIT (nodding)</div>
+                        <div class="character-speech">"We stand against the crown, and in honor of justice for those who have been wronged by its power."</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('ending')">Next</button>
+                    </div>
+                `,
+                effects: { kit: 1, tris: -1, fable: 1, chance:-1}
+            },
+
+            ending: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The fire gutters in the hearth, throwing long shadows across the walls like reaching fingers. The Morte Custodi have accepted you into their den—for now. Some with warmth, others with wariness, all with the hard-earned caution of survivors.<br><br>Your fate no longer belongs to the pyre or the Crown's justice. It belongs to these strangers, each carrying their own scars, their own secrets, their own reasons for standing against an empire.<br><br>And the storm inside you, awake at last after years of slumber, hums with anticipation for what comes next.</div>
+                        <div class="narrator-text" style="text-align: center; font-size: 1.3em; color: #ffd700; margin-top: 30px;"><strong>END OF THE SERPENT'S CROWN DEMO</strong><br><br><em>Part One: The Awakening</em></div>
+                        <div id="final-relationships" style="margin-top: 20px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; text-align: center;">
+                            <div style="color: #ffd700; margin-bottom: 15px; font-size: 1.1em;">The choices you've made have shaped how the Morte Custodi see you. In the trials ahead, these bonds—or their absence—will determine your fate...</div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Core functions
+        function goToScene(sceneId) {
+            if (!scenes[sceneId]) {
+                console.error('Scene not found:', sceneId);
+                return;
+            }
+
+            gameState.currentScene = sceneId;
+            const scene = scenes[sceneId];
+            
+            // Apply relationship effects if they exist
+            if (scene.effects) {
+                for (let character in scene.effects) {
+                    gameState.relationships[character] += scene.effects[character];
+                    // Keep relationships within bounds
+                    gameState.relationships[character] = Math.max(0, Math.min(5, gameState.relationships[character]));
+                }
+                updateMoodDisplay();
+            }
+
+            // Update content
+            document.getElementById('content-area').innerHTML = scene.content;
+        }
+
+        function makeChoice(choiceId, nextScene) {
+            gameState.choices.push(choiceId);
+            goToScene(nextScene);
+        }
+
+        function updateMoodDisplay() {
+            const hearts = ['🖤', '💛', '❤️', '💚', '💙'];
+            
+            for (let character in gameState.relationships) {
+                const heartElement = document.getElementById(character + '-hearts');
+                if (heartElement) {
+                    let display = '';
+                    for (let i = 0; i < 20; i++) {
+                        if (character === 'fable') {
+                            display += i < gameState.relationships[character] ? '💛' : '🖤';
+                        } else if (character === 'kit') {
+                            display += i < gameState.relationships[character] ? '❤️' : '🖤';
+                        } else if (character === 'tris') {
+                            display += i < gameState.relationships[character] ? '💚' : '🖤';
+                        } else if (character === 'chance') {
+                            display += i < gameState.relationships[character] ? '💙' : '🖤';
+                        }
+                    }
+                    heartElement.textContent = display;
+                }
+            }
+        }
+
+        function startChapter2() {
+            document.getElementById('chapter-indicator').textContent = 'Chapter 2: In the Shadows';
+            goToScene('chapter2_start');
+        }
+
+        // Initialize the game
+        goToScene('start');
+        updateMoodDisplay();
+    </script>
+     <div class="mood-indicator">
+            <div style="color: #ffd700; margin-bottom: 10px; font-weight: 600;">Relationship Status</div>
+            <div class="mood-bar">
+                <span class="mood-name fable-mood">Fable Voss</span>
+                <span class="mood-hearts" id="fable-hearts">💛</span>
+            </div>
+            <div class="mood-bar">
+                <span class="mood-name kit-mood">Kit Alderidge</span>
+                <span class="mood-hearts" id="kit-hearts">❤️</span>
+            </div>
+            <div class="mood-bar">
+                <span class="mood-name tris-mood">Tris Marian</span>
+                <span class="mood-hearts" id="tris-hearts">💚</span>
+            </div>
+            <div class="mood-bar">
+                <span class="mood-name chance-mood">Chance DeBeaux</span>
+                <span class="mood-hearts" id="chance-hearts">💙</span>
+            </div>
+        </div>
+</body>
+</html>
