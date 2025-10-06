@@ -12,5 +12,5 @@ export const CHARACTER_IMAGES = {
     tris: './assets/images/tris.jpeg',
     chance: './assets/images/chance.jpeg',
     captain: './assets/images/captain.jpeg',
-    ash: './assets/images/ash.jpeg'
+    ash: './assets/images/ash01.jpg'
 };

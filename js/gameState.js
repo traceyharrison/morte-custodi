@@ -77,7 +77,7 @@ class GameState {
     skipToChapter4() {
         this.playerName = 'Alex';
         this.backstory = 'orphan';
-        this.relationships = { fable: 4, kit: 3, tris: 2, chance: 2, ash: 1 };
+        this.relationships = { fable: 4, kit: 4, tris: 3, chance: 2, ash: 1 };
         this.choices = ['defiant1', 'take_hand', 'introduce_self', 'magic_escape_success'];
     }
 }

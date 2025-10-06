@@ -26,6 +26,10 @@ class SceneManager {
         this.scenes = { ...this.scenes, ...scenes };
     }
 
+    getSceneList() {
+        return this.scenes;
+    }
+
     goToScene(sceneId) {
         if (!this.scenes[sceneId]) {
             console.error('Scene not found:', sceneId);

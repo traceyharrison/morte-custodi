@@ -2,13 +2,7 @@ import { ENVIRON_IMAGES, CHARACTER_IMAGES } from '../constants.js';
 import { diceSystem } from '../diceSystem.js';
 import { relationshipManager } from '../relationshipManager.js';
 
-export const chapter3Scenes = {
-    chapter3_morning: {
-        content: `
-            // COPY YOUR CHAPTER 3 START SCENE HERE
-        `
-    },
-    
+export const chapter3Scenes = {  
 chapter3_morning: {
     content: `
         <div class="story-text fade-in">
@@ -392,10 +386,54 @@ fable_demonstration: {
             <div class="character-name">FABLE</div>
             <div class="character-speech">"My magic is born from memory and loss. Yours is...raw potential. But both spring from the same source, the refusal to accept the world as it is. Now, try to shape your power not through control, but through understanding. What does your magic want to become?"</div>
         </div>
+           ${diceSystem.createDiceRoll(
+            'Harmonize with Magic', 
+            'Listen to the pulse of magic within you. Can you find harmony with its wild nature?',
+            'magic_control',
+            'magic_harmony_success',
+            'magic_harmony_failure',
+            12,
+            'magic_control'
+        )}
+    `
+},
+
+magic_harmony_success: {
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Something shifts inside you. Instead of wrestling with your magic, you let it flow through you like a river finding its natural course. Violet light dances around you in graceful patterns, no longer chaotic but harmonious.
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (impressed)</div>
+            <div class="character-speech">"There it is. You're not trying to cage it anymore. Magic isn't a tool to be controlled—it's a part of you, as natural as breathing. This is just the beginning."</div>
+        </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
         </div>
-    `
+    `,
+    effects: { fable: 2 }
+},
+
+magic_harmony_failure: {
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                The magic surges unpredictably. Lightning crackles from your fingertips, arcing across the room in brilliant, dangerous bursts. The power feels wild, untamed—a storm refusing to be calmed.
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (ducking a stray bolt)</div>
+            <div class="character-speech">"Don't force it! Your magic responds to emotion. The more you panic, the more it rebels. We'll try a different approach—one step at a time."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+        </div>
+    `,
+    effects: { fable: 1 }
 },
 
 tris_training_start: {
