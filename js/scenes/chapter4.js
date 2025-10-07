@@ -294,7 +294,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (voice trembling)</div>
-                <div class="character-speech">"I've been alone for so long. In my family's estate, I had a room. One room. For fifteen years. The servants left meals outside the door. My parents visited once a month, maybe. Father Caine came weekly with the medicine and prayers." Tears freeze on her cheeks as they fall. "I thought that was love. Protection. But you... you escaped from death itself. And you're still here, still fighting. Maybe I can too?"</div>
+                <div class="character-speech">"I've been alone for so long. In my family's estate, I had a room. One room. For fifteen years." Tears freeze on her cheeks as they fall. "I thought that was love. Protection. But you... but now...."</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('ash_opening_up')">Next</button>
@@ -313,7 +313,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (barely audible)</div>
-                <div class="character-speech">"A weapon. Yes. That's what Father Caine called it—the 'weapon inside me that needed to be contained.' I never understood what he meant until the medicine ran out and the ice came. Then I knew. I knew I was dangerous, that I was—" Her voice breaks. "But you don't see that when you look at me?"</div>
+                <div class="character-speech">"A weapon. Yes. That's what they said, they called it the 'weapon inside me that needed to be contained.' I never understood what he meant until now" Her voice breaks. "But you don't see that when you look at me?"</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('ash_opening_up')">Next</button>
@@ -326,8 +326,8 @@ export const chapter4Scenes = {
         content: `
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
-                <div class="character-name" style="color: #b19cd9;">ASH (surprised by the straightforwardness)</div>
-                <div class="character-speech">"Training? You think I can be... trained? Father Caine said magic couldn't be controlled, only suppressed. That's why the medicine was necessary."</div>
+                <div class="character-name" style="color: #b19cd9;">ASH (shaking her head)</div>
+                <div class="character-speech">"Magic can only be suppressed. That's why the medicine was necessary."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -337,7 +337,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (hope creeping into her voice)</div>
-                <div class="character-speech">"So you're saying... I don't have to be afraid forever? There's a way to live with this?"</div>
+                <div class="character-speech">"So... I don't have to be afraid forever? There's a way to live with this?"</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('ash_opening_up')">Next</button>
@@ -356,7 +356,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH</div>
-                <div class="character-speech">"The others—Fable, Kit, the rest—do they... do they know about Father Caine? About the compulsion magic the healer mentioned?"</div>
+                <div class="character-speech">"The others...do they... do they know about the compulsion magic?"</div>
             </div>
             <div class="choices-container fade-in">
                 <h3 style="color: #ffd700; margin-bottom: 15px;">How honest should you be?</h3>
@@ -377,7 +377,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (panic rising)</div>
-                <div class="character-speech">"Triggers? In my mind? You mean I'm—I could be made to—oh gods, what if I hurt you? What if I hurt everyone here and I don't even know I'm doing it?"</div>
+                <div class="character-speech">"Triggers? In my mind? You mean I'm—I could be made to—oh gods..."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -390,7 +390,7 @@ export const chapter4Scenes = {
                 'diplomacy',
                 'calm_success',
                 'calm_failure',
-                12,
+                10,
                 'diplomacy'
             )}
         `,
@@ -402,7 +402,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (processing)</div>
-                <div class="character-speech">"Hurt by someone... yes. I was hurt. For a long time." She looks at her hands. "But I never thought about it that way. In my family, this was normal. This was... protection."</div>
+                <div class="character-speech">"Hurt by someone... yes...for a long time." She looks at her hands. "But I never thought...I thought this was normal. This was... protection."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -426,7 +426,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH</div>
-                <div class="character-speech">"Father Caine... he was our family's spiritual advisor. A priest of the Serpent Throne. He came every week with the suppressants. He would pray over me, tell me that the medicine kept the corruption at bay. I believed him. Why wouldn't I? He was kind, patient. He never raised his voice." She pauses. "But now I wonder... if he was so kind, why did I always feel worse after his visits?"</div>
+                <div class="character-speech">"Father Caine... he was our family's spiritual advisor. He came every week with the suppressants. He would pray over me, tell me that the medicine kept the corruption at bay."</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('father_caine_revelation')">Next</button>
@@ -439,11 +439,11 @@ export const chapter4Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    You step closer—not away—and extend your hand slowly. Your own magic responds, violet light intertwining with her frost. Not fighting it, but flowing with it, guiding it.
+                    You step closer and extend your hand slowly. Your own magic responds, violet light intertwining with her frost. Not fighting it, but flowing with it, guiding it.
                 </div>
                 <div class="dialogue">
                     <div class="character-name">YOU:</div>
-                    <div class="character-speech">"Breathe with me. In... and out. Your magic responds to emotion. We'll learn to work with it together. You're not alone anymore."</div>
+                    <div class="character-speech">"Breathe with me. In... and out. Your magic responds to emotion like mine. We'll learn to work with it together. You're not alone anymore."</div>
                 </div>
                 <div class="narrator-text">
                     Gradually, miraculously, the ice shards dissolve into harmless mist. Ash stares at you with wonder.
@@ -452,7 +452,7 @@ export const chapter4Scenes = {
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name" style="color: #b19cd9;">ASH (awed)</div>
-                <div class="character-speech">"You... you stopped it. How did you do that? Father Caine always said my magic would only respond to suppression."</div>
+                <div class="character-speech">"You... you stopped it. How did you do that?"</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('father_caine_revelation')">Next</button>
@@ -486,7 +486,7 @@ export const chapter4Scenes = {
                 <button class="next-button" onclick="window.goToScene('aftermath_injury')">Next</button>
             </div>
         `,
-        effects: { ash: -1, kit: 1, tris: 1 }
+        effects: { ash: -1, chance: 1, tris: -1 }
     },
 
     aftermath_injury: {
@@ -496,10 +496,10 @@ export const chapter4Scenes = {
                     Tris works efficiently, closing the wound with green healing light. It stings, then goes numb, then feels merely sore. Kit sheathes his blade but doesn't leave, standing guard.
                 </div>
             </div>
-            <div class="character-scene kit-border fade-in">
-                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
-                <div class="character-name">KIT (to you, not unkindly)</div>
-                <div class="character-speech">"Brave, but reckless. Next time, call for backup before attempting emotional de-escalation with an unstable mage."</div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (to you, not unkindly)</div>
+                <div class="character-speech">"Brave, but reckless. Next time, perhapys you could call for backup before attempting emotional de-escalation with an unstable mage."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -519,7 +519,7 @@ export const chapter4Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Despite Tris's protests, you move closer to Ash again. Kit tenses but doesn't interfere.
+                    Despite Tris's protests, you move closer to Ash again. She tenses but doesn't interfere.
                 </div>
             </div>
             <div class="character-scene fade-in" style="border-color: #b19cd9;">
@@ -530,7 +530,7 @@ export const chapter4Scenes = {
             <div class="story-text fade-in">
                 <div class="dialogue">
                     <div class="character-name">YOU:</div>
-                    <div class="character-speech">"My magic hurt people too when I was learning. The difference is, I had these people to help me. Now you do too."</div>
+                    <div class="character-speech">"My magic hurt people too but the difference is, I have these people to help me. You can too."</div>
                 </div>
             </div>
             <div class="next-container">
@@ -575,7 +575,7 @@ export const chapter4Scenes = {
                 <button class="next-button" onclick="window.goToScene('father_caine_revelation')">Next</button>
             </div>
         `,
-        effects: { ash: 0, chance: 2 }
+        effects: { ash: 0, chance: 1, kit: 1 }
     },
 
     father_caine_revelation: {

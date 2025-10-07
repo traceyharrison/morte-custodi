@@ -10,8 +10,8 @@ class GameState {
 
     constructor() {
         this.currentScene = 'character_creation';
-        this.playerName = '';
-        this.backstory = '';
+        this.playerName = 'Ardent';
+        this.backstory = 'noble';
         this.relationships = {
             fable: 0,
             kit: 0,

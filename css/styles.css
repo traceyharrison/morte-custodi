@@ -285,6 +285,11 @@ body {
     text-shadow: 0 0 15px rgba(173, 216, 230, 0.4);
 }
 
+.ash-border .character-name {
+    color: #eb75bd;
+    text-shadow: 0 0 15px rgba(173, 216, 230, 0.4);
+}
+
 .mood-indicator {
     background: rgba(38, 0, 0, 0.95);
     padding: 15px;
@@ -322,6 +327,7 @@ body {
 .kit-mood { color: #ff6b6b; }
 .tris-mood { color: #90ee90; }
 .chance-mood { color: #add8e6; }
+.ash-mood { color: #eb75bd; }
 
 .sfx {
     color: #ffd700;
@@ -485,4 +491,5 @@ body {
     .mood-hearts {
         font-size: 1em;
     }
+    .ash-mood { color: #e05ec4; }
 }

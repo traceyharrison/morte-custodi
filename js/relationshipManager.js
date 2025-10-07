@@ -15,6 +15,7 @@ export class RelationshipManager {
                         else if (character === 'kit') display += '❤️';
                         else if (character === 'tris') display += '💚';
                         else if (character === 'chance') display += '💙';
+                        else if (character === 'ash') display += '🩷'; 
                     }
                     
                     if (rating > 5) {
@@ -46,13 +47,13 @@ export class RelationshipManager {
                 const name = character.charAt(0).toUpperCase() + character.slice(1);
                 let status = '';
                 
-                if (rating >= 8) status = 'Devoted';
-                else if (rating >= 6) status = 'Trusted Friend';
-                else if (rating >= 4) status = 'Friendly';
-                else if (rating >= 2) status = 'Warm';
+                if (rating >= 80) status = 'Devoted';
+                else if (rating >= 60) status = 'Trusted Friend';
+                else if (rating >= 40) status = 'Friendly';
+                else if (rating >= 20) status = 'Warm';
                 else if (rating >= 0) status = 'Neutral';
-                else if (rating >= -2) status = 'Wary';
-                else if (rating >= -4) status = 'Distrustful';
+                else if (rating >= -20) status = 'Wary';
+                else if (rating >= -40) status = 'Distrustful';
                 else status = 'Hostile';
                 
                 summary += `<div style="margin: 5px 0;"><strong>${name}:</strong> ${status} (${rating})</div>`;
