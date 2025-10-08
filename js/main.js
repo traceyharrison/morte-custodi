@@ -23,13 +23,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         sceneManager.registerScenes(chapter2.chapter2Scenes);
         sceneManager.registerScenes(chapter3.chapter3Scenes);
         sceneManager.registerScenes(chapter4.chapter4Scenes);
+
+        // Initialize the game only after scenes are registered
+        relationshipManager.updateMoodDisplay();
+        uiManager.setupEventListeners();
+        
+        // Ensure content area is ready
+        const contentArea = document.getElementById('content-area');
+        if (!contentArea.innerHTML) {
+            sceneManager.goToScene('character_creation');
+        }
     } catch (error) {
         console.error('Error loading scenes:', error);
+        console.log('Available scenes:', Object.keys(sceneManager.getSceneList()));
     }
-
-    // Initialize the game
-    sceneManager.goToScene('character_creation');
-    relationshipManager.updateMoodDisplay();
 });
 
 // Expose functions to window for onclick handlers
@@ -74,13 +81,6 @@ window.skipToChapter4 = () => {
     document.getElementById('chapter-indicator').textContent = 'Chapter 3: The Arrival (Night)';
     sceneManager.goToScene('ash_morning');
 };
-
-// Initialize game
-function initializeGame() {
-    relationshipManager.updateMoodDisplay();
-    sceneManager.goToScene('character_creation');
-    uiManager.setupEventListeners();
-}
 
 // Scene selector function
 window.toggleSceneSelector = () => {
@@ -155,11 +155,3 @@ window.toggleSceneSelector = () => {
     searchInput.dispatchEvent(new Event('input'));
     document.body.appendChild(selectorDiv);
 };
-
-// Run on load
-document.addEventListener('DOMContentLoaded', initializeGame);
-window.addEventListener('load', function() {
-    if (!document.getElementById('content-area').innerHTML) {
-        initializeGame();
-    }
-});

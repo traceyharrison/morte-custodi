@@ -23,6 +23,12 @@ class SceneManager {
     }
 
     registerScenes(scenes) {
+        if (!scenes) {
+            console.error('Attempted to register null or undefined scenes');
+            return;
+        }
+        
+        console.log('Registering scenes:', Object.keys(scenes));
         this.scenes = { ...this.scenes, ...scenes };
     }
 
@@ -36,9 +42,21 @@ class SceneManager {
             return;
         }
 
+        console.log(`Going to scene: ${sceneId}`);
+        console.log('Current gameState:', {
+            backstory: gameState.backstory,
+            currentScene: gameState.currentScene,
+            playerName: gameState.playerName
+        });
+
         gameState.currentScene = sceneId;
         const scene = this.scenes[sceneId];
         
+        // Execute onLoad function if it exists
+        if (scene.onLoad) {
+            scene.onLoad();
+        }
+
         // Apply relationship effects
         if (scene.effects) {
             for (let character in scene.effects) {
@@ -50,18 +68,17 @@ class SceneManager {
         // Update content
         const contentArea = document.getElementById('content-area');
         if (contentArea) {
-            let content = scene.content;
+            // Get content, checking if it's a function or direct content
+            let content = typeof scene.getContent === 'function' ? 
+                         scene.getContent() : 
+                         (scene.content || '');
+                         
             const playerName = gameState.playerName || '[Name]';
             
             // Replace player name placeholders
             content = content.split('${gameState.playerName}').join(playerName);
             
             contentArea.innerHTML = content;
-        }
-        
-        // Execute onLoad function if it exists
-        if (scene.onLoad) {
-            scene.onLoad();
         }
     }
 

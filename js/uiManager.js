@@ -3,22 +3,26 @@ import { sceneManager } from './sceneManager.js';
 
 export class UIManager {
     selectBackstory(backstoryType) {
-        // Remove selected class from all options
-        document.querySelectorAll('.backstory-option').forEach(option => {
-            option.classList.remove('selected');
-        });
-        
-        // Add selected class to chosen option
-        const selectedOption = document.querySelector(`[data-backstory="${backstoryType}"]`);
-        if (selectedOption) {
-            selectedOption.classList.add('selected');
+        // Validate and set the backstory
+        if (gameState.setBackstory(backstoryType)) {
+            // Remove selected class from all options
+            document.querySelectorAll('.backstory-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to chosen option
+            const selectedOption = document.querySelector(`[data-backstory="${backstoryType}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+            
+            // Check if we can enable the begin button
+            this.checkBeginButton();
+            
+            console.log('Selected backstory:', backstoryType); // Debug log
+        } else {
+            console.error('Invalid backstory type:', backstoryType);
         }
-        
-        // Store the choice
-        gameState.backstory = backstoryType;
-        
-        // Check if we can enable the begin button
-        this.checkBeginButton();
     }
 
     checkBeginButton() {

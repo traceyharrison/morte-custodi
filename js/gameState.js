@@ -10,8 +10,8 @@ class GameState {
 
     constructor() {
         this.currentScene = 'character_creation';
-        this.playerName = 'Ardent';
-        this.backstory = 'noble';
+        this.playerName = '';
+        this.backstory = '';  // Start with no backstory selected
         this.relationships = {
             fable: 0,
             kit: 0,
@@ -29,8 +29,16 @@ class GameState {
     }
 
     static reset() {
-        GameState.instance = null;
+        GameState.#instance = null;  // Fixed to use private static field
         return GameState.getInstance();
+    }
+
+    setBackstory(backstory) {
+        if (['noble', 'orphan', 'outsider'].includes(backstory)) {
+            this.backstory = backstory;
+            return true;
+        }
+        return false;
     }
 
     updateRelationship(character, value) {

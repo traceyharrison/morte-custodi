@@ -1,5 +1,6 @@
 import { ENVIRON_IMAGES, CHARACTER_IMAGES } from '../constants.js';
 import { diceSystem } from '../diceSystem.js';
+import { gameState } from '../gameState.js';
 
 export const chapter1Scenes = {
     character_creation: {
@@ -94,14 +95,30 @@ export const chapter1Scenes = {
     },
 
     first_choice: {
-        content: `
-            <div class="choices-container fade-in">
-                <h3 style="color: #ffd700; margin-bottom: 15px;">How do you face the crowd?</h3>
-                <button class="choice-button" onclick="window.makeChoice('defiant1', 'defiant_response')">Spit toward the Captain. "I will never bow to your cowardice"</button>
-                <button class="choice-button" onclick="window.makeChoice('begging1', 'begging_response')">Call out to the crowd. "Please, help me! Someone!"</button>
-                <button class="choice-button" onclick="window.makeChoice('silent1', 'silent_response')">Lower your head in silence. Let them think you've surrendered.</button>
-            </div>
-        `
+        getContent: function() {
+            console.log('Generating first_choice content. Current backstory:', gameState.backstory);
+            const backstoryChoices = {
+                'noble': '<button class="choice-button" onclick="window.makeChoice(\'noble_authority\', \'noble_authority_response\')">Invoke your family name: "I demand to speak to the High Inquisitor. This is beneath my station."</button>',
+                'orphan': '<button class="choice-button" onclick="window.makeChoice(\'street_wisdom\', \'street_wisdom_response\')">Call out to familiar faces: "You all know me. Are you really going to let them burn one of your own?"</button>',
+                'outsider': '<button class="choice-button" onclick="window.makeChoice(\'foreign_wisdom\', \'foreign_wisdom_response\')">Share your truth: "You are ruled by fear, and fear alone. But I am not the one you should be afraid of."</button>'
+            };
+            
+            return `
+                <div class="choices-container fade-in">
+                    <h3 style="color: #ffd700; margin-bottom: 15px;">How do you face the crowd?</h3>
+                    <button class="choice-button" onclick="window.makeChoice('defiant1', 'defiant_response')">Spit toward the Captain. "I will never bow to your cowardice"</button>
+                    <button class="choice-button" onclick="window.makeChoice('begging1', 'begging_response')">Call out to the crowd. "Please, help me! Someone!"</button>
+                    <button class="choice-button" onclick="window.makeChoice('silent1', 'silent_response')">Lower your head in silence. Let them think you've surrendered.</button>
+                    ${backstoryChoices[gameState.backstory] || '<!-- No backstory choice available -->'}
+                </div>
+            `;
+        },
+        content: null,
+        onLoad: function() {
+            console.log('First choice scene loaded. Current backstory:', gameState.backstory);
+            // Set content dynamically when the scene loads
+            this.content = this.getContent();
+        }
     },
 
     defiant_response: {
@@ -152,6 +169,69 @@ export const chapter1Scenes = {
             </div>
         `,
         effects: { kit: 1, fable: -1 }
+    },
+
+    noble_authority_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Your words cut through the tension like a blade. Several of the older guards shift uncomfortably—they remember when your family's influence could make or break careers. The Captain's face darkens with rage, but you see a flicker of uncertainty in his eyes.
+                </div>
+                <div class="dialogue">
+                    <div class="character-name">CAPTAIN (through gritted teeth):</div>
+                    <div class="character-speech">"The High Inquisitor has more important matters than entertaining the demands of a fallen house. Your noble blood won't save you from righteous flames."</div>
+                </div>
+                <div class="narrator-text">
+                    But your words have had their effect. Several of the senior Inquisitors exchange glances, clearly wondering if they should delay until proper protocol is observed. The power of nobility, even fallen nobility, runs deep in this kingdom.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
+            </div>
+        `,
+        effects: { kit: -2, fable: 2 }
+    },
+
+    street_wisdom_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Your words stir something in the crowd. Faces you know from countless alleyways and marketplaces look up with recognition. The vegetable seller who sometimes left bruised apples where you could find them. The cobbler's apprentice you once helped escape a guard patrol.
+                </div>
+                <div class="dialogue">
+                    <div class="character-name">CAPTAIN (sneering):</div>
+                    <div class="character-speech">"Street loyalty? How pathetic. These good citizens know better than to side with a magical deviant."</div>
+                </div>
+                <div class="narrator-text">
+                    But you see it in their eyes—guilt, memory, the complicated bonds of street life. A few even turn away, unable to watch. The streets may not save you, but they haven't forgotten you either.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
+            </div>
+        `,
+        effects: { kit: 0, fable: 2 }
+    },
+
+    foreign_wisdom_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Your accent carries the weight of distant lands, and your words bring new concepts that make the crowd shift uneasily. Some make signs to ward off foreign influence, but others listen with barely concealed curiosity.
+                </div>
+                <div class="dialogue">
+                    <div class="character-name">CAPTAIN (voice sharp with warning):</div>
+                    <div class="character-speech">"Silence your heathen tongue! Your foreign corruption has no place in our holy land."</div>
+                </div>
+                <div class="narrator-text">
+                    But you've planted a seed of doubt. In a kingdom so sure of its ways, you've offered a glimpse of other possibilities, other truths. Some in the crowd will remember this moment, this suggestion that their certainties might not be as absolute as they believed.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
+            </div>
+        `,
+        effects: { kit: 1, fable: 2 }
     },
 
     backstory_reflection: {
@@ -253,17 +333,37 @@ export const chapter1Scenes = {
     fire_scene: {
         content: `
             <div class="story-text fade-in">
-                <div class="narrator-text">"Do It." The Captain commands. <br> The torch lowers toward the pyre. Smoke curls upward. Your heart hammers. The storm in your veins pounds against its cage. Your heart races and your breath catches in your lungs. You feel your power building inside you like a tempest ready to break free.<br><br>This is your moment. Can you harness the magic within you to break free, or will you need to find another way?</div>
+                <div class="narrator-text">"Light the pyre." The Captain commands. <br> The torch lowers toward the pyre. Smoke curls upward. Your heart hammers. The storm in your veins pounds against its cage. Your heart races and your breath catches in your lungs. You feel your power building inside you like a tempest ready to break free.<br><br>This is your moment. Can you harness the magic within you to break free, or will you need to find another way?</div>
             </div>
-            ${diceSystem.createDiceRoll(
-                'Channel Your Magic', 
-                'The power writhes within you like a caged beast. Focus your will and try to break free from your bonds using the magical energy coursing through your veins.',
-                'magic_control',
-                'magic_escape_success',
-                'magic_escape_failure',
-                13,
-                'magic_control'
-            )}
+            ${(() => {
+                let difficulty = 13;
+                let description = 'The power writhes within you like a caged beast. Focus your will and try to break free from your bonds using the magical energy coursing through your veins.';
+                
+                switch(gameState.backstory) {
+                    case 'noble':
+                        difficulty = 12;
+                        description = 'Years of noble education taught you control and discipline. Even as the magic threatens to overwhelm you, your trained mind seeks to impose order on chaos.';
+                        break;
+                    case 'orphan':
+                        difficulty = 14;
+                        description = 'The streets taught you that power comes in many forms. Your raw survival instinct resonates with the wild magic, dangerous but potentially devastating.';
+                        break;
+                    case 'outsider':
+                        difficulty = 13;
+                        description = 'Your understanding of magic differs from theirs. Foreign traditions and mystical insights guide your attempt to channel the power.';
+                        break;
+                }
+                
+                return diceSystem.createDiceRoll(
+                    'Channel Your Magic',
+                    description,
+                    'magic_control',
+                    'magic_escape_success',
+                    'magic_escape_failure',
+                    difficulty,
+                    'magic_control'
+                );
+            })()}
         `
     },
 

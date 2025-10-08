@@ -83,6 +83,19 @@ export const chapter4Scenes = {
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     Four pairs of eyes turn to you. Despite being the newest member of the Morte Custodi, your opinion carries weight. You freed yourself from a pyre, and more importantly, you understand what it means to have power you didn't ask for.
+                    <br><br>
+                    ${(() => {
+                        switch(gameState.backstory) {
+                            case 'noble':
+                                return 'Your noble upbringing gives you unique insight into the pressures of aristocratic families like the Judvadi. The weight of tradition, the burden of reputation - these can be as binding as any physical chains.';
+                            case 'orphan':
+                                return 'Growing up on the streets, you\'ve seen how the powerful can break people, remake them into what they want. But you\'ve also seen survivors rise from the darkest places, stronger for their scars.';
+                            case 'outsider':
+                                return 'As someone from beyond their borders, you see the situation with fresh eyes. Their "doctrine" reminds you of similar practices in your homeland - and the resistance that rose against them.';
+                            default:
+                                return '';
+                        }
+                    })()}
                 </div>
             </div>
             <div class="character-scene fable-border fade-in">
@@ -94,9 +107,78 @@ export const chapter4Scenes = {
                 <h3 style="color: #ffd700; margin-bottom: 15px;">How should the group approach Ash?</h3>
                 <button class="choice-button" onclick="window.makeChoice('trust_ash', 'trust_ash_response')">Advocate for trust. "She deserves a chance to prove herself. We all did."</button>
                 <button class="choice-button" onclick="window.makeChoice('cautious_ash', 'cautious_ash_response')">Support caution. "Help her, but with safeguards. Kit's right about the risk."</button>
+                ${(() => {
+                    switch(gameState.backstory) {
+                        case 'noble':
+                            return '<button class="choice-button" onclick="window.makeChoice(\'noble_approach\', \'noble_ash_response\')">Share noble insight. "I understand aristocratic prison-keeping. Let me help her break free."</button>';
+                        case 'orphan':
+                            return '<button class="choice-button" onclick="window.makeChoice(\'orphan_approach\', \'orphan_ash_response\')">Offer street wisdom. "The strongest chains are in her mind. I know how to break those."</button>';
+                        case 'outsider':
+                            return '<button class="choice-button" onclick="window.makeChoice(\'outsider_approach\', \'outsider_ash_response\')">Propose foreign method. "In my homeland, we have ways to unravel such conditioning."</button>';
+                        default:
+                            return '';
+                    }
+                })()}
                 <button class="choice-button" onclick="window.makeChoice('meet_first', 'meet_first_response')">Suggest meeting her first. "Let me talk to her before we decide anything."</button>
             </div>
         `
+    },
+
+    noble_ash_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Drawing on your noble background, you explain the intricate ways aristocratic families control their own. The expectations, the subtle manipulations, the way duty and family honor become chains stronger than steel.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (impressed)</div>
+                <div class="character-speech">"This... this could work. Speaking her language, understanding her cage from the inside - it might help her trust us."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('ash_meeting')">Next</button>
+            </div>
+        `,
+        effects: { ash: 2, fable: 1 }
+    },
+
+    orphan_ash_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You speak from experience about survival, about how the streets teach you to wear chains like armor. About how breaking free starts with believing you can.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (thoughtful)</div>
+                <div class="character-speech">"You're right. Her dreams... they're not unlike the nightmares of street children I've helped before. Different cage, same fears."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('ash_meeting')">Next</button>
+            </div>
+        `,
+        effects: { ash: 2, chance: 1 }
+    },
+
+    outsider_ash_response: {
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You describe techniques from your homeland - meditation rituals and mental exercises designed to break through imposed barriers and reconnect with one's true self.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (intrigued)</div>
+                <div class="character-speech">"A fresh perspective... and one that might bypass the magical compulsions entirely. Clever."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="window.goToScene('ash_meeting')">Next</button>
+            </div>
+        `,
+        effects: { ash: 2, tris: 1 }
     },
 
     trust_ash_response: {

@@ -51,7 +51,170 @@ export const chapter2Scenes = {
             courtyard_trap: {
                 content: `
                     <div class="story-text fade-in">
-                        <div class="narrator-text">The three of you burst into a moonlit courtyard, ancient stones gleaming silver under the night sky. Then your hearts sink, it's a dead end. High walls rise on all sides like the ribs of some massive beast. Behind you, the clatter of pursuit grows louder. Lanterns blaze red as blood in the mouth of the alley.<br><br>You're trapped.</div>
+                        <div class="narrator-text">
+                            The three of you burst into a moonlit courtyard, ancient stones gleaming silver under the night sky. Then your hearts sink, it's a dead end. High walls rise on all sides like the ribs of some massive beast. Behind you, the clatter of pursuit grows louder. Lanterns blaze red as blood in the mouth of the alley.
+                            <br><br>
+                            ${(() => {
+                                switch(gameState.backstory) {
+                                    case 'noble':
+                                        return 'Your noble education included studying the city\'s architecture. These courtyards were common gathering places for the old merchant houses, and often had secret escape routes. If only you could remember the details...';
+                                    case 'orphan':
+                                        return 'Growing up on the streets, you\'ve hidden in courtyards like this before. The drainpipes, the worn stones - there\'s always a way out if you know where to look.';
+                                    case 'outsider':
+                                        return 'The architecture here is so different from your homeland, but you\'ve studied similar defensive structures. There might be something you can use.';
+                                    default:
+                                        return 'You\'re trapped.';
+                                }
+                            })()}
+                        </div>
+                    </div>
+                    <div class="choice-container">
+                        ${(() => {
+                            let choices = [];
+                            
+                            // Common choice for all backgrounds
+                            choices.push('<button class="choice-button" onclick="goToScene(\'prepare_for_fight\')">Prepare to fight</button>');
+                            
+                            // Backstory-specific choices
+                            switch(gameState.backstory) {
+                                case 'noble':
+                                    choices.push('<button class="choice-button" onclick="goToScene(\'noble_architect\')">Search for a merchant house escape route</button>');
+                                    break;
+                                case 'orphan':
+                                    choices.push('<button class="choice-button" onclick="goToScene(\'orphan_climb\')">Look for a climbing route</button>');
+                                    break;
+                                case 'outsider':
+                                    choices.push('<button class="choice-button" onclick="goToScene(\'outsider_tactics\')">Analyze defensive weaknesses</button>');
+                                    break;
+                            }
+                            
+                            return choices.join('');
+                        })()}
+                    </div>
+                `
+            },
+            
+            prepare_for_fight: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You ready yourself for the coming fight, checking your magic reserves and steadying your nerves.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+                    </div>
+                `
+            },
+
+            noble_architect: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Your mind races through architectural lessons. These merchant houses often had hidden cellars for storing contraband. You spot a worn flagstone that looks slightly different from the others.</div>
+                    </div>
+                    ${diceSystem.createDiceRoll(
+                        'Search for Secret Door',
+                        'Your noble education might help you find a way out.',
+                        'investigation',
+                        'noble_escape_success',
+                        'noble_escape_failure',
+                        13,
+                        'investigation'
+                    )}
+                `
+            },
+
+            noble_escape_success: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The stone shifts under your touch, revealing a narrow staircase. Fable looks impressed as you guide them to safety.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
+                    </div>
+                `
+            },
+
+            noble_escape_failure: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You can't quite remember the right details, and precious time slips away.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+                    </div>
+                `
+            },
+
+            orphan_climb: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Years of parkour on these very streets taught you to see paths where others see walls.</div>
+                    </div>
+                    ${diceSystem.createDiceRoll(
+                        'Find Climbing Route',
+                        'Your street experience might reveal a way up.',
+                        'athletics',
+                        'orphan_escape_success',
+                        'orphan_escape_failure',
+                        14,
+                        'athletics'
+                    )}
+                `
+            },
+
+            orphan_escape_success: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You spot a perfect route - drainpipe to windowsill to rooftop. Kit nods approvingly as you lead the way up.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
+                    </div>
+                `
+            },
+
+            orphan_escape_failure: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The route you spot proves too risky with the guards so close behind.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+                    </div>
+                `
+            },
+
+            outsider_tactics: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">Your homeland's military training kicks in as you assess the courtyard's defensive design.</div>
+                    </div>
+                    ${diceSystem.createDiceRoll(
+                        'Analyze Defenses',
+                        'Your foreign tactical knowledge might reveal an oversight in the design.',
+                        'perception',
+                        'outsider_escape_success',
+                        'outsider_escape_failure',
+                        13,
+                        'perception'
+                    )}
+                `
+            },
+
+            outsider_escape_success: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">You spot a flaw in the wall's construction - a weakness that creates a perfect escape route. Fable grins at your ingenuity.</div>
+                    </div>
+                    <div class="next-container">
+                        <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
+                    </div>
+                `
+            },
+
+            outsider_escape_failure: {
+                content: `
+                    <div class="story-text fade-in">
+                        <div class="narrator-text">The defensive design proves too solid, even to your trained eye.</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
@@ -645,8 +808,8 @@ export const chapter2Scenes = {
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">How do you introduce yourself to the group?</h3>
-                        <button class="choice-button" onclick="makeChoice('formal_intro', 'formal_intro_response')">"I'm ${gameState.playerName}. Thank you all for saving me."</button>
-                        <button class="choice-button" onclick="makeChoice('casual_intro', 'casual_intro_response')">"Call me ${gameState.playerName}. Seems like I owe everyone here a debt."</button>
+                        <button class="choice-button" onclick="makeChoice('formal_intro', 'formal_intro_response')">"I'm \${gameState.playerName}. Thank you all for saving me."</button>
+                        <button class="choice-button" onclick="makeChoice('casual_intro', 'casual_intro_response')">"Call me \${gameState.playerName}. Seems like I owe everyone here a debt."</button>
                         <button class="choice-button" onclick="makeChoice('mysterious_intro', 'mysterious_intro_response')">Remain silent and let Fable speak for you.</button>
                     </div>
                 `
@@ -657,7 +820,7 @@ export const chapter2Scenes = {
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                         <div class="character-name">CHANCE (delighted)</div>
-                        <div class="character-speech">"${gameState.playerName}! Such lovely manners, so rare around here. I'm Chance, and the efficient one tending to your wounds is Tris."</div>
+                        <div class="character-speech">"\${gameState.playerName}! Such lovely manners, so rare around here. I'm Chance, and the efficient one tending to your wounds is Tris."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('tris_formal_response')">Next</button>
@@ -738,7 +901,7 @@ export const chapter2Scenes = {
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
                         <div class="character-name">KIT (dryly)</div>
-                    <div class="character-speech">"${gameState.playerName}, Now don't forget that it was my strategy that actually got us out of there alive."</div>
+                    <div class="character-speech">"What matters is that we got out alive, thanks to my plans."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('chance_dreams')">Next</button>
@@ -751,7 +914,7 @@ export const chapter2Scenes = {
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                         <div class="character-name">CHANCE (to you, lazily)</div>
-                        <div class="character-speech">"I was the one who saw you first. In my dreams, no less. Woke up one night muttering about you and look—here you are. Exactly as I pictured. Just a little more... singed, perhaps."</div>
+                        <div class="character-speech">"Hey, you never would have been found without me.I was the one who saw you first. In my dreams, no less. Woke up one night muttering about you and look—here you are. Exactly as I pictured. Just a little more... singed, perhaps."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('dreams_choice')">Next</button>
@@ -1142,16 +1305,14 @@ export const chapter2Scenes = {
                 Hours later, you lie in your cot staring at the stone ceiling. Sleep refuses to come. Every time you close your eyes, you see the pyre, feel the heat, hear the crowd's roar. Your magic stirs restlessly beneath your skin, matching your unease.
                 <br><br>
                 The safehouse is quiet, but not silent. You hear distant movements, the soft sounds of others who also can't sleep. Outside your small room, candlelight flickers in the main corridor.
-                <br><br>
-                Perhaps you're not meant to face this night alone.
             </div>
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">Who do you seek out in the quiet hours?</h3>
-            <button class="choice-button" onclick="makeChoice('seek_fable', 'fable_night_scene')">Try to find out more about the Morte Custodi rebellion</button>
-            <button class="choice-button" onclick="makeChoice('seek_chance', 'chance_night_scene')">Go get a cup of tea to help you sleep</button>
-            <button class="choice-button" onclick="makeChoice('seek_tris', 'tris_night_scene')">See if you can find a book to read instead</button>
-            <button class="choice-button" onclick="makeChoice('seek_kit', 'kit_night_scene')">Explore the safehouse</button>
+            <button class="choice-button" onclick="makeChoice('seek_fable', 'fable_night_scene')">Try to find something to read to distract you</button>
+            <button class="choice-button" onclick="makeChoice('seek_chance', 'chance_night_scene')">Try to breathe and meditate, hoping sleep finds you</button>
+            <button class="choice-button" onclick="makeChoice('seek_tris', 'tris_night_scene')">Go get a cup of tea, or something stronger to help you rest</button>
+            <button class="choice-button" onclick="makeChoice('seek_kit', 'kit_night_scene')">Explore the safehouse, see what you can find in the dark</button>
         </div>
     `
 },
