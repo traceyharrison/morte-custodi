@@ -939,15 +939,10 @@ chapter3_ending: {
                 <br><br>
                 But tonight, for the first time in a long time, you're not alone.
             </div>
-            <div class="narrator-text" style="text-align: center; font-size: 1.3em; color: #ffd700; margin-top: 30px;">
-                <strong>END OF CHAPTER THREE</strong><br><br>
-                <em>Your training has begun, but greater challenges await...</em>
-            </div>
         </div>
-        <div id="chapter3-relationships" style="margin-top: 20px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; text-align: center;">
-            <div style="color: #ffd700; margin-bottom: 15px; font-size: 1.1em;">Your bonds with the Morte Custodi continue to evolve...</div>
-            <button class="next-button" onclick="alert('Chapter 4: The First Mission - Coming Soon!')">To Be Continued...</button>
+     <div class="next-container">
+            <button class="next-button" onclick="goToScene('ash_morning')">Continue</button>
         </div>
-    `
+    `,
 }
 };
