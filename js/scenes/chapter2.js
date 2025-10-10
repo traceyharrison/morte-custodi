@@ -4,6 +4,8 @@ import { gameState } from '../gameState.js';
 
 export const chapter2Scenes = {
     chapter2_start: {
+                id: '2.1.0',
+                title: 'Chapter 2 Start - The Chase',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">
@@ -23,6 +25,8 @@ export const chapter2Scenes = {
             },
 
             fable_chase_1: {
+                id: '2.2.0',
+                title: 'Fable Chase Commentary',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -36,6 +40,8 @@ export const chapter2Scenes = {
             },
 
             kit_chase_1: {
+                id: '2.3.0',
+                title: 'Kit Chase Direction',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -49,6 +55,8 @@ export const chapter2Scenes = {
             },
 
             courtyard_trap: {
+                id: '2.4.0',
+                title: 'Courtyard Trap',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">
@@ -95,6 +103,8 @@ export const chapter2Scenes = {
             },
             
             prepare_for_fight: {
+                id: '2.5.1',
+                title: 'Prepare for Fight',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You ready yourself for the coming fight, checking your magic reserves and steadying your nerves.</div>
@@ -106,6 +116,8 @@ export const chapter2Scenes = {
             },
 
             noble_architect: {
+                id: '2.5.2',
+                title: 'Noble Architect',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Your mind races through architectural lessons. These merchant houses often had hidden cellars for storing contraband. You spot a worn flagstone that looks slightly different from the others.</div>
@@ -123,6 +135,8 @@ export const chapter2Scenes = {
             },
 
             noble_escape_success: {
+                id: '2.6.1',
+                title: 'Noble Escape Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The stone shifts under your touch, revealing a narrow staircase. Fable looks impressed as you guide them to safety.</div>
@@ -134,6 +148,8 @@ export const chapter2Scenes = {
             },
 
             noble_escape_failure: {
+                id: '2.6.2',
+                title: 'Noble Escape Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You can't quite remember the right details, and precious time slips away.</div>
@@ -145,6 +161,8 @@ export const chapter2Scenes = {
             },
 
             orphan_climb: {
+                id: '2.5.3',
+                title: 'Orphan Climb',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Years of parkour on these very streets taught you to see paths where others see walls.</div>
@@ -162,6 +180,8 @@ export const chapter2Scenes = {
             },
 
             orphan_escape_success: {
+                id: '2.7.1',
+                title: 'Orphan Escape Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You spot a perfect route - drainpipe to windowsill to rooftop. Kit nods approvingly as you lead the way up.</div>
@@ -173,6 +193,8 @@ export const chapter2Scenes = {
             },
 
             orphan_escape_failure: {
+                id: '2.7.2',
+                title: 'Orphan Escape Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The route you spot proves too risky with the guards so close behind.</div>
@@ -184,6 +206,8 @@ export const chapter2Scenes = {
             },
 
             outsider_tactics: {
+                id: '2.5.4',
+                title: 'Outsider Tactics',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Your homeland's military training kicks in as you assess the courtyard's defensive design.</div>
@@ -201,6 +225,8 @@ export const chapter2Scenes = {
             },
 
             outsider_escape_success: {
+                id: '2.8.1',
+                title: 'Outsider Escape Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You spot a flaw in the wall's construction - a weakness that creates a perfect escape route. Fable grins at your ingenuity.</div>
@@ -212,6 +238,8 @@ export const chapter2Scenes = {
             },
 
             outsider_escape_failure: {
+                id: '2.8.2',
+                title: 'Outsider Escape Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The defensive design proves too solid, even to your trained eye.</div>
@@ -223,6 +251,8 @@ export const chapter2Scenes = {
             },
 
             courtyard_banter: {
+                id: '2.9.0',
+                title: 'Courtyard Banter',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -236,6 +266,8 @@ export const chapter2Scenes = {
             },
 
             kit_strategy: {
+                id: '2.10.0',
+                title: 'Kit Strategy',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -249,6 +281,8 @@ export const chapter2Scenes = {
             },
 
             final_banter: {
+                id: '2.11.0',
+                title: 'Final Banter',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -262,6 +296,8 @@ export const chapter2Scenes = {
             },
 
             kit_pride: {
+                id: '2.12.0',
+                title: 'Kit Pride',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -275,6 +311,8 @@ export const chapter2Scenes = {
             },
 
             courtyard_choice: {
+                id: '2.13.0',
+                title: 'Courtyard Choice',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The Inquisitors pour into the courtyard, a tidal wave of steel and righteous fury. At their head, the Captain you recognize from the square, his face twisted with rage at your escape.</div>
@@ -290,6 +328,8 @@ export const chapter2Scenes = {
             },
 
             magic_attack_roll: {
+                id: '2.14.1',
+                title: 'Magic Attack Roll',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Violet energy crackles between your fingers as you prepare to unleash your power against the advancing guards. Raw magical force could scatter them and give you a chance to escape... if you can control it.</div>
@@ -307,6 +347,8 @@ export const chapter2Scenes = {
             },
 
             magic_attack_success: {
+                id: '2.15.1',
+                title: 'Magic Attack Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="sfx">⚡ CONTROLLED VIOLET LIGHTNING ARCS OUTWARD ⚡</div>
@@ -320,6 +362,8 @@ export const chapter2Scenes = {
             },
 
             magic_attack_failure: {
+                id: '2.15.2',
+                title: 'Magic Attack Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="sfx">⚡ VIOLET FIRE ERUPTS WILDLY ⚡</div>
@@ -333,6 +377,8 @@ export const chapter2Scenes = {
             },
 
             fable_impressed_magic: {
+                id: '2.16.1',
+                title: 'Fable Impressed Magic',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -346,6 +392,8 @@ export const chapter2Scenes = {
             },
 
             kit_warning: {
+                id: '2.16.2',
+                title: 'Kit Warning',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -359,6 +407,8 @@ export const chapter2Scenes = {
             },
 
             fable_delight: {
+                id: '2.17.0',
+                title: 'Fable Delight',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -372,6 +422,8 @@ export const chapter2Scenes = {
             },
 
             clever_escape_roll: {
+                id: '2.14.2',
+                title: 'Clever Escape Roll',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Your eyes dart across the courtyard, searching for anything that could give you an advantage. There—wine barrels, loose stones, anything that might help level the odds against trained warriors.</div>
@@ -389,6 +441,8 @@ export const chapter2Scenes = {
             },
 
             clever_escape_success: {
+                id: '2.18.1',
+                title: 'Clever Escape Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Perfect! You spot exactly what you need—a stack of wine barrels near the wall, precariously stacked. You sprint forward, shouldering into the barrels with all the strength you have<br><br>The barrels cascade down as spilled wine makes the cobblestones treacherous. Inquisitors slip and stumble, their formation in chaos as they try to avoid the liquid.</div>
@@ -401,6 +455,8 @@ export const chapter2Scenes = {
             },
 
             clever_escape_failure: {
+                id: '2.18.2',
+                title: 'Clever Escape Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You rush toward the wine barrels, but in your haste, you miscalculate. The barrels topple, but directly toward you and your allies rather than the Inquisitors. Kit yanks you aside as wooden staves explode around you.<br><br>"Good idea, poor execution," Fable calls out, drawing his blades as the Inquisitors advance through the wreckage.</div>
@@ -413,6 +469,8 @@ export const chapter2Scenes = {
             },
 
             kit_very_impressed: {
+                id: '2.19.1',
+                title: 'Kit Very Impressed',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -426,6 +484,8 @@ export const chapter2Scenes = {
             },
 
             fable_covers_mistake: {
+                id: '2.19.2',
+                title: 'Fable Covers Mistake',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -439,6 +499,8 @@ export const chapter2Scenes = {
             },
 
             diplomatic_roll: {
+                id: '2.14.3',
+                title: 'Diplomatic Roll',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You step forward, hands raised in a gesture of peace. Perhaps reason can prevail where violence would only bring more bloodshed. The Inquisitors pause, uncertain.</div>
@@ -456,6 +518,8 @@ export const chapter2Scenes = {
             },
 
             diplomatic_success: {
+                id: '2.20.1',
+                title: 'Diplomatic Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Your words ring with such conviction that even the hardened Inquisitors hesitate. "I never chose this power," you say, your voice carrying across the courtyard. "But I won't let it make me a monster. Stand down, and no one else has to be hurt today."<br><br>Several Inquisitors actually lower their weapons. The Captain snarls, but his men are wavering. In that moment of uncertainty, opportunity strikes.</div>
@@ -468,6 +532,8 @@ export const chapter2Scenes = {
             },
 
             diplomatic_failure: {
+                id: '2.20.2',
+                title: 'Diplomatic Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You step forward with words of peace, but the Captain's face twists with contempt.</div>
@@ -486,6 +552,8 @@ export const chapter2Scenes = {
             },
 
             fable_diplomatic_success: {
+                id: '2.21.1',
+                title: 'Fable Diplomatic Success',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -499,6 +567,8 @@ export const chapter2Scenes = {
             },
 
             fable_diplomatic_failure: {
+                id: '2.21.2',
+                title: 'Fable Diplomatic Failure',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -512,6 +582,8 @@ export const chapter2Scenes = {
             },
 
             defensive_panic_roll: {
+                id: '2.14.4',
+                title: 'Defensive Panic Roll',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Terror freezes your limbs as the Inquisitors advance. Your magic sparks wildly, unpredictably. Sometimes panic can trigger unexpected resourcefulness... or it can leave you completely helpless.</div>
@@ -529,6 +601,8 @@ export const chapter2Scenes = {
             },
 
             panic_success: {
+                id: '2.22.1',
+                title: 'Panic Success',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">In your terror, you stumble backward—and your hand finds a hidden lever in the wall. Your panicked magic surges outward just as ancient mechanisms groan to life. The combination creates chaos: violet sparks dance as the courtyard floor tilts, spilling Inquisitors like dice from a cup.<br><br>Sometimes the gods favor fools and the desperate.</div>
@@ -541,6 +615,8 @@ export const chapter2Scenes = {
             },
 
             panic_failure: {
+                id: '2.22.2',
+                title: 'Panic Failure',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Fear grips you completely. Your hands shake uncontrollably, sparks dancing between your fingers in chaotic patterns. The Captain seizes the moment, shouting, "Seize them before the corruption spreads!"<br><br>But you're not alone. Fable steps in front of you, blades singing as they clear their sheaths. Kit moves to cover your flank.</div>
@@ -553,6 +629,8 @@ export const chapter2Scenes = {
             },
 
             fable_luck: {
+                id: '2.23.1',
+                title: 'Fable Luck',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -566,6 +644,8 @@ export const chapter2Scenes = {
             },
 
             fable_protective: {
+                id: '2.23.2',
+                title: 'Fable Protective',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -579,6 +659,8 @@ export const chapter2Scenes = {
             },
 
             kit_tough_love: {
+                id: '2.24.0',
+                title: 'Kit Tough Love',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -592,6 +674,8 @@ export const chapter2Scenes = {
             },
 
             sewer_escape: {
+                id: '2.25.0',
+                title: 'Sewer Escape',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Whether through magic, wit, luck, or the god's protection, you burst through the Inquisition's ranks. Fable rushes forward, downing a guard in a swift, graceful movement. Kit takes down two more before you even have time to move. <br>In the midst of the chaos, Fable kicks open a sewer grate, gesturing you down.</div>
@@ -611,6 +695,8 @@ export const chapter2Scenes = {
             },
 
             tunnel_choice: {
+                id: '2.26.0',
+                title: 'Tunnel Choice',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">In the tunnels beneath the city:</h3>
@@ -622,6 +708,8 @@ export const chapter2Scenes = {
             },
 
             demand_answers_response: {
+                id: '2.27.1',
+                title: 'Demand Answers Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You plant your feet in the muck and refuse to move another step. Your voice echoes off the tunnel walls, firm and commanding.</div>
@@ -634,6 +722,8 @@ export const chapter2Scenes = {
             },
 
             fable_explains: {
+                id: '2.28.0',
+                title: 'Fable Explains',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -647,6 +737,8 @@ export const chapter2Scenes = {
             },
 
             kit_stubborn: {
+                id: '2.29.0',
+                title: 'Kit Stubborn',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -660,6 +752,8 @@ export const chapter2Scenes = {
             },
 
             ask_where_response: {
+                id: '2.27.2',
+                title: 'Ask Where Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Fable walks confidently ahead of you, while Kit takes up the rear, ever watchful.</div>
@@ -672,6 +766,8 @@ export const chapter2Scenes = {
             },
 
             fable_safe: {
+                id: '2.30.0',
+                title: 'Fable Safe',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -686,6 +782,8 @@ export const chapter2Scenes = {
             },
 
             kit_purpose: {
+                id: '2.31.0',
+                title: 'Kit Purpose',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -699,6 +797,8 @@ export const chapter2Scenes = {
             },
 
             nervous_response: {
+                id: '2.27.3',
+                title: 'Nervous Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You stare at the backs of both men walking confidently in front of you, their certainty both reassuring and unsettling.</div>
@@ -711,6 +811,8 @@ export const chapter2Scenes = {
             },
 
             fable_reassuring: {
+                id: '2.32.0',
+                title: 'Fable Reassuring',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -724,6 +826,8 @@ export const chapter2Scenes = {
             },
 
             kit_urgent: {
+                id: '2.33.0',
+                title: 'Kit Urgent',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -737,6 +841,8 @@ export const chapter2Scenes = {
             },
 
             safehouse_arrival: {
+                id: '2.34.0',
+                title: 'Safehouse Arrival',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The three of you make your way through winding tunnels beneath the city. You hold your arm over your nose, nearly overcome by the stench of the sewers at times. Still, it's better than dying on a pyre, or in an alleyway, so you stay quiet. But just when you think you can't take it anymore, you see a light in the darkness ahead.<br>Fable walks up to the wall and presses a stone. The hidden door swings open. Fable lights a torch, guiding you through stone corridors carved long before the Crown's reign. Moss glistens in the cracks like emerald tears.<br><br>At last, he pushes open a heavy iron door.</div>
@@ -748,6 +854,8 @@ export const chapter2Scenes = {
             },
 
             safehouse_interior: {
+                id: '2.35.0',
+                title: 'Safehouse Interior',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Inside is the safehouse of the Morte Custodi. The room smells of smoke, ink, herbs, and parchment. It's an armory. It's a scholar's den hidden beneath the world. It's an infirmary. You see a table which overflows with maps and documents, candles burned low casting dancing shadows over the pages. Cots line the walls, and bundles of herbs hang from the beams, their scent sharp enough to sting your nose.<br><br>Two figures wait in the amber light.</div>
@@ -759,6 +867,8 @@ export const chapter2Scenes = {
             },
 
             meet_tris_chance: {
+                id: '2.36.0',
+                title: 'Meet Tris and Chance',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The first: a woman in pale robes, her hands faintly aglow with a greenish healing magic. Her face is expressionless, her voice measured when she speaks. <br>
@@ -779,6 +889,8 @@ export const chapter2Scenes = {
             },
 
             tris_efficient: {
+                id: '2.37.0',
+                title: 'Tris Efficient',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -792,6 +904,8 @@ export const chapter2Scenes = {
             },
 
             chance_grin: {
+                id: '2.38.0',
+                title: 'Chance Grin',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -805,6 +919,8 @@ export const chapter2Scenes = {
             },
 
             introductions: {
+                id: '2.39.0',
+                title: 'Introductions',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">How do you introduce yourself to the group?</h3>
@@ -816,6 +932,8 @@ export const chapter2Scenes = {
             },
 
             formal_intro_response: {
+                id: '2.40.1',
+                title: 'Formal Intro Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -830,11 +948,13 @@ export const chapter2Scenes = {
             },
 
             tris_formal_response: {
+                id: '2.41.1',
+                title: 'Tris Formal Response',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                         <div class="character-name">TRIS (still working, but with slight approval)</div>
-                        <div class="character-speech">"${gameState.playerName}. At least you have manners. Now hold still while I finish this."</div>
+                        <div class="character-speech">"\${gameState.playerName}. At least you have manners. Now hold still while I finish this."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('kit_strategy_credit')">Next</button>
@@ -843,11 +963,13 @@ export const chapter2Scenes = {
             },
 
             casual_intro_response: {
+                id: '2.40.2',
+                title: 'Casual Intro Response',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                         <div class="character-name">FABLE (grinning wider)</div>
-                        <div class="character-speech">"${gameState.playerName}, The dreamwalker here is Chance, and our resident miracle worker is Tris."</div>
+                        <div class="character-speech">"\${gameState.playerName}, The dreamwalker here is Chance, and our resident miracle worker is Tris."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('chance_casual_response')">Next</button>
@@ -857,6 +979,8 @@ export const chapter2Scenes = {
             },
 
             chance_casual_response: {
+                id: '2.41.2',
+                title: 'Chance Casual Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -870,6 +994,8 @@ export const chapter2Scenes = {
             },
 
             mysterious_intro_response: {
+                id: '2.40.3',
+                title: 'Mysterious Intro Response',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -884,6 +1010,8 @@ export const chapter2Scenes = {
             },
 
             chance_mysterious_response: {
+                id: '2.41.3',
+                title: 'Chance Mysterious Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -897,6 +1025,8 @@ export const chapter2Scenes = {
             },
 
             kit_strategy_credit: {
+                id: '2.42.0',
+                title: 'Kit Strategy Credit',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -910,6 +1040,8 @@ export const chapter2Scenes = {
             },
 
             chance_dreams: {
+                id: '2.43.0',
+                title: 'Chance Dreams',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -923,6 +1055,8 @@ export const chapter2Scenes = {
             },
 
             dreams_choice: {
+                id: '2.44.0',
+                title: 'Dreams Choice',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Chance's claim about dreams?</h3>
@@ -934,6 +1068,8 @@ export const chapter2Scenes = {
             },
 
             wary_dreams_response: {
+                id: '2.44.1',
+                title: 'Wary Dreams Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -948,6 +1084,8 @@ export const chapter2Scenes = {
             },
 
             kit_dreams_1: {
+                id: '2.45.0',
+                title: 'Kit on Dreams',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -961,6 +1099,8 @@ export const chapter2Scenes = {
             },
 
             tris_practical_1: {
+                id: '2.46.0',
+                title: 'Tris Practical Focus',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -974,6 +1114,8 @@ export const chapter2Scenes = {
             },
 
             curious_dreams_response: {
+                id: '2.44.2',
+                title: 'Curious Dreams Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -988,6 +1130,8 @@ export const chapter2Scenes = {
             },
 
             tris_practical_2: {
+                id: '2.47.0',
+                title: 'Tris on Chance\'s Dreams',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1001,6 +1145,8 @@ export const chapter2Scenes = {
             },
 
             fable_stories: {
+                id: '2.48.0',
+                title: 'Fable on Chance\'s Dreams',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1014,6 +1160,8 @@ export const chapter2Scenes = {
             },
 
             playful_dreams_response: {
+                id: '2.44.3',
+                title: 'Playful Dreams Response',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1028,6 +1176,8 @@ export const chapter2Scenes = {
             },
 
             fable_likes: {
+                id: '2.49.0',
+                title: 'Fable Approval',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1041,6 +1191,8 @@ export const chapter2Scenes = {
             },
 
             kit_idiots: {
+                id: '2.50.0',
+                title: 'Kit Acknowledgment',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1054,6 +1206,8 @@ export const chapter2Scenes = {
             },
 
             treatment_scene: {
+                id: '2.51.0',
+                title: 'Treatment Scene',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Tris finishes her work, binding your wound with brisk, efficient movements. Her gaze flicks over you, assessing. Methodical. Clinical. Professional.</div>
@@ -1065,6 +1219,8 @@ export const chapter2Scenes = {
             },
 
             tris_done: {
+                id: '2.52.0',
+                title: 'Tris Completes Treatment',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1078,6 +1234,8 @@ export const chapter2Scenes = {
             },
 
             treatment_choice: {
+                id: '2.53.0',
+                title: 'Treatment Response Choice',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Tris's treatment?</h3>
@@ -1089,6 +1247,8 @@ export const chapter2Scenes = {
             },
 
             grateful_treatment_response: {
+                id: '2.53.1',
+                title: 'Grateful Treatment Response',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1103,6 +1263,8 @@ export const chapter2Scenes = {
             },
 
             fable_insight: {
+                id: '2.54.0',
+                title: 'Fable Insight on Tris',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1116,6 +1278,8 @@ export const chapter2Scenes = {
             },
 
             cold_treatment_response: {
+                id: '2.53.2',
+                title: 'Cold Treatment Response',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1130,6 +1294,8 @@ export const chapter2Scenes = {
             },
 
             kit_independence: {
+                id: '2.55.0',
+                title: 'Kit on Trust',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1143,6 +1309,8 @@ export const chapter2Scenes = {
             },
 
             observant_treatment_response: {
+                id: '2.53.3',
+                title: 'Observant Treatment Response',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1157,6 +1325,8 @@ export const chapter2Scenes = {
             },
 
             chance_compliment: {
+                id: '2.56.0',
+                title: 'Chance Compliments Tris',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1170,6 +1340,8 @@ export const chapter2Scenes = {
             },
 
           final_stance_setup: {
+    id: '2.57.0',
+    title: 'Safehouse Scene',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">The safehouse grows quiet except for the distant drip of water and the whisper of flame. Fable leans against the table of maps, studying you with new interest. Kit methodically sharpens his blade. Tris busies herself organizing medical supplies. Chance sprawls in his chair, still watching you with one eye half-lidded, as if you're a particularly interesting puzzle.</div>
@@ -1181,6 +1353,8 @@ export const chapter2Scenes = {
 },
 
             fable_future: {
+                id: '2.58.0',
+                title: 'Fable Discusses Future',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1194,6 +1368,8 @@ export const chapter2Scenes = {
             },
 
             kit_rules: {
+                id: '2.59.0',
+                title: 'Kit\'s Direct Invitation',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1207,6 +1383,8 @@ export const chapter2Scenes = {
             },
 
             chance_company: {
+                id: '2.60.0',
+                title: 'Chance\'s Charming Invitation',
                 content: `
                     <div class="character-scene chance-border fade-in">
                         <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1220,6 +1398,8 @@ export const chapter2Scenes = {
             },
 
             tris_pragmatic: {
+                id: '2.61.0',
+                title: 'Tris\'s Practical Advice',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1233,6 +1413,8 @@ export const chapter2Scenes = {
             },
 
             final_stance: {
+                id: '2.62.0',
+                title: 'Final Stance Choice',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">What is your stance?</h3>
@@ -1244,6 +1426,8 @@ export const chapter2Scenes = {
             },
 
          defiant_stance_response: {
+    id: '2.62.1',
+    title: 'Defiant Stance Response',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1258,6 +1442,8 @@ export const chapter2Scenes = {
 },
 
             uncertain_stance_response: {
+                id: '2.62.2',
+                title: 'Uncertain Stance Response',
                 content: `
                     <div class="character-scene tris-border fade-in">
                         <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1272,6 +1458,8 @@ export const chapter2Scenes = {
             },
 
             strategic_stance_response: {
+                id: '2.62.3',
+                title: 'Strategic Stance Response',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1299,6 +1487,8 @@ export const chapter2Scenes = {
             //     onLoad: displayFinalRelationships
             // },
             restless_night: {
+    id: '2.63.0',
+    title: 'Restless Night',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1318,6 +1508,8 @@ export const chapter2Scenes = {
 },
 
 fable_night_scene: {
+    id: '2.64.0',
+    title: 'Fable Night Scene',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1351,11 +1543,13 @@ fable_night_scene: {
 },
 
 fable_story_ending: {
+    id: '2.64.1',
+    title: 'Fable Explains Story Ending',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE (his expression softening)</div>
-            <div class="character-speech">"That's the beautiful part—it doesn't really end. The rebellion succeeded in some ways, failed in others. Some of the rebels died. Some lived to see their children grow up free. But the important thing? They fought. They chose to stand up when it mattered."</div>
+            <div class="character-speech">"That's the beautiful part, it doesn't really end. The rebellion succeeded in some ways, failed in others. No one really knows what happened to the survivors, they all just...disappeared."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('fable_gift')">Next</button>
@@ -1365,6 +1559,8 @@ fable_story_ending: {
 },
 
 fable_coin_story: {
+    id: '2.64.2',
+    title: 'Fable Explains the Coin',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1379,6 +1575,8 @@ fable_coin_story: {
 },
 
 fable_comfort: {
+    id: '2.64.3',
+    title: 'Fable Offers Comfort',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -1393,6 +1591,8 @@ fable_comfort: {
 },
 
 fable_gift: {
+    id: '2.65.0',
+    title: 'Fable\'s Gift',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1422,6 +1622,8 @@ fable_gift: {
 },
 
 chance_night_scene: {
+    id: '2.66.0',
+    title: 'Chance Night Visit',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1443,6 +1645,8 @@ chance_night_scene: {
 },
 
 chance_enters: {
+    id: '2.66.1',
+    title: 'Chance Enters Room',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1457,6 +1661,8 @@ chance_enters: {
 },
 
 chance_wary_response: {
+    id: '2.66.2',
+    title: 'Wary Response to Chance',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1476,6 +1682,8 @@ chance_wary_response: {
 },
 
 chance_flirt_response: {
+    id: '2.66.3',
+    title: 'Flirtatious Response to Chance',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1495,6 +1703,8 @@ chance_flirt_response: {
 },
 
 chance_conversation: {
+    id: '2.67.0',
+    title: 'Conversation with Chance',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1511,6 +1721,8 @@ chance_conversation: {
 },
 
 chance_explains_power: {
+    id: '2.67.1',
+    title: 'Chance Explains Dreamwalking',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1535,6 +1747,8 @@ chance_explains_power: {
 },
 
 chance_deflects: {
+    id: '2.67.2',
+    title: 'Chance Deflects About Past',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1549,6 +1763,8 @@ chance_deflects: {
 },
 
 chance_reassures: {
+    id: '2.67.3',
+    title: 'Chance Reassures About Safety',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -1573,6 +1789,8 @@ chance_reassures: {
 },
 
 chance_gift: {
+    id: '2.68.0',
+    title: 'Chance\'s Gift',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1602,6 +1820,8 @@ chance_gift: {
 },
 
 tris_night_scene: {
+    id: '2.69.0',
+    title: 'Tris Night Scene',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1623,6 +1843,8 @@ tris_night_scene: {
 },
 
 tris_offer_help: {
+    id: '2.69.1',
+    title: 'Offering to Help Tris',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1642,6 +1864,8 @@ tris_offer_help: {
 },
 
 tris_doctors_orders: {
+    id: '2.69.2',
+    title: 'Tris\'s Medical Advice',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1656,6 +1880,8 @@ tris_doctors_orders: {
 },
 
 tris_observation: {
+    id: '2.69.3',
+    title: 'Observing Tris Work',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1675,6 +1901,8 @@ tris_observation: {
 },
 
 tris_gift: {
+    id: '2.70.0',
+    title: 'Tris\'s Gift',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1700,6 +1928,8 @@ tris_gift: {
 },
 
 tris_book_consequence: {
+    id: '2.70.1',
+    title: 'Reading Tris\'s Book',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1720,6 +1950,8 @@ tris_book_consequence: {
 },
 
 tris_obey_orders: {
+    id: '2.70.2',
+    title: 'Following Tris\'s Orders',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1736,6 +1968,8 @@ tris_obey_orders: {
 },
 
 kit_night_scene: {
+    id: '2.71.0',
+    title: 'Kit Night Scene',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1759,6 +1993,8 @@ kit_night_scene: {
 },
 
 kit_assessment: {
+    id: '2.71.1',
+    title: 'Kit\'s Assessment',
     content: `
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1773,6 +2009,8 @@ kit_assessment: {
 },
 
 kit_sees_through: {
+    id: '2.71.2',
+    title: 'Kit Sees Through Deception',
     content: `
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1792,6 +2030,8 @@ kit_sees_through: {
 },
 
 kit_about_himself: {
+    id: '2.71.3',
+    title: 'Kit Asked About Himself',
     content: `
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1806,6 +2046,8 @@ kit_about_himself: {
 },
 
 kit_training_offer: {
+    id: '2.72.0',
+    title: 'Kit\'s Training Offer',
     content: `
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -1832,6 +2074,8 @@ kit_training_offer: {
 },
 
 kit_good_student: {
+    id: '2.72.1',
+    title: 'Kit\'s Good Student',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1851,6 +2095,8 @@ kit_good_student: {
 },
 
 kit_impressed: {
+    id: '2.72.2',
+    title: 'Kit Impressed',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1870,6 +2116,8 @@ kit_impressed: {
 },
 
 kit_patience: {
+    id: '2.72.3',
+    title: 'Kit\'s Patience',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1889,6 +2137,8 @@ kit_patience: {
 },
 
 kit_gift: {
+    id: '2.73.0',
+    title: 'Kit\'s Gift',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">

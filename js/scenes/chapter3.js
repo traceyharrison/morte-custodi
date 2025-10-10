@@ -4,6 +4,8 @@ import { relationshipManager } from '../relationshipManager.js';
 
 export const chapter3Scenes = {  
 chapter3_morning: {
+    id: '3.1.0',
+    title: 'Chapter 3 Morning - First Morning Choice',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -24,6 +26,8 @@ chapter3_morning: {
 },
 
 eager_morning_response: {
+    id: '3.1.1',
+    title: 'Eager Morning Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -45,6 +49,8 @@ eager_morning_response: {
 },
 
 cautious_morning_response: {
+    id: '3.1.2',
+    title: 'Cautious Morning Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -74,6 +80,8 @@ cautious_morning_response: {
 },
 
 exhausted_morning_response: {
+    id: '3.1.3',
+    title: 'Exhausted Morning Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -95,6 +103,8 @@ exhausted_morning_response: {
 },
 
 caught_listening: {
+    id: '3.2.0',
+    title: 'Caught Listening',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -114,6 +124,8 @@ caught_listening: {
 },
 
 chance_morning_talk: {
+    id: '3.3.0',
+    title: 'Chance Morning Talk - Response Choice',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -130,6 +142,8 @@ chance_morning_talk: {
 },
 
 curious_power_response: {
+    id: '3.3.1',
+    title: 'Curious Power Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -144,6 +158,8 @@ curious_power_response: {
 },
 
 defensive_power_response: {
+    id: '3.3.2',
+    title: 'Defensive Power Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -158,6 +174,8 @@ defensive_power_response: {
 },
 
 flirty_morning_response: {
+    id: '3.3.3',
+    title: 'Flirty Morning Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -172,6 +190,8 @@ flirty_morning_response: {
 },
 
 morning_gathering: {
+    id: '3.4.0',
+    title: 'Morning Gathering',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -192,6 +212,8 @@ morning_gathering: {
 },
 
 training_discussion: {
+    id: '3.5.0',
+    title: 'Training Discussion',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -225,6 +247,8 @@ training_discussion: {
 },
 
 choose_trainer: {
+    id: '3.6.0',
+    title: 'Choose Trainer - Major Training Choice',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -242,6 +266,8 @@ choose_trainer: {
 },
 
 kit_training_start: {
+    id: '3.7.0',
+    title: 'Kit Training Start',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -267,6 +293,8 @@ kit_training_start: {
 },
 
 kit_training_success: {
+    id: '3.7.1',
+    title: 'Kit Training Success',
     content: `
         <div class="story-text fade-in">
             <div class="sfx">✨ A SINGLE VIOLET FLAME DANCES ON THE CANDLE ✨</div>
@@ -289,6 +317,8 @@ kit_training_success: {
 },
 
 kit_training_failure: {
+    id: '3.7.2',
+    title: 'Kit Training Failure',
     content: `
         <div class="story-text fade-in">
             <div class="sfx">💥 VIOLET FIRE EXPLODES ACROSS ALL CANDLES 💥</div>
@@ -311,6 +341,8 @@ kit_training_failure: {
 },
 
 fable_training_start: {
+    id: '3.8.0',
+    title: 'Fable Training Start',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -333,6 +365,8 @@ fable_training_start: {
 },
 
 fable_freedom_response: {
+    id: '3.8.1',
+    title: 'Fable Freedom Response',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -347,6 +381,8 @@ fable_freedom_response: {
 },
 
 fable_rage_response: {
+    id: '3.8.2',
+    title: 'Fable Rage Response',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -361,6 +397,8 @@ fable_rage_response: {
 },
 
 fable_belonging_response: {
+    id: '3.8.3',
+    title: 'Fable Belonging Response',
     content: `
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -375,6 +413,8 @@ fable_belonging_response: {
 },
 
 fable_demonstration: {
+    id: '3.9.0',
+    title: 'Fable Demonstration',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -399,6 +439,8 @@ fable_demonstration: {
 },
 
 magic_harmony_success: {
+    id: '3.9.1',
+    title: 'Magic Harmony Success',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -418,6 +460,8 @@ magic_harmony_success: {
 },
 
 magic_harmony_failure: {
+    id: '3.9.2',
+    title: 'Magic Harmony Failure',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -437,6 +481,8 @@ magic_harmony_failure: {
 },
 
 tris_training_start: {
+    id: '3.10.0',
+    title: 'Tris Training Start',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -466,6 +512,8 @@ tris_training_start: {
 },
 
 tris_discovery: {
+    id: '3.11.0',
+    title: 'Tris Discovery - Response Choice',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -482,6 +530,8 @@ tris_discovery: {
 },
 
 tris_worried_response: {
+    id: '3.11.1',
+    title: 'Tris Worried Response',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -496,6 +546,8 @@ tris_worried_response: {
 },
 
 tris_curious_response: {
+    id: '3.11.2',
+    title: 'Tris Curious Response',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -510,6 +562,8 @@ tris_curious_response: {
 },
 
 tris_proud_response: {
+    id: '3.11.3',
+    title: 'Tris Proud Response',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -524,6 +578,8 @@ tris_proud_response: {
 },
 
 chance_training_start: {
+    id: '3.12.0',
+    title: 'Chance Training Start',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -553,6 +609,8 @@ chance_training_start: {
 },
 
 dream_sequence: {
+    id: '3.13.0',
+    title: 'Dream Sequence - Dream Form Choice',
     content: `
         <div class="story-text fade-in" style="background: linear-gradient(135deg, rgba(87, 206, 235, 0.2) 0%, rgba(135, 206, 235, 0.3) 100%);">
             <div class="narrator-text">
@@ -574,6 +632,8 @@ dream_sequence: {
 },
 
 dream_wings_response: {
+    id: '3.13.1',
+    title: 'Dream Wings Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -588,6 +648,8 @@ dream_wings_response: {
 },
 
 dream_armor_response: {
+    id: '3.13.2',
+    title: 'Dream Armor Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -602,6 +664,8 @@ dream_armor_response: {
 },
 
 dream_storm_response: {
+    id: '3.13.3',
+    title: 'Dream Storm Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -616,6 +680,8 @@ dream_storm_response: {
 },
 
 training_interrupted: {
+    id: '3.14.0',
+    title: 'Training Interrupted',
     content: `
         <div class="story-text fade-in">
             <div class="sfx">🔔 URGENT BELLS CLANG THROUGH THE SAFEHOUSE 🔔</div>
@@ -637,6 +703,8 @@ training_interrupted: {
 },
 
 mysterious_arrival: {
+    id: '3.15.0',
+    title: 'Mysterious Arrival',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -659,6 +727,8 @@ mysterious_arrival: {
 },
 
 ash_collapse: {
+    id: '3.16.0',
+    title: 'Ash Collapse - First Ash Choice',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -683,6 +753,8 @@ ash_collapse: {
 },
 
 help_ash_response: {
+    id: '3.16.1',
+    title: 'Help Ash Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -709,6 +781,8 @@ help_ash_response: {
 },
 
 cautious_ash_response: {
+    id: '3.16.2',
+    title: 'Cautious Ash Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -728,6 +802,8 @@ cautious_ash_response: {
 },
 
 sense_ash_response: {
+    id: '3.16.3',
+    title: 'Sense Ash Response - Magic Sensing Choice',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -752,6 +828,8 @@ sense_ash_response: {
 },
 
 reveal_compulsion_response: {
+    id: '3.17.1',
+    title: 'Reveal Compulsion Response',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -781,6 +859,8 @@ reveal_compulsion_response: {
 },
 
 focus_withdrawal_response: {
+    id: '3.17.2',
+    title: 'Focus Withdrawal Response',
     content: `
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -800,6 +880,8 @@ focus_withdrawal_response: {
 },
 
 uncertain_magic_response: {
+    id: '3.17.3',
+    title: 'Uncertain Magic Response',
     content: `
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
@@ -814,6 +896,8 @@ uncertain_magic_response: {
 },
 
 ash_struggle: {
+    id: '3.18.0',
+    title: 'Ash Struggle - Save or Reject Choice',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -835,6 +919,8 @@ ash_struggle: {
 },
 
 ash_revelation: {
+    id: '3.19.0',
+    title: 'Ash Revelation',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -860,6 +946,8 @@ ash_revelation: {
 },
 
 save_ash_ending: {
+    id: '3.18.1',
+    title: 'Save Ash Ending',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -883,6 +971,8 @@ save_ash_ending: {
 },
 
 cautious_ash_ending: {
+    id: '3.18.2',
+    title: 'Cautious Ash Ending',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -903,6 +993,8 @@ cautious_ash_ending: {
 },
 
 reject_ash_ending: {
+    id: '3.18.3',
+    title: 'Reject Ash Ending',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -924,6 +1016,8 @@ reject_ash_ending: {
 },
 
 chapter3_ending: {
+    id: '3.20.0',
+    title: 'Chapter 3 Ending',
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">

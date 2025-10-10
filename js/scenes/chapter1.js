@@ -4,6 +4,8 @@ import { gameState } from '../gameState.js';
 
 export const chapter1Scenes = {
     character_creation: {
+        id: '1.0.0',
+        title: 'Character Creation',
         content: `
             <div class="character-creation fade-in">
                 <h2 style="color: #ffd700; text-align: center; margin-bottom: 25px; font-size: 2em;">Before Your Fate</h2>
@@ -38,7 +40,7 @@ export const chapter1Scenes = {
                     </div>
 
                     <div class="backstory-option" data-backstory="outsider" onclick="window.selectBackstory('outsider')">
-                        <div class="backstory-title">Foreign Exile</div>
+                        <div class="backstory-title">Outsider</div>
                         <div class="backstory-description">
                             You came from beyond the kingdom's borders, carrying strange customs and stranger knowledge. Whether you fled persecution, sought opportunity, or followed a calling, you never quite belonged here. Your accent marks you as different, your ways are often misunderstood, and your words mistrusted, but you see this land's flaws clearly because you're not blind to them by birth.
                         </div>
@@ -53,6 +55,8 @@ export const chapter1Scenes = {
     },
 
     start: {
+        id: '1.1.0',
+        title: 'The Pyre',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -73,6 +77,8 @@ export const chapter1Scenes = {
     },
 
     captain_speech: {
+        id: '1.2.0',
+        title: 'Captain\'s Decree',
         content: `
             <div class="story-text fade-in">
                 <div class="dialogue">
@@ -95,6 +101,8 @@ export const chapter1Scenes = {
     },
 
     first_choice: {
+        id: '1.3.0',
+        title: 'First Choice - How to Face the Crowd',
         getContent: function() {
             console.log('Generating first_choice content. Current backstory:', gameState.backstory);
             const backstoryChoices = {
@@ -122,6 +130,8 @@ export const chapter1Scenes = {
     },
 
     defiant_response: {
+        id: '1.3.1',
+        title: 'Defiant Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">Gasps from the crowd. The Captain sneers, and there's something like disgust in his cold eyes.</div>
@@ -138,6 +148,8 @@ export const chapter1Scenes = {
     },
 
     begging_response: {
+        id: '1.3.2',
+        title: 'Begging Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">Whispers ripple. A few avert their eyes. A woman mutters a prayer. Some hearts still beat with compassion.</div>
@@ -155,6 +167,8 @@ export const chapter1Scenes = {
     },
 
     silent_response: {
+        id: '1.3.3',
+        title: 'Silent Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">The silence weighs heavy. Some think you broken. Others see the quiet dignity of the condemned.</div>
@@ -172,6 +186,8 @@ export const chapter1Scenes = {
     },
 
     noble_authority_response: {
+        id: '1.3.4',
+        title: 'Noble Authority Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -193,6 +209,8 @@ export const chapter1Scenes = {
     },
 
     street_wisdom_response: {
+        id: '1.3.5',
+        title: 'Street Wisdom Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -214,6 +232,8 @@ export const chapter1Scenes = {
     },
 
     foreign_wisdom_response: {
+        id: '1.3.6',
+        title: 'Foreign Wisdom Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -235,6 +255,8 @@ export const chapter1Scenes = {
     },
 
     backstory_reflection: {
+        id: '1.4.0',
+        title: 'Backstory Reflection',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -247,6 +269,8 @@ export const chapter1Scenes = {
         `
     },
     noble_response: {
+        id: '1.4.1',
+        title: 'Noble Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -275,6 +299,8 @@ export const chapter1Scenes = {
     },
 
     orphan_response: {
+        id: '1.4.2',
+        title: 'Orphan Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -303,6 +329,8 @@ export const chapter1Scenes = {
     },
 
     outsider_response: {
+        id: '1.4.3',
+        title: 'Outsider Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -331,6 +359,8 @@ export const chapter1Scenes = {
     },
 
     fire_scene: {
+        id: '1.5.0',
+        title: 'Magic Control Challenge',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">"Light the pyre." The Captain commands. <br> The torch lowers toward the pyre. Smoke curls upward. Your heart hammers. The storm in your veins pounds against its cage. Your heart races and your breath catches in your lungs. You feel your power building inside you like a tempest ready to break free.<br><br>This is your moment. Can you harness the magic within you to break free, or will you need to find another way?</div>
@@ -368,6 +398,8 @@ export const chapter1Scenes = {
     },
 
     magic_escape_success: {
+        id: '1.5.1',
+        title: 'Controlled Magic Escape',
         content: `
             <div class="story-text fade-in">
                 <div class="sfx">⚡ A THUNDERCLAP. VIOLET FIRE EXPLODES OUTWARD. ⚡</div>
@@ -381,6 +413,8 @@ export const chapter1Scenes = {
     },
 
     magic_escape_failure: {
+        id: '1.5.2',
+        title: 'Wild Magic Escape',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">The power builds within you, but you cannot grasp it. Like trying to hold water in cupped hands, it slips away just when you need it most. The torch touches the kindling.<br><br>Flames begin to lick upward. Panic floods your chest. Just when hope seems lost—</div>
@@ -395,6 +429,8 @@ export const chapter1Scenes = {
     },
 
     controlled_magic_choice: {
+        id: '1.6.0',
+        title: 'Controlled Magic Options',
         content: `
             <div class="choices-container fade-in">
                 <h3 style="color: #ffd700; margin-bottom: 15px;">With your magic under control, what do you do?</h3>
@@ -406,6 +442,8 @@ export const chapter1Scenes = {
     },
 
     confident_escape_response: {
+        id: '1.6.1',
+        title: 'Confident Escape Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">Violet energy swirls around you like a protective cloak as you step down from the ruined pyre. The crowd parts before you like the sea, too awed and terrified to interfere. Some kneel. Others flee.<br><br>You walk with the confidence of someone who has just discovered they are more than they ever imagined.</div>
@@ -418,6 +456,8 @@ export const chapter1Scenes = {
     },
 
     protective_stance_response: {
+        id: '1.6.2',
+        title: 'Protective Stance Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">You pull the magic inward, creating a shimmering barrier around yourself. No one will be hurt by your power today. The crowd watches in wonder as you carefully pick your way through them, your shield parting around frightened children and cowering adults.<br><br>Even in your moment of liberation, you choose compassion.</div>
@@ -430,6 +470,8 @@ export const chapter1Scenes = {
     },
 
     dramatic_exit_response: {
+        id: '1.6.3',
+        title: 'Dramatic Exit Response',
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">Violet fire spirals skyward in magnificent pillars, painting the dawn in otherworldly light. The display is beautiful, terrible, and utterly mesmerizing. In the chaos of swirling magic and scattered light, you slip away like smoke.<br><br>Behind you, the crowd whispers and you wonder if they will speak of this day for years to come.</div>
@@ -442,6 +484,8 @@ export const chapter1Scenes = {
     },
 
     fire_choice: {
+        id: '1.7.0',
+        title: 'Wild Magic Options',
         content: `
             <div class="choices-container fade-in">
                 <h3 style="color: #ffd700; margin-bottom: 15px;">What is your first instinct?</h3>
@@ -452,6 +496,8 @@ export const chapter1Scenes = {
         `
     },
      aggressive_response: {
+                id: '1.7.1',
+                title: 'Aggressive Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Bolts of violet fire arc outward. Inquisitors shield themselves, shouting "heretic!" The power feels wild, uncontrolled, dangerous.</div>
@@ -464,6 +510,8 @@ export const chapter1Scenes = {
             },
 
             fleeing_response: {
+                id: '1.7.2',
+                title: 'Fleeing Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The crowd recoils in fear, parting as if you carry plague. A woman spits at your feet as hands grab at you, but some eyes show pity rather than hatred. No one reaches out a hand in help or kindness. </div>
@@ -476,6 +524,8 @@ export const chapter1Scenes = {
             },
 
             frozen_response: {
+                id: '1.7.3',
+                title: 'Frozen Response',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">The Captain seizes the moment, shouting, "Seize the prisoner! Before the corruption spreads!" But your stillness unnerves some of the crowd. Watchers stare at you warily while the guards begin to collect themselves at their captain's command.</div>
@@ -488,6 +538,8 @@ export const chapter1Scenes = {
             },
 
             strangers_arrive: {
+                id: '1.8.0',
+                title: 'Strangers Arrive',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Before the Inquisition can regroup, movement splits the chaos.<br><br>Two strangers stride into the square.<br><br>The first: a tall man, his hair is black with a single silver streak, and his eyes are warm yet weary. He grins as if this is all a great amusement and not en execution. The second man is broad sholdered with scarred armor. His amber eyes are sharp as a hawk's. His steps are measured, efficient, merciless.</div>
@@ -508,6 +560,8 @@ export const chapter1Scenes = {
             },
 
             fable_speaks: {
+                id: '1.9.0',
+                title: 'Fable Introduction',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -521,6 +575,8 @@ export const chapter1Scenes = {
             },
 
             kit_speaks: {
+                id: '1.10.0',
+                title: 'Kit Introduction',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -534,6 +590,8 @@ export const chapter1Scenes = {
             },
 
             respond_to_strangers: {
+                id: '1.11.0',
+                title: 'Response to Strangers Choice',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to these strangers?</h3>
@@ -546,6 +604,8 @@ export const chapter1Scenes = {
             },
 
             introduce_response: {
+                id: '1.11.1',
+                title: 'Introduce Self Response',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -560,6 +620,8 @@ export const chapter1Scenes = {
             },
 
             kit_introduction: {
+                id: '1.11.1a',
+                title: 'Kit Introduction Follow-up',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -573,6 +635,8 @@ export const chapter1Scenes = {
             },
 
             suspicious_response: {
+                id: '1.11.2',
+                title: 'Suspicious Response',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -587,6 +651,8 @@ export const chapter1Scenes = {
             },
 
             fable_response_1: {
+                id: '1.11.2a',
+                title: 'Fable Response to Suspicion',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -600,6 +666,8 @@ export const chapter1Scenes = {
             },
 
             grateful_response: {
+                id: '1.11.3',
+                title: 'Grateful Response',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -614,6 +682,8 @@ export const chapter1Scenes = {
             },
 
             kit_response_1: {
+                id: '1.11.3a',
+                title: 'Kit Response to Gratitude',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -627,6 +697,8 @@ export const chapter1Scenes = {
             },
 
             defiant_response2: {
+                id: '1.11.4',
+                title: 'Defiant Response to Rescue',
                 content: `
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
@@ -641,6 +713,8 @@ export const chapter1Scenes = {
             },
 
             fable_response_2: {
+                id: '1.11.4a',
+                title: 'Fable Response to Defiance',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -654,6 +728,8 @@ export const chapter1Scenes = {
             },
 
             final_choice_setup: {
+                id: '1.12.0',
+                title: 'Final Choice Setup',
                 content: `
                     <div class="story-text fade-in">
                         <div class="sfx">🔔 BELLS TOLL. BOOTS THUNDER. 🔔</div>
@@ -670,6 +746,8 @@ export const chapter1Scenes = {
             },
 
             fable_final: {
+                id: '1.13.0',
+                title: 'Fable Final Offer',
                 content: `
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
@@ -683,6 +761,8 @@ export const chapter1Scenes = {
             },
 
             final_choice: {
+                id: '1.14.0',
+                title: 'Final Choice - Go With Strangers',
                 content: `
                     <div class="choices-container fade-in">
                         <h3 style="color: #ffd700; margin-bottom: 15px;">The final choice:</h3>
@@ -694,6 +774,8 @@ export const chapter1Scenes = {
             },
 
             take_hand_ending: {
+                id: '1.14.1',
+                title: 'Take Hand Ending',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You grasp Fable's hand firmly. His grip is strong, reassuring. Kit nods approvingly as the three of you move as one.</div>
@@ -712,6 +794,8 @@ export const chapter1Scenes = {
             },
 
             refuse_ending: {
+                id: '1.14.2',
+                title: 'Refuse Ending',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">You turn to flee alone, but strong hands grab your arms. "Stubborn fool," Kit mutters, dragging you with him. Fable shakes his head, following behind "They always choose the hard way. Is it me? I wonder if it's me..."</div>
@@ -730,6 +814,8 @@ export const chapter1Scenes = {
             },
 
             hesitate_ending: {
+                id: '1.14.3',
+                title: 'Hesitate Ending',
                 content: `
                     <div class="story-text fade-in">
                         <div class="narrator-text">Frozen by indecision, you feel Kit's iron grip on your arm. "No time for doubt," he growls, dragging you forward. Fable mutters, "We'll work on the confidence later."</div>

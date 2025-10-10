@@ -78,7 +78,49 @@ class SceneManager {
             // Replace player name placeholders
             content = content.split('${gameState.playerName}').join(playerName);
             
+            // Update the content area
             contentArea.innerHTML = content;
+            
+            // Add scene ID and title banner at the bottom of the page, if available
+            if (scene.id || scene.title) {
+                // Remove any existing scene banner
+                const existingBanner = document.getElementById('scene-banner');
+                if (existingBanner) {
+                    existingBanner.remove();
+                }
+                
+                const idText = scene.id ? `ID: ${scene.id}` : '';
+                const titleText = scene.title ? `${scene.title}` : '';
+                const separator = (idText && titleText) ? ' - ' : '';
+                
+                // Create a new banner element
+                const bannerDiv = document.createElement('div');
+                bannerDiv.id = 'scene-banner';
+                bannerDiv.className = 'scene-identifier';
+                bannerDiv.style = `
+                    background-color: rgba(0,0,0,0.7); 
+                    color: #ffd700; 
+                    padding: 5px 10px; 
+                    border-radius: 4px; 
+                    margin-top: 15px; 
+                    font-size: 0.9em;
+                    border: 1px solid #ffd700; 
+                    display: flex; 
+                    justify-content: space-between;
+                    max-width: 800px;
+                    margin-left: auto;
+                    margin-right: auto;
+                `;
+                
+                // Add the content to the banner
+                bannerDiv.innerHTML = `
+                    <span>${idText}${separator}${titleText}</span>
+                    <span class="scene-key">${sceneId}</span>
+                `;
+                
+                // Add it to the end of the body
+                document.body.appendChild(bannerDiv);
+            }
         }
     }
 
