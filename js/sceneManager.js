@@ -81,6 +81,9 @@ class SceneManager {
             // Update the content area
             contentArea.innerHTML = content;
             
+            // Scroll to the top of the page when a new scene is loaded
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
             // Add scene ID and title banner at the bottom of the page, if available
             if (scene.id || scene.title) {
                 // Remove any existing scene banner
