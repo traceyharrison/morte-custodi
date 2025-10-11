@@ -49,7 +49,7 @@ export const chapter2Scenes = {
                         <div class="character-speech">"Save the wit for later, General. Left turn—NOW. Patrol incoming from the east gate."</div>
                     </div>
                     <div class="next-container">
-                        <button class="next-button" onclick="goToScene('courtyard_trap')">Next</button>
+                        <button class="next-button" onclick="window.goToScene('courtyard_trap')">Next</button>
                     </div>
                 `
             },
@@ -57,13 +57,18 @@ export const chapter2Scenes = {
             courtyard_trap: {
                 id: '2.4.0',
                 title: 'Courtyard Trap',
-                content: `
+                getContent: function() {
+                    // Explicitly get the backstory before the template literal to ensure correct scope
+                    const currentBackstory = gameState.backstory;
+                    console.log("Current backstory in courtyard_trap:", currentBackstory);
+                    
+                    return `
                     <div class="story-text fade-in">
                         <div class="narrator-text">
                             The three of you burst into a moonlit courtyard, ancient stones gleaming silver under the night sky. Then your hearts sink, it's a dead end. High walls rise on all sides like the ribs of some massive beast. Behind you, the clatter of pursuit grows louder. Lanterns blaze red as blood in the mouth of the alley.
                             <br><br>
                             ${(() => {
-                                switch(gameState.backstory) {
+                                switch(currentBackstory) {
                                     case 'noble':
                                         return 'Your noble education included studying the city\'s architecture. These courtyards were common gathering places for the old merchant houses, and often had secret escape routes. If only you could remember the details...';
                                     case 'orphan':
@@ -81,25 +86,25 @@ export const chapter2Scenes = {
                             let choices = [];
                             
                             // Common choice for all backgrounds
-                            choices.push('<button class="choice-button" onclick="goToScene(\'prepare_for_fight\')">Prepare to fight</button>');
+                           choices.push('<button class="choice-button" onclick="window.goToScene(\'prepare_for_fight\')">Prepare to fight</button>');
                             
                             // Backstory-specific choices
-                            switch(gameState.backstory) {
+                            switch(currentBackstory) {
                                 case 'noble':
-                                    choices.push('<button class="choice-button" onclick="goToScene(\'noble_architect\')">Search for a merchant house escape route</button>');
+                                    choices.push('<button class="choice-button" onclick="window.goToScene(\'noble_architect\')">Search for a merchant house escape route</button>');
                                     break;
                                 case 'orphan':
-                                    choices.push('<button class="choice-button" onclick="goToScene(\'orphan_climb\')">Look for a climbing route</button>');
+                                    choices.push('<button class="choice-button" onclick="window.goToScene(\'orphan_climb\')">Look for a climbing route</button>');
                                     break;
                                 case 'outsider':
-                                    choices.push('<button class="choice-button" onclick="goToScene(\'outsider_tactics\')">Analyze defensive weaknesses</button>');
+                                    choices.push('<button class="choice-button" onclick="window.goToScene(\'outsider_tactics\')">Analyze defensive weaknesses</button>');
                                     break;
                             }
                             
                             return choices.join('');
                         })()}
-                    </div>
-                `
+                    </div>`;
+                }
             },
             
             prepare_for_fight: {
@@ -110,7 +115,7 @@ export const chapter2Scenes = {
                         <div class="narrator-text">You ready yourself for the coming fight, checking your magic reserves and steadying your nerves.</div>
                     </div>
                     <div class="next-container">
-                        <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+                        <button class="next-button" onclick="window.goToScene('courtyard_banter')">Next</button>
                     </div>
                 `
             },
