@@ -1,5 +1,6 @@
 import { gameState } from './gameState.js';
 import { sceneManager } from './sceneManager.js';
+import { relationshipManager } from './relationshipManager.js';
 
 export class UIManager {
     selectBackstory(backstoryType) {
@@ -15,6 +16,9 @@ export class UIManager {
             if (selectedOption) {
                 selectedOption.classList.add('selected');
             }
+            
+            // Update stats display immediately when backstory is selected
+            relationshipManager.updateStatsDisplay();
             
             // Check if we can enable the begin button
             this.checkBeginButton();
