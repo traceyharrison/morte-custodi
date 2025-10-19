@@ -44,6 +44,9 @@ class GameState {
     }
 
     setBackstory(backstory) {
+        console.log('setBackstory called with:', backstory);
+        console.log('Current stats before setting:', this.stats);
+        
         if (['noble', 'orphan', 'outsider'].includes(backstory)) {
             this.backstory = backstory;
             
@@ -85,8 +88,10 @@ class GameState {
             }
             
             console.log(`Set backstory to ${backstory} with stats:`, this.stats);
+            console.log('Full gameState after setting backstory:', this);
             return true;
         }
+        console.log('Invalid backstory, returning false');
         return false;
     }
 
@@ -100,9 +105,14 @@ class GameState {
 
     // Get stat modifier for a specific type of roll
     getStatModifier(statType) {
+        console.log('getStatModifier called with:', statType);
+        console.log('Current stats:', this.stats);
+        
         if (this.stats[statType] !== undefined) {
+            console.log(`Returning stat value for ${statType}:`, this.stats[statType]);
             return this.stats[statType];
         }
+        console.log('Stat type not found, returning 0');
         return 0;
     }
 

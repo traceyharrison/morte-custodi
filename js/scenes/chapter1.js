@@ -361,40 +361,41 @@ export const chapter1Scenes = {
     fire_scene: {
         id: '1.5.0',
         title: 'Magic Control Challenge',
-        content: `
-            <div class="story-text fade-in">
-                <div class="narrator-text">"Light the pyre." The Captain commands. The guard obeys, and the torch lowers toward the pyre. Smoke curls upward. Your heart hammers wildly in your chest. The storm in your veins pounds against its cage, burning inside of you like a fire. Your heart races and your breath catches in your lungs. You feel your power building inside you like a tempest ready to break free.<br><br>This is your moment. Can you harness the magic within you to break free, or will you need to find another way?</div>
-            </div>
-            ${(() => {
-                let difficulty = 13;
-                let description = 'The power writhes within you like a caged beast. Focus your will and try to break free from your bonds using the magical energy coursing through your veins.';
-                
-                switch(gameState.backstory) {
-                    case 'noble':
-                        difficulty = 12;
-                        description = 'Years of noble education taught you control and discipline. Even as the magic threatens to overwhelm you, your trained mind seeks to impose order on chaos.';
-                        break;
-                    case 'orphan':
-                        difficulty = 14;
-                        description = 'The streets taught you that power comes in many forms. Your raw survival instinct resonates with the wild magic, dangerous but potentially devastating.';
-                        break;
-                    case 'outsider':
-                        difficulty = 13;
-                        description = 'Your understanding of magic differs from theirs. Foreign traditions and mystical insights guide your attempt to channel the power.';
-                        break;
-                }
-                
-                return diceSystem.createDiceRoll(
+        getContent: function() {
+            let difficulty = 13;
+            let description = 'The power writhes within you like a caged beast. Focus your will and try to break free from your bonds using the magical energy coursing through your veins.';
+            
+            switch(gameState.backstory) {
+                case 'noble':
+                    difficulty = 12;
+                    description = 'Years of noble education taught you control and discipline. Even as the magic threatens to overwhelm you, your trained mind seeks to impose order on chaos.';
+                    break;
+                case 'orphan':
+                    difficulty = 14;
+                    description = 'The streets taught you that power comes in many forms. Your raw survival instinct resonates with the wild magic, dangerous but potentially devastating.';
+                    break;
+                case 'outsider':
+                    difficulty = 13;
+                    description = 'Your understanding of magic differs from theirs. Foreign traditions and mystical insights guide your attempt to channel the power.';
+                    break;
+            }
+            
+            return `
+                <div class="story-text fade-in">
+                    <div class="narrator-text">"Light the pyre." The Captain commands. The guard obeys, and the torch lowers toward the pyre. Smoke curls upward. Your heart hammers wildly in your chest. The storm in your veins pounds against its cage, burning inside of you like a fire. Your heart races and your breath catches in your lungs. You feel your power building inside you like a tempest ready to break free.<br><br>This is your moment. Can you harness the magic within you to break free, or will you need to find another way?</div>
+                </div>
+                ${diceSystem.createDiceRoll(
                     'Channel Your Magic',
                     description,
                     'magic_control',
                     'magic_escape_success',
                     'magic_escape_failure',
                     difficulty,
-                    'magic_control'
-                );
-            })()}
-        `
+                    'magic_control',
+                    'luck'
+                )}
+            `;
+        }
     },
 
     magic_escape_success: {

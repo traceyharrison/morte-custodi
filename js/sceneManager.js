@@ -46,7 +46,8 @@ class SceneManager {
         console.log('Current gameState:', {
             backstory: gameState.backstory,
             currentScene: gameState.currentScene,
-            playerName: gameState.playerName
+            playerName: gameState.playerName,
+            stats: gameState.stats
         });
 
         gameState.currentScene = sceneId;

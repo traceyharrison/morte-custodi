@@ -87,6 +87,7 @@ window.toggleSceneSelector = () => {
     const existingSelector = document.getElementById('scene-selector');
     if (existingSelector) {
         this.playerName = 'Alex';
+        this.playerBackstory = 'orphan';
         existingSelector.remove();
         return;
     }

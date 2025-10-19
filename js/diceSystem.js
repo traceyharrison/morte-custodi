@@ -20,6 +20,17 @@ class DiceSystem {
         const statModifier = statType ? gameState.getStatModifier(statType) : 0;
         const totalModifier = backstoryModifier + statModifier;
         
+        // Debug logging
+        console.log('Creating dice roll:', {
+            type,
+            statType,
+            backstoryModifier,
+            statModifier,
+            totalModifier,
+            gameStateStats: gameState.stats,
+            gameStateBackstory: gameState.backstory
+        });
+        
         let modifierText = '';
         if (backstoryModifier !== 0 || statModifier !== 0) {
             modifierText = '<div class="dice-modifier">';
@@ -35,6 +46,8 @@ class DiceSystem {
             }
             modifierText += '</div>';
         }
+        
+        console.log('Modifier text HTML:', modifierText);
         
         return `
             <div class="dice-container fade-in">
