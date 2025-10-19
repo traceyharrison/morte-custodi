@@ -36,6 +36,30 @@ export class RelationshipManager {
                 heartElement.textContent = display;
             }
         }
+        
+        // Also update stats display
+        this.updateStatsDisplay();
+    }
+
+    updateStatsDisplay() {
+        if (!gameState.stats) return;
+        
+        for (let stat in gameState.stats) {
+            const statElement = document.getElementById(stat + '-stat');
+            if (statElement) {
+                const value = gameState.stats[stat];
+                statElement.textContent = value;
+                
+                // Color code based on stat value
+                if (value >= 4) {
+                    statElement.style.color = '#00ff00'; // Green for high stats
+                } else if (value >= 2) {
+                    statElement.style.color = '#ffd700'; // Gold for medium stats
+                } else {
+                    statElement.style.color = '#ffffff'; // White for low stats
+                }
+            }
+        }
     }
 
     displayFinalRelationships() {

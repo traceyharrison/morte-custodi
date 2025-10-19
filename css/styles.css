@@ -323,6 +323,15 @@ body {
     min-height: 1.5em;
 }
 
+.stat-value {
+    font-size: 1.2em;
+    font-weight: 700;
+    flex: 2;
+    text-align: right;
+    min-height: 1.5em;
+    text-shadow: 0 0 10px currentColor;
+}
+
 .fable-mood { color: #ffd700; }
 .kit-mood { color: #ff6b6b; }
 .tris-mood { color: #90ee90; }
