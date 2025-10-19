@@ -502,3 +502,85 @@ body {
     }
     .ash-mood { color: #e05ec4; }
 }
+
+/* Save/Load Menu */
+.save-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.save-menu-content {
+    background: linear-gradient(135deg, #1a0033 0%, #0a0015 100%);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #ffd700;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.save-slot {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #666;
+}
+
+.save-slot-header {
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.save-slot-info {
+    color: #add8e6;
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.save-slot-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.save-slot-button {
+    padding: 8px 16px;
+    background: linear-gradient(45deg, #1e5c8d, #0a3a5c);
+    color: white;
+    border: 1px solid #add8e6;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s;
+}
+
+.save-slot-button:hover {
+    background: linear-gradient(45deg, #2a7ab8, #165080);
+    box-shadow: 0 0 10px rgba(173, 216, 230, 0.5);
+}
+
+.save-slot-button.delete {
+    background: linear-gradient(45deg, #8d1e1e, #5c0a0a);
+    border-color: #ff6b6b;
+}
+
+.save-slot-button.delete:hover {
+    background: linear-gradient(45deg, #b82a2a, #801616);
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.save-slot.empty {
+    opacity: 0.6;
+    border-style: dashed;
+}

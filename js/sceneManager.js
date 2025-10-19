@@ -1,5 +1,6 @@
 import { gameState } from './gameState.js';
 import { relationshipManager } from './relationshipManager.js';
+import { saveManager } from './saveManager.js';
 
 // We'll import scenes after we create them
 let allScenes = {};
@@ -125,6 +126,9 @@ class SceneManager {
                 // Add it to the end of the body
                 document.body.appendChild(bannerDiv);
             }
+            
+            // Auto-save after scene loads (except character creation)
+            saveManager.autoSave();
         }
     }
 

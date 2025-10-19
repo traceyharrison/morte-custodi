@@ -8,6 +8,7 @@
 </head>
 <body>           
     <div class="game-container">
+          <button class="choice-button" onclick="window.openSaveMenu()" style="width: 120px; background: linear-gradient(45deg, #380202, #290101);">Save/Load</button>
         <h1 class="title">Morte Custodi</h1>
         <h2 class="chapter-title" id="chapter-indicator">Chapter 1: The Pyre</h2> 
 
@@ -68,6 +69,16 @@
 
     <script type="module" src="js/main.js"></script>
     
+    <!-- Save/Load Menu -->
+    <div id="save-menu" class="save-menu" style="display: none;">
+        <div class="save-menu-content">
+              <button class="choice-button" onclick="window.closeSaveMenu()" style="margin-top: 15px;">Close</button>
+            <h3 style="color: #ffd700; margin-top: 0;">Save & Load</h3>
+            <div id="save-slots-container"></div>
+        </div>
+    </div>
+    
+
     <button class="choice-button" onclick="window.skipToChapter2()" style="width: 120px; background: linear-gradient(45deg, #570101, #360000);">Skip to Ch2</button>
     <button class="choice-button" onclick="window.skipToChapter3()" style="width: 120px; background: linear-gradient(45deg, #1e058d, #030242);">Skip to Ch3</button>
     <button class="choice-button" onclick="window.skipToChapter4()" style="width: 120px; background: linear-gradient(45deg, #085805, #024207);">Skip to Ch4</button>

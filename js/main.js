@@ -4,6 +4,7 @@ import { sceneManager } from './sceneManager.js';
 import { diceSystem } from './diceSystem.js';
 import { RelationshipManager } from './relationshipManager.js';
 import { UIManager } from './uiManager.js';
+import { saveManager } from './saveManager.js';
 
 // Create manager instances
 const relationshipManager = new RelationshipManager();
@@ -155,4 +156,89 @@ window.toggleSceneSelector = () => {
     selectorDiv.appendChild(sceneListDiv);
     searchInput.dispatchEvent(new Event('input'));
     document.body.appendChild(selectorDiv);
+};
+
+// Save/Load Menu Functions
+window.openSaveMenu = function() {
+    const menu = document.getElementById('save-menu');
+    const container = document.getElementById('save-slots-container');
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Get all saves
+    const saves = saveManager.getAllSaves();
+    
+    // Create save slot elements
+    saves.forEach(save => {
+        const slotDiv = document.createElement('div');
+        slotDiv.className = save.data ? 'save-slot' : 'save-slot empty';
+        
+        let slotHTML = `<div class="save-slot-header">${save.label}</div>`;
+        
+        if (save.data) {
+            const date = new Date(save.data.timestamp);
+            const dateStr = date.toLocaleString();
+            slotHTML += `
+                <div class="save-slot-info">Player: ${save.data.playerName || 'Unknown'}</div>
+                <div class="save-slot-info">Backstory: ${save.data.backstory || 'None'}</div>
+                <div class="save-slot-info">Scene: ${save.data.currentScene || 'Unknown'}</div>
+                <div class="save-slot-info">Saved: ${dateStr}</div>
+                <div class="save-slot-buttons">
+                    <button class="save-slot-button" onclick="window.loadGameFromSlot('${save.slot}')">Load</button>
+                    ${save.slot !== 'auto' ? `<button class="save-slot-button" onclick="window.saveGameToSlot('${save.slot}')">Overwrite</button>` : ''}
+                    <button class="save-slot-button delete" onclick="window.deleteSaveFromSlot('${save.slot}')">Delete</button>
+                </div>
+            `;
+        } else {
+            slotHTML += `
+                <div class="save-slot-info">Empty Slot</div>
+                <div class="save-slot-buttons">
+                    <button class="save-slot-button" onclick="window.saveGameToSlot('${save.slot}')">Save Here</button>
+                </div>
+            `;
+        }
+        
+        slotDiv.innerHTML = slotHTML;
+        container.appendChild(slotDiv);
+    });
+    
+    menu.style.display = 'flex';
+};
+
+window.closeSaveMenu = function() {
+    const menu = document.getElementById('save-menu');
+    menu.style.display = 'none';
+};
+
+window.saveGameToSlot = function(slot) {
+    if (saveManager.saveGame(slot)) {
+        alert('Game saved successfully!');
+        window.openSaveMenu(); // Refresh the menu
+    } else {
+        alert('Failed to save game.');
+    }
+};
+
+window.loadGameFromSlot = function(slot) {
+    if (confirm('Load this save? Any unsaved progress will be lost.')) {
+        if (saveManager.loadGame(slot)) {
+            window.closeSaveMenu();
+            alert('Game loaded successfully!');
+        } else {
+            alert('Failed to load game.');
+        }
+    }
+};
+
+window.deleteSaveFromSlot = function(slot) {
+    if (confirm('Delete this save? This cannot be undone.')) {
+        if (saveManager.deleteSave(slot)) {
+            alert('Save deleted.');
+            window.openSaveMenu(); // Refresh the menu
+        } else {
+            alert('Failed to delete save.');
+        }
+    }
+
 };
