@@ -14,17 +14,34 @@ class DiceSystem {
         return Math.floor(Math.random() * 20) + 1;
     }
 
-    createDiceRoll(title, description, difficulty, successScene, failureScene, difficultyClass = 12, type = 'general') {
-        const modifier = gameState.getBackstoryModifier(type);
-        const modifierText = modifier !== 0 ? 
-            `<div class="dice-modifier">Backstory Modifier: ${modifier >= 0 ? '+' : ''}${modifier}</div>` : '';
+    createDiceRoll(title, description, difficulty, successScene, failureScene, difficultyClass = 12, type = 'general', statType = null) {
+        // Get both backstory modifier and stat modifier
+        const backstoryModifier = gameState.getBackstoryModifier(type);
+        const statModifier = statType ? gameState.getStatModifier(statType) : 0;
+        const totalModifier = backstoryModifier + statModifier;
+        
+        let modifierText = '';
+        if (backstoryModifier !== 0 || statModifier !== 0) {
+            modifierText = '<div class="dice-modifier">';
+            if (backstoryModifier !== 0) {
+                modifierText += `Backstory Modifier: ${backstoryModifier >= 0 ? '+' : ''}${backstoryModifier}<br>`;
+            }
+            if (statModifier !== 0 && statType) {
+                const statName = statType.charAt(0).toUpperCase() + statType.slice(1);
+                modifierText += `${statName} Bonus: ${statModifier >= 0 ? '+' : ''}${statModifier}<br>`;
+            }
+            if (totalModifier !== 0) {
+                modifierText += `<strong>Total Modifier: ${totalModifier >= 0 ? '+' : ''}${totalModifier}</strong>`;
+            }
+            modifierText += '</div>';
+        }
         
         return `
             <div class="dice-container fade-in">
                 <div class="dice-title">${title}</div>
                 <div class="dice-description">${description}</div>
                 ${modifierText}
-                <div class="dice-visual" id="dice-display" onclick="window.performRoll('${difficultyClass}', '${modifier}', '${successScene}', '${failureScene}', '${type}')">
+                <div class="dice-visual" id="dice-display" onclick="window.performRoll('${difficultyClass}', '${totalModifier}', '${successScene}', '${failureScene}', '${type}')">
                     ?
                 </div>
                 <div style="color: #ffd700; margin: 10px 0;">Click the die to roll!</div>

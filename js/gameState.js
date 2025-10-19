@@ -22,6 +22,16 @@ class GameState {
         this.choices = [];
         this.lastRoll = 0;
         this.rollHistory = [];
+        
+        // Player stats that affect dice rolls
+        this.stats = {
+            eloquence: 0,    // Arguments, dialogue, persuasion
+            strength: 0,     // Physical power, combat
+            bravery: 0,      // Mental fortitude, resisting fear
+            agility: 0,      // Dexterity, reflexes, acrobatics
+            luck: 0,         // Magic rolls, fortunate circumstances
+            wisdom: 0        // Insight, knowledge, strategy
+        };
     }
 
     makeChoice(choiceId) {
@@ -36,6 +46,45 @@ class GameState {
     setBackstory(backstory) {
         if (['noble', 'orphan', 'outsider'].includes(backstory)) {
             this.backstory = backstory;
+            
+            // Set starting stats based on backstory
+            switch(backstory) {
+                case 'noble':
+                    // Noble: Highest in eloquence and wisdom
+                    this.stats = {
+                        eloquence: 4,
+                        wisdom: 4,
+                        bravery: 2,
+                        strength: 2,
+                        agility: 1,
+                        luck: 2
+                    };
+                    break;
+                case 'orphan':
+                    // Orphan: Highest in agility and bravery
+                    this.stats = {
+                        agility: 4,
+                        bravery: 4,
+                        luck: 2,
+                        eloquence: 1,
+                        strength: 2,
+                        wisdom: 2
+                    };
+                    break;
+                case 'outsider':
+                    // Outsider: Highest in strength and luck
+                    this.stats = {
+                        strength: 4,
+                        luck: 4,
+                        wisdom: 2,
+                        bravery: 2,
+                        eloquence: 2,
+                        agility: 1
+                    };
+                    break;
+            }
+            
+            console.log(`Set backstory to ${backstory} with stats:`, this.stats);
             return true;
         }
         return false;
@@ -47,6 +96,14 @@ class GameState {
             this.relationships[normalizedChar] += value;
             this.relationships[normalizedChar] = Math.max(-15, Math.min(15, this.relationships[normalizedChar]));
         }
+    }
+
+    // Get stat modifier for a specific type of roll
+    getStatModifier(statType) {
+        if (this.stats[statType] !== undefined) {
+            return this.stats[statType];
+        }
+        return 0;
     }
 
     getBackstoryModifier(difficulty) {
@@ -73,6 +130,15 @@ class GameState {
         this.backstory = 'orphan';
         this.relationships = { fable: 2, kit: 1, tris: 0, chance: 1, ash: 0 };
         this.choices = ['defiant1', 'take_hand', 'introduce_self', 'magic_escape_success'];
+        // Set orphan stats
+        this.stats = {
+            agility: 4,
+            bravery: 4,
+            luck: 2,
+            eloquence: 1,
+            strength: 2,
+            wisdom: 2
+        };
     }
 
     skipToChapter3() {
@@ -80,6 +146,15 @@ class GameState {
         this.backstory = 'orphan';
         this.relationships = { fable: 3, kit: 2, tris: 1, chance: 1, ash: 0 };
         this.choices = ['defiant1', 'take_hand', 'introduce_self', 'magic_escape_success'];
+        // Set orphan stats
+        this.stats = {
+            agility: 4,
+            bravery: 4,
+            luck: 2,
+            eloquence: 1,
+            strength: 2,
+            wisdom: 2
+        };
     }
 
     skipToChapter4() {
@@ -87,6 +162,15 @@ class GameState {
         this.backstory = 'orphan';
         this.relationships = { fable: 4, kit: 4, tris: 3, chance: 2, ash: 1 };
         this.choices = ['defiant1', 'take_hand', 'introduce_self', 'magic_escape_success'];
+        // Set orphan stats
+        this.stats = {
+            agility: 4,
+            bravery: 4,
+            luck: 2,
+            eloquence: 1,
+            strength: 2,
+            wisdom: 2
+        };
     }
 }
 
