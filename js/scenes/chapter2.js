@@ -119,21 +119,23 @@ prepare_for_fight: {
 noble_architect: {
     id: '2.5.2',
     title: 'Noble Architect',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Your mind races through architectural, historical, and even geographical lessons. These merchant houses often had hidden cellars for storing contraband. You spot a worn flagstone that looks slightly different from the others.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Search for Secret Door',
-            'Your noble education might help you find a way out.',
-            'investigation',
-            'noble_escape_success',
-            'noble_escape_failure',
-            13,
-            'investigation',
-            'wisdom'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Your mind races through architectural, historical, and even geographical lessons. These merchant houses often had hidden cellars for storing contraband. You spot a worn flagstone that looks slightly different from the others.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Search for Secret Door',
+                'Your noble education might help you find a way out.',
+                'investigation',
+                'noble_escape_success',
+                'noble_escape_failure',
+                13,
+                'investigation',
+                'wisdom'
+            )}
+        `;
+    }
 },
 
 noble_escape_success: {
@@ -165,21 +167,23 @@ noble_escape_failure: {
 orphan_climb: {
     id: '2.5.3',
     title: 'Orphan Climb',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Years of running through these very streets taught you to see paths where others see limitations.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Find Climbing Route',
-            'Your street experience might reveal a way up.',
-            'athletics',
-            'orphan_escape_success',
-            'orphan_escape_failure',
-            14,
-            'athletics',
-            'agility'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Years of running through these very streets taught you to see paths where others see limitations.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Find Climbing Route',
+                'Your street experience might reveal a way up.',
+                'athletics',
+                'orphan_escape_success',
+                'orphan_escape_failure',
+                14,
+                'athletics',
+                'agility'
+            )}
+        `;
+    }
 },
 
 orphan_escape_success: {
@@ -211,21 +215,23 @@ orphan_escape_failure: {
 outsider_tactics: {
     id: '2.5.4',
     title: 'Outsider Tactics',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Your homeland's military training kicks in as you assess the courtyard's defensive design.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Analyze Defenses',
-            'Your foreign tactical knowledge might reveal an oversight in the design.',
-            'perception',
-            'outsider_escape_success',
-            'outsider_escape_failure',
-            13,
-            'perception',
-            'wisdom'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Your homeland's military training kicks in as you assess the courtyard's defensive design.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Analyze Defenses',
+                'Your foreign tactical knowledge might reveal an oversight in the design.',
+                'perception',
+                'outsider_escape_success',
+                'outsider_escape_failure',
+                13,
+                'perception',
+                'wisdom'
+            )}
+        `;
+    }
 },
 
 outsider_escape_success: {
@@ -334,21 +340,23 @@ courtyard_choice: {
 magic_attack_roll: {
     id: '2.14.1',
     title: 'Magic Attack Roll',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Violet energy crackles between your fingers as you prepare to unleash your power against the advancing guards. Raw magical force could scatter them and give you a chance to escape... if you can control it.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Unleash Magical Fury', 
-            'Channel your rage and desperation into devastating magical force. Success means controlled destruction. Failure means wild, dangerous magic.',
-            'magic_control',
-            'magic_attack_success',
-            'magic_attack_failure',
-            14,
-            'magic_control',
-            'luck'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Violet energy crackles between your fingers as you prepare to unleash your power against the advancing guards. Raw magical force could scatter them and give you a chance to escape... if you can control it.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Unleash Magical Fury', 
+                'Channel your rage and desperation into devastating magical force. Success means controlled destruction. Failure means wild, dangerous magic.',
+                'magic_control',
+                'magic_attack_success',
+                'magic_attack_failure',
+                14,
+                'magic_control',
+                'luck'
+            )}
+        `;
+    }
 },
 
 magic_attack_success: {
@@ -437,21 +445,23 @@ fable_delight: {
 clever_escape_roll: {
     id: '2.14.2',
     title: 'Clever Escape Roll',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Your eyes dart across the courtyard, searching for anything that could give you an advantage. Looking for wine barrels, loose stones...anything that might help level the odds against the guards.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Find a Clever Solution', 
-            'Use your wits and environment to outsmart the Inquisitors. Look for traps, distractions, or environmental advantages.',
-            'streetwise',
-            'clever_escape_success',
-            'clever_escape_failure',
-            12,
-            'streetwise',
-            'wisdom'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Your eyes dart across the courtyard, searching for anything that could give you an advantage. Looking for wine barrels, loose stones...anything that might help level the odds against the guards.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Find a Clever Solution', 
+                'Use your wits and environment to outsmart the Inquisitors. Look for traps, distractions, or environmental advantages.',
+                'streetwise',
+                'clever_escape_success',
+                'clever_escape_failure',
+                12,
+                'streetwise',
+                'wisdom'
+            )}
+        `;
+    }
 },
 
 clever_escape_success: {
@@ -523,21 +533,23 @@ fable_covers_mistake: {
 diplomatic_roll: {
     id: '2.14.3',
     title: 'Diplomatic Roll',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">You step forward, hands raised in a gesture of peace. Perhaps reason can prevail where violence would only bring more bloodshed. The Inquisitors pause, uncertain, looking to their Captain for guidance.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Appeal to Reason', 
-            'Try to negotiate with the Inquisitors. Success could avoid bloodshed entirely. Failure might make them even more determined.',
-            'diplomacy',
-            'diplomatic_success',
-            'diplomatic_failure',
-            15,
-            'diplomacy',
-            'eloquence'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">You step forward, hands raised in a gesture of peace. Perhaps reason can prevail where violence would only bring more bloodshed. The Inquisitors pause, uncertain, looking to their Captain for guidance.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Appeal to Reason', 
+                'Try to negotiate with the Inquisitors. Success could avoid bloodshed entirely. Failure might make them even more determined.',
+                'diplomacy',
+                'diplomatic_success',
+                'diplomatic_failure',
+                15,
+                'diplomacy',
+                'eloquence'
+            )}
+        `;
+    }
 },
 
 diplomatic_success: {
@@ -613,21 +625,23 @@ fable_diplomatic_failure: {
 defensive_panic_roll: {
     id: '2.14.4',
     title: 'Defensive Panic Roll',
-    content: `
-        <div class="story-text fade-in">
-            <div class="narrator-text">Terror freezes your limbs as the Inquisitors advance. Your magic sparks wildly, unpredictably. Sometimes panic can trigger unexpected resourcefulness... or it can leave you completely helpless.</div>
-        </div>
-        ${diceSystem.createDiceRoll(
-            'Desperate Survival', 
-            'In your panic, you might accidentally stumble onto something useful, or your terror might trigger a lucky magical surge.',
-            'survival',
-            'panic_success',
-            'panic_failure',
-            14,
-            'survival',
-            'bravery'
-        )}
-    `
+    getContent: function() {
+        return `
+            <div class="story-text fade-in">
+                <div class="narrator-text">Terror freezes your limbs as the Inquisitors advance. Your magic sparks wildly, unpredictably. Sometimes panic can trigger unexpected resourcefulness... or it can leave you completely helpless.</div>
+            </div>
+            ${diceSystem.createDiceRoll(
+                'Desperate Survival', 
+                'In your panic, you might accidentally stumble onto something useful, or your terror might trigger a lucky magical surge.',
+                'survival',
+                'panic_success',
+                'panic_failure',
+                14,
+                'survival',
+                'bravery'
+            )}
+        `;
+    }
 },
 
 panic_success: {

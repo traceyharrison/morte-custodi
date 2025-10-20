@@ -59,6 +59,7 @@ class DiceSystem {
                 </div>
                 <div style="color: #ffd700; margin: 10px 0;">Click the die to roll!</div>
                 <div style="color: #add8e6; font-size: 0.9em;">Need ${difficultyClass}+ to succeed</div>
+                <div style="color: #add8e6; font-size: 0.9em;">Bonus: ${statModifier}</div>
                 <div id="dice-result-container"></div>
             </div>
         `;
