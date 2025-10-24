@@ -584,3 +584,73 @@ body {
     opacity: 0.6;
     border-style: dashed;
 }
+
+/* Relationship Notifications */
+.relationship-notification {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    z-index: 999;
+    transition: right 0.5s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid;
+}
+
+.relationship-notification.show {
+    right: 20px;
+}
+
+.relationship-notification.positive {
+    background: linear-gradient(135deg, #1a4d1a 0%, #0d2e0d 100%);
+    color: #90ee90;
+    border-color: #90ee90;
+}
+
+.relationship-notification.negative {
+    background: linear-gradient(135deg, #4d1a1a 0%, #2e0d0d 100%);
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+/* Character-specific notification colors */
+.fable-notification.positive {
+    color: #ffd700;
+    border-color: #ffd700;
+}
+
+.kit-notification.positive {
+    color: #ff6b9d;
+    border-color: #ff6b9d;
+}
+
+.tris-notification.positive {
+    color: #90ee90;
+    border-color: #90ee90;
+}
+
+.chance-notification.positive {
+    color: #87ceeb;
+    border-color: #87ceeb;
+}
+
+.ash-notification.positive {
+    color: #e05ec4;
+    border-color: #e05ec4;
+}
+
+@media (max-width: 768px) {
+    .relationship-notification {
+        font-size: 0.9em;
+        padding: 12px 20px;
+        right: -250px;
+    }
+    
+    .relationship-notification.show {
+        right: 10px;
+    }
+}

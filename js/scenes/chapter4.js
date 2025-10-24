@@ -515,7 +515,8 @@ full_honesty_response: {
             'calm_success',
             'calm_failure',
             10,
-            'diplomacy'
+            'diplomacy',
+            'eloquence'
         )}
     `,
     effects: { ash: 1 }

@@ -62,7 +62,13 @@ class SceneManager {
         // Apply relationship effects
         if (scene.effects) {
             for (let character in scene.effects) {
-                gameState.updateRelationship(character, scene.effects[character]);
+                const change = scene.effects[character];
+                gameState.updateRelationship(character, change);
+                
+                // Show notification for significant relationship changes (2 or more)
+                if (Math.abs(change) >= 2) {
+                    this.showRelationshipNotification(character, change);
+                }
             }
             relationshipManager.updateMoodDisplay();
         }
@@ -130,6 +136,39 @@ class SceneManager {
             // Auto-save after scene loads (except character creation)
             saveManager.autoSave();
         }
+    }
+
+    showRelationshipNotification(character, change) {
+        // Capitalize character name
+        const characterName = character.charAt(0).toUpperCase() + character.slice(1);
+        
+        // Determine message based on change value
+        const isPositive = change > 0;
+        const message = isPositive ? `${characterName} approves` : `${characterName} disapproves`;
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `relationship-notification ${isPositive ? 'positive' : 'negative'}`;
+        notification.textContent = message;
+        
+        // Add character-specific color class
+        notification.classList.add(`${character}-notification`);
+        
+        // Add to body
+        document.body.appendChild(notification);
+        
+        // Trigger animation
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 500);
+        }, 3000);
     }
 
     makeChoice(choiceId, nextScene) {
