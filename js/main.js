@@ -110,6 +110,22 @@ window.toggleSceneSelector = () => {
         z-index: 1000;
     `;
 
+    const closeButton = document.createElement('button');
+    closeButton.textContent = '✕';
+    closeButton.style.cssText = `
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: transparent;
+        color: #ffd700;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 5px 10px;
+        line-height: 1;
+    `;
+    closeButton.onclick = () => selectorDiv.remove();
+
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Search scenes...';
@@ -117,6 +133,7 @@ window.toggleSceneSelector = () => {
         width: 100%;
         padding: 5px;
         margin-bottom: 10px;
+        margin-top: 25px;
         background: #1a1a1a;
         color: #fff;
         border: 1px solid #ffd700;
@@ -134,10 +151,16 @@ window.toggleSceneSelector = () => {
         const searchTerm = e.target.value.toLowerCase();
         sceneListDiv.innerHTML = '';
         Object.keys(sceneList)
-            .filter(sceneId => sceneId.toLowerCase().includes(searchTerm))
+            .filter(sceneId => {
+                const scene = sceneList[sceneId];
+                const sceneIdMatch = (scene.id || '').toLowerCase().includes(searchTerm);
+                const sceneKeyMatch = sceneId.toLowerCase().includes(searchTerm);
+                return sceneIdMatch || sceneKeyMatch;
+            })
             .forEach(sceneId => {
+                const scene = sceneList[sceneId];
                 const button = document.createElement('button');
-                button.textContent = sceneId;
+                button.textContent = scene.id ? `${scene.id} - ${sceneId}` : sceneId;
                 button.className = 'choice-button';
                 button.style.cssText = `
                     padding: 5px 10px;
@@ -152,6 +175,7 @@ window.toggleSceneSelector = () => {
             });
     });
 
+    selectorDiv.appendChild(closeButton);
     selectorDiv.appendChild(searchInput);
     selectorDiv.appendChild(sceneListDiv);
     searchInput.dispatchEvent(new Event('input'));
@@ -241,4 +265,38 @@ window.deleteSaveFromSlot = function(slot) {
         }
     }
 
+};
+
+// Set Default Values Function
+window.setDefaultValues = function() {
+    if (confirm('Reset all values to defaults? This will set stats and relationships to starting values.')) {
+        // Reset relationships to neutral
+        gameState.relationships = {
+            fable: 0,
+            kit: 0,
+            tris: 0,
+            chance: 0,
+            ash: 0
+        };
+        
+        // Set default stats (orphan backstory as default)
+        gameState.stats = {
+            agility: 4,
+            bravery: 4,
+            luck: 2,
+            eloquence: 1,
+            strength: 2,
+            wisdom: 2
+        };
+        
+        // Set default player info
+        gameState.playerName = 'Alex';
+        gameState.backstory = 'orphan';
+        
+        // Update UI
+        relationshipManager.updateMoodDisplay();
+        uiManager.updateStatsDisplay();
+        
+        alert('Values reset to defaults:\n- Name: Alex\n- Backstory: Orphan\n- All relationships set to neutral\n- Stats set to Orphan defaults');
+    }
 };
