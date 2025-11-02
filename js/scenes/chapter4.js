@@ -6,6 +6,9 @@ export const chapter4Scenes = {
 ash_morning: {
     id: '4.1.0',
     title: 'Ash\'s First Morning',
+    onLoad: function() {
+        document.getElementById('chapter-indicator').textContent = 'Chapter 4: The Newest Recruit';
+    },
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -950,7 +953,7 @@ chapter4_ending: {
             </div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('chapter5_start')">End of Demo</button>
+            <button class="next-button" onclick="goToScene('chapter5_start')">Next</button>
         </div>
     `,
     effects: { fable: 1, ash: 1 }

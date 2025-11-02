@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const chapter2 = await import('./scenes/chapter2.js');
         const chapter3 = await import('./scenes/chapter3.js');
         const chapter4 = await import('./scenes/chapter4.js');
+        const chapter5 = await import('./scenes/chapter5.js');
 
         // Register scenes
         sceneManager.registerScenes(chapter1.chapter1Scenes);
         sceneManager.registerScenes(chapter2.chapter2Scenes);
         sceneManager.registerScenes(chapter3.chapter3Scenes);
         sceneManager.registerScenes(chapter4.chapter4Scenes);
+        sceneManager.registerScenes(chapter5.chapter5Scenes);
 
         // Initialize the game only after scenes are registered
         relationshipManager.updateMoodDisplay();
@@ -73,14 +75,21 @@ window.skipToChapter3 = () => {
     gameState.skipToChapter3();
     relationshipManager.updateMoodDisplay();
     document.getElementById('chapter-indicator').textContent = 'Chapter 3: The Arrival';
-    sceneManager.goToScene('restless_night');
+    sceneManager.goToScene('chapter3_morning');
 };
 
 window.skipToChapter4 = () => {
     gameState.skipToChapter4();
     relationshipManager.updateMoodDisplay();
-    document.getElementById('chapter-indicator').textContent = 'Chapter 3: The Arrival (Night)';
+    document.getElementById('chapter-indicator').textContent = 'Chapter 4: The Newest Recruit';
     sceneManager.goToScene('ash_morning');
+};
+
+window.skipToChapter5 = () => {
+    gameState.skipToChapter4(); // Use chapter 4 state as base
+    relationshipManager.updateMoodDisplay();
+    document.getElementById('chapter-indicator').textContent = 'Chapter 5: Hunted';
+    sceneManager.goToScene('evening_training_start');
 };
 
 // Scene selector function
