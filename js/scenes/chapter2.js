@@ -13,7 +13,7 @@ export const chapter2Scenes = {
                             <br><br>
                             Lanterns flare red behind you as Inquisitors give chase, their boots striking like war drums against cobblestone. The sound echoes off the walls, a thunderous rhythm that speaks of death closing in.
                             <br><br>
-                            Fable runs ahead, his cloak streaming behind him like a banner. He leads you, cutting through side streets with the fluid grace of a man who knows every stone and every shadow that haunts the city. Kit stays close behind, movements precise and deadly, scanning for threats as if the city itself were a trap.
+                            Fable runs ahead, cutting through side streets with the fluid grace of a man who knows every stone and every shadow that haunts the city. Kit stays close behind, movements precise and deadly, scanning for threats as if the city itself were a trap.
                             <br><br>
                             You stumble along with them, smoke still clinging to your lungs and burning as your run, even now sparks still twitch at your fingertips. Remnants of the power that both saved and damned you.
                         </div>
@@ -72,7 +72,7 @@ courtyard_trap: {
                         case 'orphan':
                             return 'Years of running through these very streets taught you to see paths where others see limitations.';
                         case 'outsider':
-                            return 'Your homeland\'s military training kicks in as you assess the courtyard\'s defensive design.';
+                            return 'Your homeland\'s schooling kicks in as you assess the courtyard\'s defensive design.';
                         default:
                             return 'You\'re trapped.';
                     }
@@ -218,11 +218,11 @@ outsider_tactics: {
     getContent: function() {
         return `
             <div class="story-text fade-in">
-                <div class="narrator-text">Your homeland's military training kicks in as you assess the courtyard's defensive design.</div>
+                <div class="narrator-text">Your homeland's schooling kicks in as you assess the courtyard's defensive design.</div>
             </div>
             ${diceSystem.createDiceRoll(
                 'Analyze Defenses',
-                'Your foreign tactical knowledge might reveal an oversight in the design.',
+                'Your tactical knowledge might reveal an oversight in the design.',
                 'perception',
                 'outsider_escape_success',
                 'outsider_escape_failure',
@@ -239,13 +239,28 @@ outsider_escape_success: {
     title: 'Outsider Escape Success',
     content: `
         <div class="story-text fade-in">
-            <div class="narrator-text">You spot a flaw in the wall's construction, if exploited right it is a weakness that creates a perfect escape route. Fable grins at your ingenuity.</div>
+            <div class="narrator-text">You spot a flaw in the wall's construction, if exploited right it is a weakness that creates a perfect escape route. You point it out, and Fable grins at your ingenuity.</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
         </div>
     `
 },
+outsider_escape_success: {
+    id: '2.8.1.a',
+    title: 'escape_continue',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">Before you can take action, the sound of bootsteps echoes from the courtyard entrance. The guards have arrived.</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
+        </div>
+    `
+    ,
+    effects: { fable: 1, kit: 1}
+},
+
 
 outsider_escape_failure: {
     id: '2.8.2',
@@ -267,7 +282,7 @@ courtyard_banter: {
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE</div>
-            <div class="character-speech">"Well, this is unexpected. That's alright, time to improvise."</div>
+            <div class="character-speech">"Well, this is unfortunate. That's alright, time to improvise."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('kit_strategy')">Next</button>
@@ -364,7 +379,7 @@ magic_attack_success: {
     title: 'Magic Attack Success',
     content: `
         <div class="story-text fade-in">
-            <div class="sfx">⚡ CONTROLLED VIOLET LIGHTNING ARCS OUTWARD ⚡</div>
+            <div class="sfx">CONTROLLED VIOLET LIGHTNING ARCS OUTWARD</div>
             <div class="narrator-text">
                 Perfect control flows through you. Violet bolts lance out with precision, striking armor joints and weapon. Inquisitors cry out as metal heats up red-hot, forcing them to drop steel that burns to touch. You manage not to deliver a single killing blow, as planned, but your attack is still devastatingly effective.
                 <br><br>
@@ -383,7 +398,7 @@ magic_attack_failure: {
     title: 'Magic Attack Failure',
     content: `
         <div class="story-text fade-in">
-            <div class="sfx">⚡ VIOLET FIRE ERUPTS WILDLY ⚡</div>
+            <div class="sfx">VIOLET FIRE ERUPTS WILDLY</div>
             <div class="narrator-text">
                 Power explodes from you like a dam bursting. Violet flames lance out in all directions and some Inquisitors fall groaning, but the magic scorches stone and sends everyone diving for cover, including you, Fable and Kit. The raw energy leaves you gasping.
                 <br><br>
@@ -757,7 +772,7 @@ tunnel_choice: {
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">In the tunnels beneath the city:</h3>
             <button class="choice-button" onclick="makeChoice('stop_demand_answers', 'demand_answers_response')">Stop in your tracks and refuse to go further. "Tell me what is going on. Now."</button>
-            <button class="choice-button" onclick="makeChoice('follow_ask_where', 'ask_where_response')">Follow Fable and Kit. "Where exactly are you taking me?"</button>
+            <button class="choice-button" onclick="makeChoice('follow_ask_where', 'ask_where_response')">Follow closely behind Fable with Kit at your rear, "Where exactly are you taking me?"</button>
             <button class="choice-button" onclick="makeChoice('nervous_follow', 'nervous_response')">Walk behind both men, watching their movements silently until, "...Are we safe here?"</button>
         </div>
     `
@@ -1103,7 +1118,7 @@ kit_strategy_credit: {
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
             <div class="character-name">KIT</div>
-            <div class="character-speech">"What matters is that we got out alive, thanks to my plans."</div>
+            <div class="character-speech">"And we got \${gameState.playerName} out alive, thanks to my plans."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('chance_dreams')">Next</button>
@@ -1132,9 +1147,9 @@ dreams_choice: {
     content: `
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Chance's claim about dreams?</h3>
-            <button class="choice-button" onclick="makeChoice('wary_dreams', 'wary_dreams_response')">"Dreams? You expect me to believe that you saw me in your dreams?"</button>
-            <button class="choice-button" onclick="makeChoice('curious_dreams', 'curious_dreams_response')">"Dreams, huh? Well...what exactly did you see?"</button>
-            <button class="choice-button" onclick="makeChoice('playful_dreams', 'playful_dreams_response')">"And here I thought I'd only haunt nightmares."</button>
+            <button class="choice-button" onclick="makeChoice('wary_dreams', 'wary_dreams_response')"> Scoff, "Dreams? You expect me to believe that you saw me in your dreams?"</button>
+            <button class="choice-button" onclick="makeChoice('curious_dreams', 'curious_dreams_response')">Lean forward, "Dreams, huh? Well...what exactly did you see?"</button>
+            <button class="choice-button" onclick="makeChoice('playful_dreams', 'playful_dreams_response')">Laugh, "And here I thought I'd only haunt nightmares."</button>
         </div>
     `
 },
@@ -1254,7 +1269,7 @@ fable_likes: {
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE</div>
-            <div class="character-speech">"I think I like this one already."</div>
+            <div class="character-speech">"I think you'll do just fine here, \${gameState.playerName}"</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('kit_idiots')">Next</button>
@@ -1311,9 +1326,9 @@ treatment_choice: {
     content: `
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Tris's treatment?</h3>
-            <button class="choice-button" onclick="makeChoice('grateful_treatment', 'grateful_treatment_response')">"Thank you. I appreciate the kindness."</button>
-            <button class="choice-button" onclick="makeChoice('cold_treatment', 'cold_treatment_response')">"I didn't ask for any of this."</button>
-            <button class="choice-button" onclick="makeChoice('observant_treatment', 'observant_treatment_response')">"How often do you do this sort of thing?"</button>
+            <button class="choice-button" onclick="makeChoice('grateful_treatment', 'grateful_treatment_response')">Sit politely, "Thank you. I appreciate the kindness."</button>
+            <button class="choice-button" onclick="makeChoice('cold_treatment', 'cold_treatment_response')">Pull roughly away from her, "I didn't ask for any of this."</button>
+            <button class="choice-button" onclick="makeChoice('observant_treatment', 'observant_treatment_response')">Look at Tris, "How often do you do this sort of thing?"</button>
         </div>
     `
 },
@@ -1557,10 +1572,10 @@ restless_night: {
             </div>
         </div>
         <div class="choices-container fade-in">
-            <h3 style="color: #ffd700; margin-bottom: 15px;">Who do you seek out in the quiet hours?</h3>
-            <button class="choice-button" onclick="makeChoice('seek_fable', 'fable_night_scene')">Try to find something to read to distract you</button>
+            <h3 style="color: #ffd700; margin-bottom: 15px;">What do you seek in the quiet?</h3>
+            <button class="choice-button" onclick="makeChoice('seek_fable', 'tris_night_scene')">Try to find something to read to distract you</button>
             <button class="choice-button" onclick="makeChoice('seek_chance', 'chance_night_scene')">Try to breathe and meditate, hoping sleep finds you</button>
-            <button class="choice-button" onclick="makeChoice('seek_tris', 'tris_night_scene')">Go get a cup of tea, or something stronger to help you rest</button>
+            <button class="choice-button" onclick="makeChoice('seek_tris', 'fable_night_scene')">Go get a cup of tea, or something stronger to help you rest</button>
             <button class="choice-button" onclick="makeChoice('seek_kit', 'kit_night_scene')">Explore the safehouse, see what you can find in the dark</button>
         </div>
     `
@@ -1590,13 +1605,13 @@ fable_night_scene: {
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE</div>
-            <div class="character-speech">"It's about a rebellion from centuries ago. A group of mages and common folk who stood against corrupt rulers. They called themselves the Custodians of Tomorrow. Sound familiar? Our name is... inspired by theirs. Though we added 'Morte' because, well...we're a bit more dramatic, I suppose."</div>
+            <div class="character-speech">He stands up and prepares a drink, pouring amber liquid into a cup before offering it to you, "It's about a rebellion from centuries ago. A group of mages and common folk who stood against corrupt rulers. They called themselves the Custodians of Tomorrow. Sound familiar? Our name is... inspired by theirs. Though we added 'Morte' because, well...we're a bit more dramatic, I suppose."</div>
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond?</h3>
-            <button class="choice-button" onclick="makeChoice('ask_ending', 'fable_story_ending')">Ask how the story ends</button>
-            <button class="choice-button" onclick="makeChoice('ask_coin', 'fable_coin_story')">Ask about the coin he's flipping</button>
-            <button class="choice-button" onclick="makeChoice('express_fear', 'fable_comfort')">Admit you're afraid of what comes next</button>
+            <button class="choice-button" onclick="makeChoice('ask_ending', 'fable_story_ending')">Ask more about the story</button>
+            <button class="choice-button" onclick="makeChoice('ask_coin', 'fable_coin_story')">Ask about the coin he's flipping in his hand</button>
+            <button class="choice-button" onclick="makeChoice('express_fear', 'fable_comfort')">Take a sip of the drink, and admit that you're afraid of what comes next.</button>
         </div>
     `
 },
@@ -1966,7 +1981,7 @@ tris_gift: {
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
             <div class="character-name">TRIS</div>
-            <div class="character-speech">"Since you're not sleeping anyway... She hands you a worn book. It's a well-worn mystery novel. 'The Poisoner's Apprentice.' If your mind won't quiet, give it something else to focus on."</div>
+            <div class="character-speech">"Since you're not sleeping anyway..." She hands you a book. It's a well-worn mystery novel. 'The Poisoner's Apprentice.' <br> "If your mind won't quiet, give it something else to focus on."</div>
         </div>
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -1976,7 +1991,7 @@ tris_gift: {
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
             <div class="character-name">TRIS</div>
-            <div class="character-speech">"Now go. Read it for a bit, but then rest. Doctor's orders. You'll need your strength tomorrow."</div>
+            <div class="character-speech">"Now go. Read it for a bit, or just rest. But get some sleep. Doctor's orders. You'll need your strength tomorrow."</div>
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">Do you read the book?</h3>
@@ -2002,7 +2017,7 @@ tris_book_consequence: {
             </div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('chapter3_morning')">Face the Morning (Exhausted)</button>
+            <button class="next-button" onclick="goToScene('chapter3_morning')">Face the morning exhausted, but entertained</button>
         </div>
     `,
     effects: { tris: -1 }
@@ -2018,7 +2033,7 @@ tris_obey_orders: {
             </div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('chapter3_morning')">Face the Morning (Rested)</button>
+            <button class="next-button" onclick="goToScene('chapter3_morning')">Face the morning well rested</button>
         </div>
     `,
     effects: { tris: 1 }

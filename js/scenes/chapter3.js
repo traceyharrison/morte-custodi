@@ -1,6 +1,7 @@
 import { ENVIRON_IMAGES, CHARACTER_IMAGES } from '../constants.js';
 import { diceSystem } from '../diceSystem.js';
 import { relationshipManager } from '../relationshipManager.js';
+import { gameState } from '../gameState.js';
 
 export const chapter3Scenes = {  
 chapter3_morning: {
@@ -146,7 +147,7 @@ curious_power_response: {
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
             <div class="character-name">CHANCE (leaning forward, intrigued)</div>
-            <div class="character-speech">"Most magic follows patterns, for example: elements like fire can bend to Kit's will, while healing flows like water through Tris. Fable uses illusions. But...yours? Yours is chaos given form. Wild, primal, and tied to something deeper than learned spells. In my dreams, it looked like violet lightning trying to become a constellation."</div>
+            <div class="character-speech">"Most magic follows patterns, for example: elements like fire can bend to Kit's will, while healing flows like water through Tris. Fable uses illusions. But...yours? Yours is chaos given form. Wild, primal, and tied to something deeper than learned spells. In my dreams, it looked like violet lightning trying to become a constellation. <br> Now come on, time to get up and face the day."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('morning_gathering')">Next</button>
@@ -162,7 +163,7 @@ defensive_power_response: {
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
             <div class="character-name">CHANCE (raising hands in mock surrender)</div>
-            <div class="character-speech">"Not intentionally, love. But when someone's magic burns as bright as yours, it tends to... leak into the dreamscape. Like a bonfire seen through fog. Hard to miss unless you choose not to look at it. But don't worry, your secrets are your own. I just see the shapes, not the substance."</div>
+            <div class="character-speech">"Not intentionally, love. But when someone's magic burns as bright as yours, it tends to... leak into the dreamscape. Like a bonfire seen through fog. Hard to miss unless you choose not to look at it. But don't worry, your secrets are your own. I just see the shapes, not the substance. <br>Now come on, time to get up and face the day."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('morning_gathering')">Next</button>
@@ -178,7 +179,7 @@ flirty_morning_response: {
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
             <div class="character-name">CHANCE (grinning wider)</div>
-            <div class="character-speech">"Oh, but I've been dreaming about you since before we met, love. Occupational hazard of being a dream weaver, I see all the most interesting people before they arrive."</div>
+            <div class="character-speech">"Oh, but I've been dreaming about you since before we met, love. Occupational hazard of being a dream weaver, I see all the most interesting people before they arrive. <br> Now come on, time to get up and face the day."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('morning_gathering')">Next</button>
@@ -296,7 +297,7 @@ kit_training_success: {
     title: 'Kit Training Success',
     content: `
         <div class="story-text fade-in">
-            <div class="sfx">✨ A SINGLE VIOLET FLAME DANCES ON THE CANDLE ✨</div>
+            <div class="sfx">A SINGLE VIOLET FLAME DANCES ON THE CANDLE</div>
             <div class="narrator-text">
                 You breathe slowly, feeling the storm inside you. Instead of letting it rage, you guide it. Through your efforts, it becomes a single thread of power drawn from the tempest. Violet fire blooms on the candle's wick, but now it is steady and controlled.
                 <br><br>
@@ -309,7 +310,7 @@ kit_training_success: {
             <div class="character-speech">"Good. Very good. You have natural discipline buried under that chaos. We can work with this."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { kit: 1 }
@@ -320,7 +321,7 @@ kit_training_failure: {
     title: 'Kit Training Failure',
     content: `
         <div class="story-text fade-in">
-            <div class="sfx">💥 VIOLET FIRE EXPLODES ACROSS ALL CANDLES 💥</div>
+            <div class="sfx"VIOLET FIRE EXPLODES ACROSS ALL CANDLES</div>
             <div class="narrator-text">
                 You try to focus, but the power surges like a wild thing. All twelve candles burst into violet flames simultaneously. The water bowls boil. The stones crack.
                 <br><br>
@@ -333,7 +334,7 @@ kit_training_failure: {
             <div class="character-speech">"Expected. Your power wants to be everything at once. We'll try again. And again. Until you learn that true strength comes from restraint."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { kit: 1 }
@@ -453,7 +454,7 @@ magic_harmony_success: {
             <div class="character-speech">"There it is. You're not trying to cage it anymore. Magic isn't a tool to be controlled, no it's a part of you, as natural as breathing. Yours doesn't want to be contained. It's elemental, psychic, and...well...who knows what else..."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { fable: 1 }
@@ -474,7 +475,7 @@ magic_harmony_failure: {
             <div class="character-speech">"Woah! Don't force it! Breathe. There it is. Your magic responds to emotion. The more you panic, the more it rebels. We'll try a different approach next time, it's alright, one step at a time."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { fable: 1 }
@@ -492,7 +493,7 @@ tris_training_start: {
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
             <div class="character-name">TRIS (clinical, focused)</div>
-            <div class="character-speech">"Hold still. I need to trace your magical pathways. This might feel... uncomfortable for a moment. Your channels are damaged. Yes, magical channels, you can imagine them like veins that have carried too much blood too quickly through your body, I'm sure they're sore at the very least, and possibly torn if you really pushed yourself..."</div>
+            <div class="character-speech">"Hold still. I need to trace your magical pathways. This might feel... uncomfortable for a moment. Your channels are damaged." <br> She notices your intrigued reaction <br> "Yes, magical channels, you can imagine them like veins that have carried too much blood too quickly through your body, I'm sure they're sore at the very least, and possibly torn if you really pushed yourself..."</div>
         </div>
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -539,7 +540,7 @@ tris_worried_response: {
             <div class="character-speech">"Explode? Unlikely but...possible, if untrained. But you haven't yet, which suggests natural resilience. Your magic seems to be...changing, shifting as it flows through your body. That's unique, but powerful, it means you aren't confined to just one type of magic. For now, I can teach you exercises to strengthen your channels and create better containment. Think of it as... building a stronger vessel for the ocean inside of you. Then we can focus your power in a direction."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { tris: 1 }
@@ -555,7 +556,7 @@ tris_curious_response: {
             <div class="character-speech">"It means conventional methods won't work. We need to build from the inside out, we will strengthen your natural barriers and create release valves for excess power. I have some theories, where did I put that medical journal..."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { tris: 1 }
@@ -571,7 +572,7 @@ tris_proud_response: {
             <div class="character-speech">"Whether that's an advantage or a death sentence remains to be seen. Either way, pride won't keep you from burning yourself out. Discipline might, if we're lucky."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Next</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Next</button>
         </div>
     `,
     effects: { tris: -1 }
@@ -641,7 +642,7 @@ dream_wings_response: {
             <div class="character-speech">"Wings! Of course. It makes sense, you don't want to fight, you want to fly. To be free. Your magic isn't a weapon, but an escape route. Remember this feeling when you wake."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Wake Up</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Wake Up</button>
         </div>
     `,
     effects: { chance: 1 }
@@ -657,7 +658,7 @@ dream_armor_response: {
             <div class="character-speech">"A protector's heart beats in your chest. Your magic wants to shield, not strike. That's... unexpectedly noble. The others will try to make you a weapon. But you can choose to be a shield."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Wake Up</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Wake Up</button>
         </div>
     `,
     effects: { chance: 1 }
@@ -673,10 +674,74 @@ dream_storm_response: {
             <div class="character-speech">"Ah. The honest answer. Your magic doesn't want to be controlled or directed, instead it wants to be unleashed. You're not a mage, love. You're a force of nature."</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('training_interrupted')">Wake Up</button>
+            <button class="next-button" onclick="goToScene('stat_allocation')">Wake Up</button>
         </div>
     `,
     effects: { chance: 1 }
+},
+
+stat_allocation: {
+    id: '3.13.5',
+    title: 'Allocate Training Points',
+    onLoad: function() {
+        // Reset stat allocations when scene loads
+        if (window.updateStatAllocationUI) {
+            setTimeout(() => window.updateStatAllocationUI(), 100);
+        }
+    },
+    getContent: function() {
+        const stats = gameState.stats;
+        return `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Your first training session has opened your eyes to new possibilities. You feel the potential within you, ready to be shaped and directed. 
+                <br><br>
+                You have <strong style="color: #ffd700;"><span id="points-remaining">3</span> points</strong> to allocate. You may add <strong>up to 1 point</strong> to any stat.
+            </div>
+        </div>
+        <div class="stat-allocation-container fade-in">
+            <div class="stat-row">
+                <span class="stat-label">Eloquence (${stats.eloquence})</span>
+                <button class="stat-button" id="minus-eloquence" onclick="deallocateStatPoint('eloquence')">−</button>
+                <span class="stat-allocated" id="allocated-eloquence">0</span>
+                <button class="stat-button" id="plus-eloquence" onclick="allocateStatPoint('eloquence')">+</button>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Strength (${stats.strength})</span>
+                <button class="stat-button" id="minus-strength" onclick="deallocateStatPoint('strength')">−</button>
+                <span class="stat-allocated" id="allocated-strength">0</span>
+                <button class="stat-button" id="plus-strength" onclick="allocateStatPoint('strength')">+</button>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Bravery (${stats.bravery})</span>
+                <button class="stat-button" id="minus-bravery" onclick="deallocateStatPoint('bravery')">−</button>
+                <span class="stat-allocated" id="allocated-bravery">0</span>
+                <button class="stat-button" id="plus-bravery" onclick="allocateStatPoint('bravery')">+</button>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Agility (${stats.agility})</span>
+                <button class="stat-button" id="minus-agility" onclick="deallocateStatPoint('agility')">−</button>
+                <span class="stat-allocated" id="allocated-agility">0</span>
+                <button class="stat-button" id="plus-agility" onclick="allocateStatPoint('agility')">+</button>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Luck (${stats.luck})</span>
+                <button class="stat-button" id="minus-luck" onclick="deallocateStatPoint('luck')">−</button>
+                <span class="stat-allocated" id="allocated-luck">0</span>
+                <button class="stat-button" id="plus-luck" onclick="allocateStatPoint('luck')">+</button>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Wisdom (${stats.wisdom})</span>
+                <button class="stat-button" id="minus-wisdom" onclick="deallocateStatPoint('wisdom')">−</button>
+                <span class="stat-allocated" id="allocated-wisdom">0</span>
+                <button class="stat-button" id="plus-wisdom" onclick="allocateStatPoint('wisdom')">+</button>
+            </div>
+        </div>
+        <div class="next-container fade-in">
+            <button class="next-button" id="confirm-stats-btn" onclick="confirmStatAllocation()" disabled>Confirm Allocation</button>
+        </div>
+    `;
+    }
 },
 
 training_interrupted: {
@@ -684,7 +749,7 @@ training_interrupted: {
     title: 'Training Interrupted',
     content: `
         <div class="story-text fade-in">
-            <div class="sfx">🔔 URGENT BELLS CLANG THROUGH THE SAFEHOUSE 🔔</div>
+            <div class="sfx">URGENT BELLS CLANG THROUGH THE SAFEHOUSE</div>
             <div class="narrator-text">
                 Your training is cut short by the sound of warning bells. Three sharp rings. A pause. Then, three more.
                 <br><br>
@@ -746,8 +811,8 @@ ash_collapse: {
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">The woman needs help, but it could be a trap. What do you do?</h3>
             <button class="choice-button" onclick="makeChoice('help_immediately', 'help_ash_response')">Rush to help her despite the warning, no one should suffer like that</button>
-            <button class="choice-button" onclick="makeChoice('stay_cautious', 'cautious_ash_response')">Stay hidden and let the others handle it, Fable warned you it could be dangerous</button>
-            <button class="choice-button" onclick="makeChoice('sense_magic', 'sense_ash_response')">Try to see where she came from</button>
+            <button class="choice-button" onclick="makeChoice('stay_cautious', 'cautious_ash_response')">Watch what the others do, Fable warned you it could be dangerous</button>
+            <button class="choice-button" onclick="makeChoice('sense_magic', 'sense_ash_response')">Stay hidden, but try to see where she came from</button>
         </div>
     `
 },

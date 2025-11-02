@@ -300,3 +300,89 @@ window.setDefaultValues = function() {
         alert('Values reset to defaults:\n- Name: Alex\n- Backstory: Orphan\n- All relationships set to neutral\n- Stats set to Orphan defaults');
     }
 };
+
+// Stat Allocation System
+let statPointsRemaining = 3;
+let statAllocations = {
+    eloquence: 0,
+    strength: 0,
+    bravery: 0,
+    agility: 0,
+    luck: 0,
+    wisdom: 0
+};
+
+window.allocateStatPoint = function(statName) {
+    if (statPointsRemaining > 0 && statAllocations[statName] < 1) {
+        statAllocations[statName]++;
+        statPointsRemaining--;
+        updateStatAllocationUI();
+    }
+};
+
+window.deallocateStatPoint = function(statName) {
+    if (statAllocations[statName] > 0) {
+        statAllocations[statName]--;
+        statPointsRemaining++;
+        updateStatAllocationUI();
+    }
+};
+
+window.confirmStatAllocation = function() {
+    if (statPointsRemaining > 0) {
+        alert(`You still have ${statPointsRemaining} point(s) to allocate!`);
+        return;
+    }
+    
+    // Apply the stat increases
+    Object.keys(statAllocations).forEach(stat => {
+        gameState.stats[stat] += statAllocations[stat];
+    });
+    
+    // Update UI and proceed
+    relationshipManager.updateStatsDisplay();
+    
+    // Reset allocations for next time
+    statPointsRemaining = 3;
+    statAllocations = {
+        eloquence: 0,
+        strength: 0,
+        bravery: 0,
+        agility: 0,
+        luck: 0,
+        wisdom: 0
+    };
+    
+    // Continue to next scene
+    goToScene('training_interrupted');
+};
+
+window.updateStatAllocationUI = function() {
+    const pointsDisplay = document.getElementById('points-remaining');
+    if (pointsDisplay) {
+        pointsDisplay.textContent = statPointsRemaining;
+    }
+    
+    // Update each stat display
+    Object.keys(statAllocations).forEach(stat => {
+        const display = document.getElementById(`allocated-${stat}`);
+        const minusBtn = document.getElementById(`minus-${stat}`);
+        const plusBtn = document.getElementById(`plus-${stat}`);
+        
+        if (display) {
+            display.textContent = statAllocations[stat];
+        }
+        if (minusBtn) {
+            minusBtn.disabled = statAllocations[stat] === 0;
+        }
+        if (plusBtn) {
+            plusBtn.disabled = statPointsRemaining === 0 || statAllocations[stat] >= 1;
+        }
+    });
+    
+    // Update confirm button
+    const confirmBtn = document.getElementById('confirm-stats-btn');
+    if (confirmBtn) {
+        confirmBtn.disabled = statPointsRemaining > 0;
+    }
+};

@@ -33,7 +33,7 @@ export const chapter1Scenes = {
                     </div>
 
                     <div class="backstory-option" data-backstory="orphan" onclick="window.selectBackstory('orphan')">
-                        <div class="backstory-title">Street Orphan</div>
+                        <div class="backstory-title">Orphan</div>
                         <div class="backstory-description">
                             The streets raised you when no one else could, or would. You learned to survive on quick wits, quicker fingers, and an instinct for reading people's true intentions. You've slept in doorways, hidden in the streets, and stolen bread to live another day. The powerful have always been your enemies, but you know how to slip between their fingers like smoke.
                         </div>
@@ -42,7 +42,7 @@ export const chapter1Scenes = {
                     <div class="backstory-option" data-backstory="outsider" onclick="window.selectBackstory('outsider')">
                         <div class="backstory-title">Outsider</div>
                         <div class="backstory-description">
-                            You came from beyond the kingdom's borders, carrying strange customs and stranger knowledge. Whether you fled persecution, sought opportunity, or followed a calling, you never quite belonged here. Your accent marks you as different, your ways are often misunderstood, and your words mistrusted, but you see this land's flaws clearly because you're not blind to them by birth.
+                            You came from beyond the kingdom's borders, carrying strange customs and new knowledge. Whether you fled persecution, sought opportunity, or followed a calling, you never quite belonged here. You are marked as different, your ways are often misunderstood, and your words mistrusted, but you see this land's flaws clearly because you're not blind to them by birth.
                         </div>
                     </div>
                 </div>
@@ -106,9 +106,9 @@ export const chapter1Scenes = {
         getContent: function() {
             console.log('Generating first_choice content. Current backstory:', gameState.backstory);
             const backstoryChoices = {
-                'noble': '<button class="choice-button" onclick="window.makeChoice(\'noble_authority\', \'noble_authority_response\')">Invoke your family name: "I demand to speak to the High Inquisitor. This is beneath my station."</button>',
-                'orphan': '<button class="choice-button" onclick="window.makeChoice(\'street_wisdom\', \'street_wisdom_response\')">Call out to familiar faces: "You all know me. Are you really going to let them burn one of your own?"</button>',
-                'outsider': '<button class="choice-button" onclick="window.makeChoice(\'foreign_wisdom\', \'foreign_wisdom_response\')">Share your truth: "You are ruled by fear, and fear alone. But I am not the one you should be afraid of."</button>'
+                'noble': '<button class="choice-button" onclick="window.makeChoice(\'noble_authority\', \'noble_authority_response\')">(Noble) Shout, "I demand to speak to the High Inquisitor. This is a mistake."</button>',
+                'orphan': '<button class="choice-button" onclick="window.makeChoice(\'street_wisdom\', \'street_wisdom_response\')">(Orphan) Shout,"You all know me. Are you really going to let them burn one of your own?"</button>',
+                'outsider': '<button class="choice-button" onclick="window.makeChoice(\'foreign_wisdom\', \'foreign_wisdom_response\')">(Outsider) Shout, "You are ruled by fear, and fear alone. But I am not the one you should be afraid of."</button>'
             };
             
             return `
@@ -144,7 +144,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('backstory_reflection')">Next</button>
             </div>
         `,
-        effects: { kit: -1, fable: 1}
+
     },
 
     begging_response: {
@@ -163,7 +163,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('backstory_reflection')">Next</button>
             </div>
         `,
-        effects: { fable: 1, kit: -1 }
+
     },
 
     silent_response: {
@@ -182,7 +182,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('backstory_reflection')">Next</button>
             </div>
         `,
-        effects: { kit: 1, fable: -1 }
+
     },
 
     noble_authority_response: {
@@ -205,7 +205,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { kit: -1, fable: 1 }
+  
     },
 
     street_wisdom_response: {
@@ -228,7 +228,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { kit: 0, fable: 1 }
+   
     },
 
     foreign_wisdom_response: {
@@ -237,7 +237,7 @@ export const chapter1Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Your voice carries the weight of distant lands, and your words bring new ideas that make the crowd shift uneasily. Some make signs to ward off your influence, but others listen with barely concealed curiosity.
+                    Your voice carries the weight of distant lands, and your words make the crowd shift uneasily. Some make signs to ward off your influence, but others listen with barely concealed curiosity.
                 </div>
                 <div class="dialogue">
                     <div class="character-name">CAPTAIN (voice sharp with warning):</div>
@@ -251,7 +251,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { kit: 1, fable: 2 }
+
     },
 
     backstory_reflection: {
@@ -295,7 +295,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { kit: -1 }
+
     },
 
     orphan_response: {
@@ -325,7 +325,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { fable: 1, kit: 0 }
+ 
     },
 
     outsider_response: {
@@ -355,7 +355,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('fire_scene')">Next</button>
             </div>
         `,
-        effects: { kit: 1 }
+   
     },
 
     fire_scene: {
@@ -403,14 +403,14 @@ export const chapter1Scenes = {
         title: 'Controlled Magic Escape',
         content: `
             <div class="story-text fade-in">
-                <div class="sfx">⚡ A THUNDERCLAP. VIOLET FIRE EXPLODES OUTWARD. ⚡</div>
+                <div class="sfx">A THUNDERCLAP. VIOLET FIRE EXPLODES OUTWARD.</div>
                 <div class="narrator-text">The power flows through you with perfect control. Violet flames dance around your wrists, burning away the ropes with surgical precision. The fire spreads outward in a controlled burst, forcing the Inquisitors back but harming no innocents. The magic seems to dance around the civilians while focused only on your enemies.<br><br>All at once, you stand free as violet sparks play across your hands like tamed lightning. The crowd gasps in awe and terror. Even the Captain stumbles backward, his face pale with shock.<br><br>For the first time in your life, your magic feels like a gift rather than a curse.</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('controlled_magic_choice')">Next</button>
             </div>
         `,
-        effects: { fable:1, kit: 1 }
+   
     },
 
     magic_escape_failure: {
@@ -419,14 +419,14 @@ export const chapter1Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">The power builds within you, but you cannot grasp it. Like trying to hold water in cupped hands, it slips away just when you need it most, just as the torch touches the kindling.<br><br>Flames begin to lick upward. Panic floods your chest as your heart races painfully in your chest. Just when hope seems lost—</div>
-                <div class="sfx">⚡ A THUNDERCLAP. VIOLET FIRE EXPLODES. ⚡</div>
+                <div class="sfx">A THUNDERCLAP. VIOLET FIRE EXPLODES.</div>
                 <div class="narrator-text">The magic erupts from you in a desperate, uncontrolled burst. The ropes burn away, but so does half the platform. Inquisitors are thrown sprawling. The crowd screams, scattering in terror as they dodge sparks and flames.<br><br>Your chest heaves. Wild sparks dance across your hands. You are free, but the power feels dangerous, unpredictable.</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="window.goToScene('fire_choice')">Next</button>
             </div>
         `,
-        effects: { kit: -1, fable: -1 }
+ 
     },
 
     controlled_magic_choice: {
@@ -453,7 +453,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('strangers_arrive')">Next</button>
             </div>
         `,
-        effects: { fable: 1, kit: -1 }
+   
     },
 
     protective_stance_response: {
@@ -467,7 +467,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('strangers_arrive')">Next</button>
             </div>
         `,
-        effects: { fable: 1, kit: 1 }
+     
     },
 
     dramatic_exit_response: {
@@ -481,7 +481,7 @@ export const chapter1Scenes = {
                 <button class="next-button" onclick="window.goToScene('strangers_arrive')">Next</button>
             </div>
         `,
-        effects: { fable: 1, kit: -1 }
+      
     },
 
     fire_choice: {
@@ -507,7 +507,7 @@ export const chapter1Scenes = {
                         <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
                     </div>
                 `,
-                effects: { kit: -1, fable: -1 }
+          
             },
 
             fleeing_response: {
@@ -521,7 +521,7 @@ export const chapter1Scenes = {
                         <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
                     </div>
                 `,
-                effects: { fable: 1, kit: -1 }
+     
             },
 
             frozen_response: {
@@ -535,7 +535,7 @@ export const chapter1Scenes = {
                         <button class="next-button" onclick="goToScene('strangers_arrive')">Next</button>
                     </div>
                 `,
-                effects: { fable: -2, kit: 1 }
+         
             },
 
             strangers_arrive: {
@@ -732,7 +732,7 @@ export const chapter1Scenes = {
                 title: 'Final Choice Setup',
                 content: `
                     <div class="story-text fade-in">
-                        <div class="sfx">🔔 BELLS TOLL. BOOTS THUNDER. 🔔</div>
+                        <div class="sfx">BELLS TOLL. BOOTS THUNDER.</div>
                         <div class="narrator-text">The Inquisition rallies at the square's edge.<br><br>The Captain rises, face twisted in rage. His soldiers form ranks, lanterns burning blood-red.</div>
                         <div class="dialogue">
                             <div class="character-name">CAPTAIN:</div>

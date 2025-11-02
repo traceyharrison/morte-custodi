@@ -202,13 +202,13 @@ magic_not_evil_response: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                You speak with conviction, and Ash listens intently, as if hearing these words for the first time.
+                You speak with calm conviction, and Ash listens intently, as if hearing these words for the first time.
             </div>
         </div>
         <div class="character-scene ash-border fade-in">
             <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
             <div class="character-name">ASH</div>
-            <div class="character-speech">"Control? But that doesn't make any sense... my family loves me. Father Caine blessed our house. They wouldn't..."</div>
+            <div class="character-speech">"Evil? But that doesn't make any sense... my family loves me. Father Caine blessed our house. They wouldn't..."</div>
         </div>
         <div class="story-text fade-in">
             <div class="narrator-text">
@@ -776,7 +776,7 @@ ash_family_revelation: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                As the day progresses, Ash becomes more talkative, though pain still shadows her features and she frequently needs to rest after short periods of activity.
+                Slowly, Ash becomes more talkative, though pain still shadows her features and she frequently needs to rest.
             </div>
         </div>
         <div class="character-scene ash-border fade-in">
@@ -792,7 +792,7 @@ ash_family_revelation: {
         <div class="character-scene ash-border fade-in">
             <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
             <div class="character-name">ASH</div>
-            <div class="character-speech">"They loved me, I think. In their way. But they loved their reputation more. When my magic first appeared, they called it a test from the gods. A trial for them to overcome through faith and discipline. Like I was nothing more than a trial for them to endure."</div>
+            <div class="character-speech">"They loved me, I think. In their way. But they loved their reputation more. When my magic first appeared, they called it a test from the gods. A trial for them to overcome through faith and discipline. Like I was nothing more than a burden for them to endure."</div>
         </div>
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
