@@ -183,16 +183,23 @@ body {
     right: 20px !important;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
     z-index: 998;
-    max-width: 130px;
+    max-width: 100px;
 }
 
 .debug-buttons-container .choice-button {
     margin: 0;
-    font-size: 0.8em;
-    padding: 8px 12px;
-    width: 120px !important;
+    font-size: 0.7em;
+    padding: 6px 8px;
+    width: 90px !important;
+    font-family: 'Lora', serif;
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    border-radius: 6px;
+    color: #f5f5dc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .next-button {
@@ -574,13 +581,14 @@ body {
     .debug-buttons-container {
         bottom: 10px !important;
         right: 10px !important;
-        max-width: 100px;
+        max-width: 80px;
+        gap: 2px;
     }
 
     .debug-buttons-container .choice-button {
-        width: 100px !important;
-        font-size: 0.7em;
-        padding: 6px 8px;
+        width: 75px !important;
+        font-size: 0.6em;
+        padding: 5px 6px;
     }
 
     .title {

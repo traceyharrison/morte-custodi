@@ -34,7 +34,7 @@ export const chapter5Scenes = {
             let highestChar = 'kit';
             let highestValue = relationships.kit;
             
-            // Check each character (now including ash)
+            // Check each character
             ['fable', 'tris', 'chance', 'ash'].forEach(char => {
                 if (relationships[char] > highestValue) {
                     highestValue = relationships[char];
@@ -561,12 +561,139 @@ export const chapter5Scenes = {
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE</div>
-                <div class="character-speech">"I can see you fighting against it. Your magic. You're trying to cage it, force it into submission. But your magic isn't a beast to be tamed, spark. It's a river. You have to learn to flow with it."</div>
+                <div class="character-speech">"I can see you fighting against your magic. You're trying to cage it, force it into submission. But your magic isn't a beast to be tamed, spark. It's a river. You have to learn to flow with it."</div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('fable_evening_guidance')">Listen to His Advice</button>
+                <button class="next-button" onclick="goToScene('fable_evening_eager')">Ask Him to Teach You</button>
+                <button class="next-button" onclick="goToScene('fable_evening_skeptical')">Question His Methods</button>
+                <button class="next-button" onclick="goToScene('fable_evening_guidance')">Listen Quietly</button>
             </div>
         `
+    },
+
+    fable_evening_eager: {
+        id: '5.4.1a',
+        title: 'Eager Student',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You tell Fable that you want to learn from him and his eyes light up with pleasure at your enthusiasm. His smile becomes warmer, more genuine.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Now that's the spirit I like to see."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He steps closer, his movements fluid and confident. There's something infectious about his enthusiasm. He spins shadows around him, ghostly figures dancing in the dim light.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Your willingness to learn tells me everything I need to know. Let me show you something truly beautiful."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_personal_lesson')">Focus on the Lesson</button>
+                <button class="next-button" onclick="goToScene('fable_evening_guidance')">Ask About His Experience</button>
+            </div>
+        `,
+        effects: { fable: 1 }
+    },
+
+    fable_evening_skeptical: {
+        id: '5.4.1b',
+        title: 'Questioning Approach',
+        content: `
+
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You ask Fable how you know his plan will really work and he chuckles, not offended by your disbelief but amused by it.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"A healthy dose of skepticism. I respect that. But remember, control and partnership aren't mutually exclusive, spark."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He extends his hand, and silver light begins to dance between his fingers, controlled, precise, but flowing like water.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"See this? It's disciplined, but not forced. I'm guiding it, not strangling it. There's a difference between control and tyranny, even over your own power."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_convinced')">Acknowledge His Point</button>
+                <button class="next-button" onclick="goToScene('fable_evening_guidance')">Remain Cautious</button>
+            </div>
+        `,
+        effects: { fable: 1 }
+    },
+
+    fable_evening_personal_lesson: {
+        id: '5.4.2a',
+        title: 'Personal Instruction',
+        content: `
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Here, let me show you something I rarely teach others."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Fable moves behind you, his presence warm and reassuring. You feel honored by his trust. Surely that is the reason your heart beats a little faster.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (voice gentle)</div>
+                <div class="character-speech">"Close your eyes. Feel your magic not as something separate from you, but as part of your very essence. Let me guide you to that connection."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    His hands hover near yours, and you can feel both his magic and yours responding to each other. It's intimate in a way that transcends the physical.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_dance')">Trust His Guidance</button>
+            </div>
+        `,
+        effects: { fable: 2 }
+    },
+
+    fable_evening_convinced: {
+        id: '5.4.2b',
+        title: 'Gradual Understanding',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I... I can see what you mean. Can you show me how to find that balance?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Fable nods approvingly, clearly pleased that his demonstration has reached you.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"I can show you. Just trust me."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    There's genuine hope in his voice, and you feel a warmth that has nothing to do with magic.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_guidance')">Begin the Lesson</button>
+            </div>
+        `,
+        effects: { fable: 1 }
     },
 
     fable_evening_guidance: {
@@ -576,7 +703,7 @@ export const chapter5Scenes = {
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE</div>
-                <div class="character-speech">"Here. Let me show you."</div>
+                <div class="character-speech">"Here. Let me..."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -610,7 +737,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Fable's hands finally make contact—one at your waist, the other guiding your arm. The touch is light, respectful, but it sends electricity through you that has nothing to do with magic.
+                    Fable's hands finally make contact, one at your waist, the other guiding your arm. The touch is light, respectful, but it sends electricity through you that has nothing to do with magic.
                 </div>
             </div>
             <div class="character-scene fable-border fade-in">
@@ -692,7 +819,214 @@ export const chapter5Scenes = {
                 </div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('fable_evening_tension')">The Moment Stretches</button>
+                <button class="next-button" onclick="goToScene('fable_evening_bold_move')">Step Closer</button>
+                <button class="next-button" onclick="goToScene('fable_evening_vulnerability')">Share Your Own Fears</button>
+                <button class="next-button" onclick="goToScene('fable_evening_tension')">Let the Moment Build</button>
+            </div>
+        `,
+        effects: { fable: 1 }
+    },
+
+    fable_evening_bold_move: {
+        id: '5.4.5a',
+        title: 'Bold Approach',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You step closer, closing the distance between you. Fable's breath catches, his eyes widening slightly at your boldness.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Maybe I don't want you to see me as just another student, Fable."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The confession hangs in the air between you. Fable's composure wavers, and for once, he seems at a loss for words.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (voice rough)</div>
+                <div class="character-speech">"You're playing with fire, spark. And I'm not sure either of us is ready to burn."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    But he doesn't step away. His hand moves to your waist, fingers barely touching but sending electricity through you anyway.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_intimate')">Hold His Gaze</button>
+                <button class="next-button" onclick="goToScene('fable_evening_tension')">Give Him an Out</button>
+            </div>
+        `,
+        effects: { fable: 3 }
+    },
+
+    fable_evening_vulnerability: {
+        id: '5.4.5b',
+        title: 'Shared Vulnerability',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I understand that loneliness. Sometimes I feel like...like I'll never really belong anywhere."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Fable's expression softens completely. The playful mask drops entirely, revealing something raw and genuine.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (voice tender)</div>
+                <div class="character-speech">"You're not alone anymore."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He reaches out, taking your hands in his. The gesture is gentle, comforting, but charged with something deeper.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Your openness humbles me, \${gameState.playerName}. And one day I'll be able to give it back in return."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_connection')">Squeeze His Hands</button>
+                <button class="next-button" onclick="goToScene('fable_evening_tension')">Thank Him</button>
+            </div>
+        `,
+        effects: { fable: 2 }
+    },
+
+    fable_evening_intimate: {
+        id: '5.4.6a',
+        title: 'Intense Moment',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The space between you disappears completely. Fable's hand slides fully around your waist, pulling you closer. His other hand comes up to cup your face.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (whisper against your lips)</div>
+                <div class="character-speech">"You're going to be the end of me, aren't you?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The question hangs in the charged air. Your magic and his pulse around you both, silver and violet intertwining in impossible patterns.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Only if you let me be."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    For a heartbeat, you think he might close that final distance. But then responsibility crashes back over him like a cold wave.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (reluctantly)</div>
+                <div class="character-speech">"Not here. Not yet. But... soon."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_goodbye_promise')">Accept the Promise</button>
+            </div>
+        `,
+        effects: { fable: 4 }
+    },
+
+    fable_evening_connection: {
+        id: '5.4.6b',
+        title: 'Deep Connection',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You squeeze his hands gently, and Fable's eyes close for a moment as if savoring the simple contact.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"This connection we have... it's not just about magic, is it?"</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"No. It's something more."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He brings your joined hands up between you, studying the way your fingers intertwine as if memorizing the pattern.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (voice full of wonder)</div>
+                <div class="character-speech">"I never expected to find someone who could see past the performance to the person underneath."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('fable_evening_goodbye_warm')">Treasure the Moment</button>
+            </div>
+        `,
+        effects: { fable: 3 }
+    },
+
+    fable_evening_goodbye_promise: {
+        id: '5.4.7a',
+        title: 'A Promise Made',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Fable steps back reluctantly, but his eyes never leave yours. The promise hangs between you like a golden thread.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Until we can explore this properly... know that you've enchanted me completely, \${gameState.playerName}."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He lifts your hand to his lips, pressing a soft kiss to your knuckles that sends heat racing through you.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Sweet dreams, spark. Dream of possibilities."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Watch Him Leave</button>
+            </div>
+        `,
+        effects: { fable: 2 }
+    },
+
+    fable_evening_goodbye_warm: {
+        id: '5.4.7b',
+        title: 'Warm Understanding',
+        content: `
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Thank you for seeing me, truly seeing me. It's a gift I don't take lightly."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He releases your hands slowly, as if reluctant to break the connection.
+                </div>
+            </div>
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE</div>
+                <div class="character-speech">"Rest well tonight. And remember - you're never alone in this journey."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    His smile is soft and genuine as he bows slightly, a gesture of respect that feels more intimate than any grand gesture could.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Bid Him Goodnight</button>
             </div>
         `,
         effects: { fable: 1 }
@@ -761,7 +1095,7 @@ export const chapter5Scenes = {
         `
     },
 
-    // TRIS'S EVENING SCENE
+   // TRIS'S EVENING SCENE
     tris_evening_entrance: {
         id: '5.5.1',
         title: 'Tris Arrives',
@@ -782,9 +1116,99 @@ export const chapter5Scenes = {
                 <div class="character-speech">"I didn't work this hard to heal you just so you could ruin my efforts by pushing yourself too far. You need rest, not more training."</div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('tris_evening_concern')">Try to Explain</button>
+                <button class="next-button" onclick="goToScene('tris_evening_concern')">Apologize for Worrying Her</button>
+                <button class="next-button" onclick="goToScene('tris_evening_defensive')">Insist You're Fine</button>
+                <button class="next-button" onclick="goToScene('tris_evening_playful')">Tease Her About Checking On You</button>
             </div>
         `
+    },
+
+    tris_evening_defensive: {
+        id: '5.5.1b',
+        title: 'Standing Your Ground',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You straighten up, trying to project confidence despite the exhaustion weighing on your limbs.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I'm fine, Tris. Really. I need to practice. I can't afford to lose control again."</div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (eyes narrowing)</div>
+                <div class="character-speech">"Fine? You call this fine?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She crosses the room in three sharp strides, her medical instincts overriding any notion of personal space. Before you can protest, she's grabbed your wrist, her fingers pressing against your pulse point.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice tight)</div>
+                <div class="character-speech">"Elevated heart rate. Fever. Magic exhaustion. Yes, you're doing spectacularly well."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her sarcasm is sharp, but there's genuine worry beneath it. She doesn't let go of your wrist.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (softer)</div>
+                <div class="character-speech">"You don't have to prove anything by destroying yourself. That's not strength. That's just... stupid."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_concern')">Let Her Check You Over</button>
+            </div>
+        `,
+        effects: { tris: 1 }
+    },
+
+    tris_evening_playful: {
+        id: '5.5.1c',
+        title: 'Lightening the Mood',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Despite your exhaustion, you can't help but smile at her concern. There's something endearing about the way she fusses.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"That's sweet, Tris. I didn't know you cared so much."</div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (flustered)</div>
+                <div class="character-speech">"I wasn't—I'm not—This is purely professional concern!"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    A faint blush creeps up her neck, betraying her words. She crosses her arms tighter, as if that will somehow restore her composure.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"Someone has to make sure you don't keel over from exhaustion. Apparently, you lack basic self-preservation instincts."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Despite her stern words, there's a softness in her eyes that wasn't there before. She's trying to maintain her professional distance, but you can see the cracks forming.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (quieter)</div>
+                <div class="character-speech">"Just... let me check you over."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_concern')">Accept Her Care</button>
+            </div>
+        `,
+        effects: { tris: 2 }
     },
 
     tris_evening_concern: {
@@ -793,7 +1217,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    You start to protest, but Tris is already crossing the room toward you. She moves with purpose, her medical instincts clearly overriding any personal boundaries.
+                    You start to protest, but Tris is already examining you.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
@@ -885,10 +1309,91 @@ export const chapter5Scenes = {
                 </div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('tris_evening_confession')">Reach for Her</button>
+                <button class="next-button" onclick="goToScene('tris_evening_confession')">Offer Comfort</button>
+                <button class="next-button" onclick="goToScene('tris_evening_share_grief')">Share Your Own Loss</button>
+                <button class="next-button" onclick="goToScene('tris_evening_reassure')">Reassure Her You're Different</button>
             </div>
         `,
         effects: { tris: 1 }
+    },
+
+    tris_evening_share_grief: {
+        id: '5.5.4b',
+        title: 'Shared Pain',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You find yourself speaking before you fully think it through. About your own losses. About the people you've failed to save. About the weight of carrying on when those you love are gone.
+                </div>
+                    Tris's eyes widen, something shifting in her expression. Recognition. Understanding. The walls she keeps so carefully maintained crack just a little more.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice barely above a whisper)</div>
+                <div class="character-speech">"I thought... I thought no one could understand..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She takes a shaky breath, and you see her fighting for control. For the first time since you've known her, Tris looks truly vulnerable.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"It's been three years. You'd think it would hurt less by now."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Without thinking, you step closer. This time when you reach for her, she doesn't pull away.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_confession')">Let the Moment Settle</button>
+            </div>
+        `,
+        effects: { tris: 2 }
+    },
+
+    tris_evening_reassure: {
+        id: '5.5.4c',
+        title: 'A Promise',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You meet her eyes steadily, letting her see your sincerity. You tell her that you are different and that you will listen to her advice. You promise that you won't push yourself to the point of no return.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"Promises are easy to make. Harder to keep when you're caught up in the moment, when you think you can push just a little further..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her voice trails off, lost in memory. You can see the pain etched in every line of her face.
+                </div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Something in Tris's expression softens. She reaches out almost unconsciously, her fingers brushing against your arm in a gesture that's both hesitant and seeking.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (whisper)</div>
+                <div class="character-speech">"You need to listen..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The vulnerability in her voice catches you off guard. This isn't just about you. It's about the person she lost, about all the times her advice went unheeded.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_confession')">Promise Again</button>
+            </div>
+        `,
+        effects: { tris: 2 }
     },
 
     tris_evening_confession: {
@@ -921,10 +1426,153 @@ export const chapter5Scenes = {
                 </div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('tris_evening_moment')">Promise to Be Careful</button>
+                <button class="next-button" onclick="goToScene('tris_evening_promise')">Promise to Be More Careful</button>
+                <button class="next-button" onclick="goToScene('tris_evening_guilt_acknowledgment')">Acknowledge Her Pain</button>
+                <button class="next-button" onclick="goToScene('tris_evening_moment')">Reach for Her Hand</button>
             </div>
         `,
         effects: { tris: 2 }
+    },
+
+    tris_evening_promise: {
+        id: '5.5.5a',
+        title: 'Making a Promise',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I promise, Tris. I'll be more careful. I'll listen to your medical advice. I won't push myself to the point of collapse anymore."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Relief floods Tris's features. The tension that's been holding her rigid begins to ease.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"You mean it? You're not just saying that to placate me?"</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I mean it. Your expertise has kept me alive this long. I trust you to keep me safe."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Something shifts in Tris's expression—gratitude, respect, and something deeper that she quickly tries to hide.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice soft)</div>
+                <div class="character-speech">"Thank you. That... that means more to me than you know."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_moment')">Share a Look of Understanding</button>
+            </div>
+        `,
+        effects: { tris: 2 }
+    },
+
+    tris_evening_guilt_acknowledgment: {
+        id: '5.5.5b',
+        title: 'Understanding Her Pain',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Tris, you carry so much guilt that isn't yours to bear. You can't save everyone, and the weight of trying will destroy you."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Tris's composure cracks. More tears threaten to fall, but she fights them back.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice breaking)</div>
+                <div class="character-speech">"But if I don't try, who will? If I don't fight for every life, who am I?"</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"You're someone who cares deeply. Someone who's already saved countless lives. Someone who deserves compassion, including from yourself."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Tris looks at you as if seeing something she hadn't noticed before—someone who understands her burden without trying to take it away.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (whisper)</div>
+                <div class="character-speech">"How do you see me so clearly when I can barely see myself?"</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_deeper_connection')">Step Closer</button>
+                <button class="next-button" onclick="goToScene('tris_evening_moment')">Offer Support</button>
+            </div>
+        `,
+        effects: { tris: 3 }
+    },
+
+    tris_evening_deeper_connection: {
+        id: '5.5.6a',
+        title: 'Deeper Understanding',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You step closer, and this time Tris doesn't pull away. Her walls, built so carefully over years of loss, show cracks that let in light.
+                </div>
+                <div class="narrator-text">
+                    Tris reaches out tentatively, her fingers barely brushing yours. The touch is electric, full of unspoken understanding.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"I've been alone with this for so long. I'd forgotten what it felt like to have someone understand."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The moment stretches between you, intimate and fragile. You both seem to realize you're standing closer than before, her hand still touching yours.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (barely audible)</div>
+                <div class="character-speech">"I should go. This is... this is dangerous territory for me."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_goodbye_intimate')">Ask Her to Stay</button>
+                <button class="next-button" onclick="goToScene('tris_evening_goodbye')">Let Her Go</button>
+            </div>
+        `,
+        effects: { tris: 4 }
+    },
+
+    tris_evening_goodbye_intimate: {
+        id: '5.5.7a',
+        title: 'Intimate Goodbye',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You ask her to stay with you, just for a moment longer. Tris's breath catches. Her careful composure wavers, revealing the longing she's been hiding.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"You don't know what you're asking. I'm not... I don't do this."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She stays. For several heartbeats, you stand together in charged silence, her hand warm in yours. Finally, reluctantly, she pulls away.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice thick with emotion)</div>
+                <div class="character-speech">"Goodnight. And remember your promise, please take care of yourself. For both our sakes."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Watch Her Leave</button>
+            </div>
+        `,
+        effects: { tris: 3 }
     },
 
     tris_evening_moment: {
@@ -951,9 +1599,110 @@ export const chapter5Scenes = {
                 </div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('tris_evening_goodbye')">Watch Her Retreat</button>
+                <button class="next-button" onclick="goToScene('tris_evening_goodbye')">Give Her Space</button>
+                <button class="next-button" onclick="goToScene('tris_evening_hold_hand')">Take Her Hand</button>
+                <button class="next-button" onclick="goToScene('tris_evening_close_distance')">Step Closer</button>
             </div>
         `
+    },
+
+    tris_evening_hold_hand: {
+        id: '5.5.6b',
+        title: 'A Gentle Touch',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    As her hand hovers uncertainly between you, you gently take it in yours. Her fingers are cool and trembling slightly. For a moment, she freezes, as if surprised by your boldness.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (breathless)</div>
+                <div class="character-speech">"What are you..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    But she doesn't pull away. Instead, her fingers curl slightly around yours, returning the gentle pressure. You can feel her pulse racing beneath your touch.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (whisper)</div>
+                <div class="character-speech">"I shouldn't... we shouldn't..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    But even as she says it, she's not letting go. Her eyes meet yours, green and conflicted and full of longing she's trying so hard to suppress.
+                    <br><br>
+                    The moment stretches, intimate and fragile. Just the two of you in the quiet training room, hands intertwined, both afraid to break whatever this is becoming.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"I can't...I just...can't"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The confession is raw and honest. You squeeze her hand gently, trying to convey without words that you understand. That you're not going anywhere.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_goodbye')">Let the Moment End</button>
+            </div>
+        `,
+        effects: { tris: 2 }
+    },
+
+    tris_evening_close_distance: {
+        id: '5.5.6c',
+        title: 'Closing the Gap',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You take a small step closer, closing the distance between you. Close enough that you can see the fine details of her face, the slight furrow between her brows, the way her lips part slightly in surprise.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS</div>
+                <div class="character-speech">"What are you doing?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her voice is barely a whisper. She doesn't step back, doesn't create distance. If anything, she seems frozen, caught between fear and want.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Showing you that I'm here. That I'm real."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her breath catches. That hovering hand of hers finally makes contact, fingertips brushing against your cheek with devastating gentleness. Like she's afraid you might shatter.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (voice breaking)</div>
+                <div class="character-speech">"I don't know how to do this. How to care about someone again."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The admission hangs in the air between you. Her hand is still touching your face, trembling slightly. You can see the war happening behind her eyes, between her desire to protect herself and her desire to let someone in.
+                    <br><br>
+                    For a heartbeat, you think she might kiss you. The tension is electric, overwhelming. But then reality crashes back in.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (whisper)</div>
+                <div class="character-speech">"I can't. I'm sorry."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('tris_evening_goodbye')">Respect Her Boundaries</button>
+            </div>
+        `,
+        effects: { tris: 2 }
     },
 
     tris_evening_goodbye: {
@@ -987,7 +1736,6 @@ export const chapter5Scenes = {
             </div>
         `
     },
-
     // CHANCE'S EVENING SCENE
     chance_evening_entrance: {
         id: '5.6.1',
@@ -1440,9 +2188,142 @@ export const chapter5Scenes = {
                 <div class="character-speech">"Tris said I should rest, but I feel like... like I need to move. To do something. To feel my magic without fear for once."</div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('ash_evening_training')">Invite Her In</button>
+                <button class="next-button" onclick="goToScene('ash_evening_encouraging')">Encourage Her Courage</button>
+                <button class="next-button" onclick="goToScene('ash_evening_gentle')">Offer Gentle Support</button>
+                <button class="next-button" onclick="goToScene('ash_evening_training')">Invite Her to Train Together</button>
             </div>
         `
+    },
+
+    ash_evening_encouraging: {
+        id: '5.7.1a',
+        title: 'Encouraging Strength',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                  You tell Ash that it's brave of her to want to face her fears. It takes courage to build something when you feel broken. Her eyes widen at your words. You see her straighten slightly, as if your belief in her strength is helping her find it within herself.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (voice stronger)</div>
+                <div class="character-speech">"I... I never thought of it that way. I've been so focused on what I've lost, I forgot I might be gaining something too."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her magic responds to her changing emotional state, soft energy beginning to shimmer around her hands like smoke caught in a gentle breeze.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (with wonder)</div>
+                <div class="character-speech">"Look at it... it's not angry anymore..."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_confident_training')">Train with Confidence</button>
+                <button class="next-button" onclick="goToScene('ash_evening_training')">Practice Together</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_gentle: {
+        id: '5.7.1b',
+        title: 'Gentle Understanding',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You tell Ash that you believe in her strength. Relief washes over her features. She seems to breathe easier, the tension in her shoulders relaxing.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (gratefully)</div>
+                <div class="character-speech">"Thank you for not making me feel weak for being afraid."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She moves tentatively through the room, and you notice her magic responding to her calmer state, it is a soft blue light that pulses gently with her heartbeat.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Maybe we could start small? I'd like to see if my magic can be gentle again instead of... destructive."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_careful_training')">Start Very Slowly</button>
+                <button class="next-button" onclick="goToScene('ash_evening_training')">Encourage Her Creativity</button>
+            </div>
+        `,
+        effects: { ash: 1 }
+    },
+
+    ash_evening_confident_training: {
+        id: '5.7.2a',
+        title: 'Confident Practice',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Emboldened by your encouragement, Ash moves to the center of the room with more confidence than you've seen from her before.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Show me what you were working on. I want to try to match it."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You demonstrate a simple energy manipulation, and Ash watches intently. When she tries to replicate it, her magic flows smoothly, responding to her and following her intentions without resistance.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (excited)</div>
+                <div class="character-speech">"I did it! I actually did it without anything going wrong!"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her joy is infectious, and you find yourself smiling at her breakthrough moment.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_delight')">Celebrate Her Success</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_careful_training: {
+        id: '5.7.2b',
+        title: 'Careful Progress',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You move slowly and deliberately, showing Ash the most basic exercises. She follows your lead, her movements tentative but growing more sure with each success.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (whisper)</div>
+                <div class="character-speech">"It's working. It's actually listening to me instead of fighting me."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Tears glisten in her eyes—not from sadness, but from relief. She's rediscovering the gentle side of her abilities.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"I thought I'd never feel safe with my magic. Thank you for helping me find a way to start."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_delight')">Enjoy the Moment</button>
+            </div>
+        `,
+        effects: { ash: 2 }
     },
 
     ash_evening_training: {
@@ -1544,9 +2425,285 @@ export const chapter5Scenes = {
                 <div class="character-speech">"Those are still my parents. My family. The people who raised me, even if they... even if they hurt me. How do I fight against everything they believe in? How do I become the enemy of everyone I've ever known?"</div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('ash_evening_comfort')">Step Closer</button>
+                <button class="next-button" onclick="goToScene('ash_evening_empathy')">Share Understanding</button>
+                <button class="next-button" onclick="goToScene('ash_evening_choice_support')">Support Her Right to Choose</button>
+                <button class="next-button" onclick="goToScene('ash_evening_comfort')">Offer Physical Comfort</button>
             </div>
         `
+    },
+
+    ash_evening_empathy: {
+        id: '5.7.4a',
+        title: 'Shared Understanding',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Ash looks up at you with surprise, as if she hadn't expected such understanding.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Do you think I'm a fool for still caring for them? Despite what they did?"</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Love doesn't just disappear because someone hurts you. That doesn't make you weak, it makes you human. And complex. And worthy of compassion, especially from yourself."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Tears start to flow freely down her cheeks, but they seem cleansing rather than despairing.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (voice thick with emotion)</div>
+                <div class="character-speech">"Thank you."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_understanding_comfort')">Reassure Her Further</button>
+                <button class="next-button" onclick="goToScene('ash_evening_comfort')">Offer a Shoulder</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_choice_support: {
+        id: '5.7.4b',
+        title: 'Supporting Her Agency',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Relief visibly washes over Ash's features. Her shoulders relax as if a weight has been lifted.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Everyone seems to expect me to know what I want to do with my life now that everything's changed."</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Your life, your choice, your timeline."</div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (gratefully)</div>
+                <div class="character-speech">"You're the first person who's told me it's okay to not have answers yet. Everyone else acts like I should be ready to rebel or ready to forgive, but I'm just... not ready for anything yet."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_patience_comfort')">Emphasize Patience</button>
+                <button class="next-button" onclick="goToScene('ash_evening_comfort')">Offer Support</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_understanding_comfort: {
+        id: '5.7.5a',
+        title: 'Deep Understanding',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You remind Ash that it's a gift that she still wants to love others at all. She moves closer to you, drawn by your understanding and acceptance.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"I feel like you see me. Not as a victim or a potential rebel, just... as me."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The honesty in her voice is stunning. You realize this moment of connection means everything to someone who's felt so lost and misunderstood.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_tension')">Hold the Moment</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_patience_comfort: {
+        id: '5.7.5b',
+        title: 'Patient Support',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Ash's eyes shine with unshed tears of gratitude. She nods slowly, taking in your words.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"You have no idea how much I needed to hear that. I've been carrying so much pressure to figure everything out immediately."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She reaches out hesitantly, as if asking permission to seek comfort.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (whisper)</div>
+                <div class="character-speech">"Can I...? I just need someone to tell me it's going to be okay."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_tender_moment')">Welcome Her Closer</button>
+                <button class="next-button" onclick="goToScene('ash_evening_tension')">Offer Reassurance</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_tender_moment: {
+        id: '5.7.6a',
+        title: 'Tender Connection',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You open your arms and Ash steps into them gratefully. She's trembling slightly, but not from fear, from relief.
+                </div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She melts into the embrace, and you feel her magic responding, it's warm, gentle, and cool. It wraps around both of you like a soft blanket.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (muffled against your shoulder)</div>
+                <div class="character-speech">"I think... I think I..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She hesitates, her voice barely above a whisper, too afraid to say the words out loud.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_mutual_feelings')">Admit Your Own Feelings</button>
+                <button class="next-button" onclick="goToScene('ash_evening_gentle_response')">Reassure Her Gently</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_mutual_feelings: {
+        id: '5.7.7a',
+        title: 'Mutual Confession',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You gently cup Ash's face, your thumbs brushing away her tears. "It's okay to feel this way. You're not alone."
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (breathless)</div>
+                <div class="character-speech">"Really?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her magic pulses brighter, soft light dancing between you like visible joy. The moment feels precious, fragile, and full of possibility.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (tears of happiness)</div>
+                <div class="character-speech">"I never thought... after everything that's happened..."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_goodbye_romantic')">Share a Tender Moment</button>
+            </div>
+        `,
+        effects: { ash: 4 }
+    },
+
+    ash_evening_gentle_response: {
+        id: '5.7.7b',
+        title: 'Gentle Encouragement',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Ash's expression softens with relief and gratitude. She doesn't pull away from the embrace.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Thank you for not making me feel foolish."</div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (softly)</div>
+                <div class="character-speech">"You make me feel like I might be able to trust my heart again someday."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('ash_evening_goodbye_hopeful')">Encourage Her Hope</button>
+            </div>
+        `,
+        effects: { ash: 2 }
+    },
+
+    ash_evening_goodbye_romantic: {
+        id: '5.7.8a',
+        title: 'Romantic Farewell',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You brush a strand of pink hair from her face, and Ash leans into the touch. The moment is tender, full of new possibility.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Maybe when I'm ready... when I've figured out who I want to be..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She rises on her toes and presses a soft, hesitant kiss to your cheek, it is a promise of what might bloom...when she's ready.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (whisper)</div>
+                <div class="character-speech">"Sweet dreams, \$playerName."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Watch Her Leave</button>
+            </div>
+        `,
+        effects: { ash: 1 }
+    },
+
+    ash_evening_goodbye_hopeful: {
+        id: '5.7.8b',
+        title: 'Hopeful Goodbye',
+        content: `
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"Thank you for tonight. For helping me feel strong again, and for reminding me that it's okay to take time."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She steps back, but her expression is brighter than when she first arrived, now it is hopeful instead of fearful.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH</div>
+                <div class="character-speech">"I think I might actually be able to sleep tonight."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Her smile is genuine and warm as she heads toward the door, carrying herself with more confidence than before.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Bid Her Goodnight</button>
+            </div>
+        `,
+        effects: { ash: 1 }
     },
 
     ash_evening_comfort: {
