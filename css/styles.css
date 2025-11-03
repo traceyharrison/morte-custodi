@@ -758,3 +758,105 @@ body {
     }
 }
 
+/* Character Bios Styles */
+.character-bio-card {
+    background: linear-gradient(135deg, rgba(26, 0, 0, 0.8) 0%, rgba(38, 0, 0, 0.8) 100%);
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.bio-portrait {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.bio-title-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.bio-name {
+    font-size: 2.2em;
+    color: #ffd700;
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.bio-title {
+    font-size: 1.4em;
+    color: #ff6b6b;
+    font-weight: 400;
+    font-style: italic;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+}
+
+.bio-traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.bio-trait {
+    background: linear-gradient(45deg, #8b0000, #590000);
+    color: #ffd700;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.bio-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #f5f5dc;
+    text-align: justify;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness for bios */
+@media (max-width: 768px) {
+    .bio-portrait {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .bio-name {
+        font-size: 1.8em;
+    }
+    
+    .bio-title {
+        font-size: 1.2em;
+    }
+    
+    .character-bio-card {
+        padding: 20px;
+    }
+}

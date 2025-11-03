@@ -5,6 +5,7 @@ import { diceSystem } from './diceSystem.js';
 import { RelationshipManager } from './relationshipManager.js';
 import { UIManager } from './uiManager.js';
 import { saveManager } from './saveManager.js';
+import './characterBios.js';
 
 // Create manager instances
 const relationshipManager = new RelationshipManager();

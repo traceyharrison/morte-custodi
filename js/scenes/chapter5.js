@@ -482,13 +482,13 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Tris stands in the doorway, arms crossed, her expression a mixture of exasperation and concern. She's changed out of her medical robes into simpler evening clothes, her dark hair loose around her shoulders.
+                    Tris stands in the doorway, arms crossed, her expression full of exasperated concern. She's changed out of her medical robes into simpler evening clothes, her dark hair loose.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS</div>
-                <div class="character-speech">"I didn't work this hard to heal you just so you could ruin my efforts by pushing yourself too hard. Your magical channels are still inflamed. You need rest, not more training."</div>
+                <div class="character-speech">"I didn't work this hard to heal you just so you could ruin my efforts by pushing yourself too far. You need rest, not more training."</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('tris_evening_concern')">Try to Explain</button>
@@ -512,7 +512,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    It's not a request. You extend your hands, and Tris takes them in hers. Her touch is clinical at first, examining the faint traces of violet magic still clinging to your fingertips. But then her grip softens.
+                    It's not a request, you realize. You extend your hands, and Tris takes them in hers. Her touch is clinical at first, examining the faint traces of violet magic still clinging to your fingertips. But then her grip softens.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
@@ -522,7 +522,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She doesn't let go of your hands. Her thumbs trace small circles on your wrists—checking your pulse, you tell yourself. But the gesture feels like something more.
+                    She doesn't let go of your hands. Her thumbs trace small circles on your wrists, just checking your pulse, you tell yourself. But your pulse quickens anyway.
                 </div>
             </div>
             <div class="next-container">
@@ -544,7 +544,7 @@ export const chapter5Scenes = {
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS (voice barely above a whisper)</div>
-                <div class="character-speech">"You're reckless. Stubborn. You push yourself too hard and don't know when to stop."</div>
+                <div class="character-speech">"You're reckless and I fear you push yourself too hard and don't know when to stop."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -579,12 +579,14 @@ export const chapter5Scenes = {
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     Her voice cracks on the word 'loved.' She releases your hands suddenly, wrapping her arms around herself as if trying to hold the pieces together.
+                    <br><br>
+                    You are torn between asking for more info and leaving Tris to her thoughts. Before you can decide she speaks anyway.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS</div>
-                <div class="character-speech">"She was a mage too. Powerful, brilliant, stubborn as hell. She pushed herself too hard. Wouldn't listen when I told her to rest. And then one day..."</div>
+                <div class="character-speech">"She was a mage too. Powerful, brilliant, stubborn as hell. But she pushed herself too hard, she got sick and I…no matter what I did I couldn't…"</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -642,19 +644,19 @@ export const chapter5Scenes = {
                 <div class="narrator-text">
                     You promise. Softly, sincerely. You'll be more careful. You'll rest. You'll listen to her medical advice.
                     <br><br>
-                    Tris's shoulders relax slightly. She reaches up, and for a moment you think she might touch your face. Her hand hovers in the space between you, trembling with uncertainty.
+                    Tris's shoulders relax slightly. She reaches up, and for a moment you think she might touch your face. Her hand hovers in the space between you, trembling with uncertainty. She pulls it away and shakes it briefly before composing herself.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS (whisper)</div>
-                <div class="character-speech">"Don't make me regret caring about you."</div>
+                <div class="character-speech">"Good. Don't make me tell you again."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    The words are raw, honest. An admission she clearly didn't mean to make. Her eyes widen slightly, as if surprised by her own vulnerability.
+                    The words are cool but tinged with a lingering soft honesty.
                     <br><br>
-                    Before you can respond, she's already pulling away, rebuilding those walls.
+                    Before you can respond, Tris is already pulling away, rebuilding the walls she keeps tightly around her.
                 </div>
             </div>
             <div class="next-container">
@@ -670,7 +672,7 @@ export const chapter5Scenes = {
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS (voice steadier now)</div>
-                <div class="character-speech">"Get some rest. That's a medical order. And if I find you out here again tonight, I'm prescribing you sleeping draughts."</div>
+                <div class="character-speech">"Get some rest. That's an order. And if I find you out here again tonight, I'm knocking you out myself."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -684,7 +686,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She leaves quickly, almost fleeing. But you saw it—the crack in her armor. The glimpse of the grief and care she keeps locked away.
+                    She leaves quickly, almost fleeing. But you saw it, the crack in her armor. The glimpse of the grief and care she keeps locked away.
                     <br><br>
                     You're left alone in the training room, but somehow, you don't feel quite so alone anymore.
                 </div>
@@ -707,13 +709,13 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Chance materializes in the doorway—and you use the word 'materialize' deliberately, because you're not entirely sure they actually walked there. They lean against the frame with effortless grace, their mismatched eyes twinkling with mischief.
+                    Chance materializes in the doorway, and you use the word 'materialize' deliberately, because you're not entirely sure they actually walked there. They lean against the frame with effortless grace, their violet eyes twinkling with mischief.
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"You're working too hard, darling. All this grim determination and focused intensity. Where's the joy? The beauty? Magic should be fun!"</div>
+                <div class="character-speech">"You're working too hard, love. All this grim determination and focused intensity, we might as well have two Kits running around.. Where's the joy? The beauty? Magic should be fun!"</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -721,9 +723,44 @@ export const chapter5Scenes = {
                 </div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('chance_evening_transformation')">What Are You Doing?</button>
+                <button class="next-button" onclick="goToScene('chance_evening_transformation')">Ask "What Are You Doing?"</button> <br>
+                <button class="next-button" onclick="goToScene('chance_evening_transformation_flirt')">Walk Toward Them</button>
             </div>
         `
+    },
+
+    chance_evening_transformation_flirt: {
+        id: '5.6.2a',
+        title: 'Chance\'s Magic',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You set aside your training and walk toward Chance, matching their playful energy with a slight smile of your own.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (delighted)</div>
+                <div class="character-speech">"Oh? Already intrigued? I like that." They hold out their hand, "Come here, love, let me show you something."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="sfx">THE WORLD SHIMMERS AND TRANSFORMS</div>
+                <div class="narrator-text">
+                    Chance snaps their fingers with a flourish, and the training room dissolves in a shimmering mist. The stone walls become soaring pillars of crystalline stone. The rough floor transforms into polished marble that gleams like starlight in the night.
+                    <br><br>
+                    Chandeliers materialize overhead, cascading with a thousand tiny twinkling lights. The scent of jasmine fills the air. You're standing in a ballroom that shouldn't exist, one that couldn't exist, and yet it feels more real than anything you've known before.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (grinning)</div>
+                <div class="character-speech">"Much better, don't you think? But wait, you're not dressed properly at all!"</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('chance_evening_outfit')">Look Down</button>
+            </div>
+        `,
+        effects: { chance: 1 }
     },
 
     chance_evening_transformation: {
@@ -733,20 +770,20 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"Creating something beautiful, obviously. Watch."</div>
+                <div class="character-speech">"Time to create something beautiful. Watch."</div>
             </div>
             <div class="story-text fade-in">
-                <div class="sfx">✨ THE WORLD SHIMMERS AND TRANSFORMS ✨</div>
+                <div class="sfx">THE WORLD SHIMMERS AND TRANSFORMS</div>
                 <div class="narrator-text">
-                    Chance snaps their fingers, and the training room dissolves like watercolors in rain. The stone walls become soaring pillars of crystal. The rough floor transforms into polished marble that gleams like starlight.
+                    Chance snaps their fingers, and the training room dissolves in a shimmering mist. The stone walls become soaring pillars of crystalline stone. The rough floor transforms into polished marble that gleams like starlight in the night.
                     <br><br>
-                    Chandeliers materialize overhead, cascading with a thousand tiny lights. The scent of night-blooming flowers fills the air. You're standing in a ballroom that shouldn't exist—couldn't exist—yet feels more real than reality itself.
+                    Chandeliers materialize overhead, cascading with a thousand tiny twinkling lights. The scent of jasmine fills the air. You're standing in a ballroom that shouldn't exist, one that couldn't exist, and yet it feels more real than anything you've known before.
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE (grinning)</div>
-                <div class="character-speech">"Much better, don't you think? But wait, you're not dressed for a ball."</div>
+                <div class="character-speech">"Much better, don't you think? But wait, you're not dressed properly at all!"</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('chance_evening_outfit')">Look Down</button>
@@ -761,7 +798,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Another shimmer, and your training clothes have been replaced. You're now wearing something elegant, flowing, that catches the light like captured moonbeams. It fits perfectly, moving with you like a second skin.
+                    Another shimmer, and your training clothes have been replaced. Transformed. You're now wearing something elegant and flowing, it catches the light like smoke. It fits perfectly, moving with you like a second skin before flowing down your legs like a breeze.
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
@@ -781,8 +818,40 @@ export const chapter5Scenes = {
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('chance_evening_dance')">Take Their Hand</button>
+                <button class="next-button" onclick="goToScene('chance_evening_dance_curtsy')">Curtsy First</button>
             </div>
         `
+    },
+
+    chance_evening_dance_curtsy: {
+        id: '5.6.4b',
+        title: 'The Dance',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You perform a curtsy, playing along with the theatricality of it all.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (eyes sparkling)</div>
+                <div class="character-speech">Chance lets out a laugh and they perform an exaggerated bow in response, before holding out their hand "Shall we?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="sfx">MUSIC FILLS THE AIR</div>
+                <div class="narrator-text">
+                    You take Chance's hand, and suddenly there is music, soft and haunting, coming from nowhere and everywhere at once. They guide you into the dance with effortless grace. 
+                    <br><br>
+                    The music swells, and you find yourself moving with them across the marble floor. Their purple eyes never leave yours, and there's something about the way they look at you, full of mischief and warmth, that makes it impossible to look away.
+                    <br><br>
+                    The dance is effortless. Joyful. Beautiful.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('chance_evening_flirtation')">Continue Dancing</button>
+            </div>
+        `,
+        effects: { chance: 1 }
     },
 
     chance_evening_dance: {
@@ -790,9 +859,9 @@ export const chapter5Scenes = {
         title: 'The Dance',
         content: `
             <div class="story-text fade-in">
-                <div class="sfx">♪ MUSIC FILLS THE AIR ♪</div>
+                <div class="sfx">MUSIC FILLS THE AIR</div>
                 <div class="narrator-text">
-                    The moment your hand touches Chance's, music swells from nowhere and everywhere at once. It's beautiful, haunting, the kind of melody that makes your chest ache with feelings you don't have words for.
+                    The moment your hand touches Chance's, music swells from nowhere and everywhere at once. It's beautiful, haunting and mysterious, the kind of melody that makes your chest ache.
                     <br><br>
                     Chance pulls you into the dance with practiced ease. They lead with confidence, spinning you across the impossible ballroom floor. Their movements are fluid, dreamlike, as if gravity holds them loosely.
                 </div>
@@ -800,11 +869,11 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE (smiling)</div>
-                <div class="character-speech">"See? This is so much better than exhausting yourself with combat drills. Magic should feel like this—effortless, joyful, beautiful."</div>
+                <div class="character-speech">"See? This is so much better than exhausting yourself with combat drills. Magic should feel like this; effortless, joyful, beautiful."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    They dip you, and you find yourself staring up into their mismatched eyes. One blue, one violet, both full of mischief and something deeper.
+                    They dip you, and you find yourself staring up into their purple eyes. So full of mischief and yet…something deeper.
                 </div>
             </div>
             <div class="next-container">
@@ -825,13 +894,13 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Their hand at your waist tightens slightly. You're pressed close enough to feel the warmth of them, to catch the scent of something sweet and exotic—like dreams made tangible.
+                    Their hand at your waist tightens slightly. You're pressed close enough to feel the warmth of them, to catch the scent of something sweet and floral, like dreams in a midnight garden.
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"The others, they're all so serious. Training you like you're going to war. But they forget—magic is an art, not just a weapon. And you, my dear, have the soul of an artist."</div>
+                <div class="character-speech">"The others, they're all so serious. Training you like you're going to war. But they forget magic is an art, not just a weapon. And you have the soul of an artist."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -841,13 +910,89 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE (voice low, intimate)</div>
-                <div class="character-speech">"I could teach you such beautiful things. How to walk in dreams. How to make reality bend to your imagination. How to turn your magic into poetry."</div>
+                <div class="character-speech">"I could teach you such beautiful things, love. How to walk in dreams. How to make reality bend to your imagination. How to turn your magic into poetry. Just say the word…"</div>
             </div>
             <div class="next-container">
-                <button class="next-button" onclick="goToScene('chance_evening_moment')">Lost in the Moment</button>
+                <button class="next-button" onclick="goToScene('chance_evening_moment')">Get lost in the Moment</button>
+                <button class="next-button" onclick="goToScene('chance_evening_moment_tease')">Tease Them Back</button>
+                <button class="next-button" onclick="goToScene('chance_evening_moment_curious')">I Want to Learn</button>
             </div>
         `,
         effects: { chance: 1 }
+    },
+
+    chance_evening_moment_tease: {
+        id: '5.6.6a',
+        title: 'Suspended in Time',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You lean closer, matching their energy with a playful smile of your own.
+                <div class="character-name">${gameState.playerName.toUpperCase()} (teasing)</div>
+                <div class="character-speech">"Big promises from someone who just materialized in my doorway. Can you actually deliver?"</div>
+                                </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (delighted laugh)</div>
+                <div class="character-speech">"Oh, I like you. Challenge accepted."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The music slows, becoming something softer, more intimate. The ballroom seems to contract around you until it feels like only the two of you exist. Chance's hand moves to brush a strand of hair from your face, their fingers lingering against your cheek.
+                    <br><br>
+                    Their lilac eyes hold yours, and for a heartbeat, the playful mask slips. There's something vulnerable beneath it, something almost desperate.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (whisper)</div>
+                <div class="character-speech">"You see through illusions so easily. What do you desire, I wonder? Not what the others want for you. What do <i>you</i> want?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Their thumb traces along your jawline. The question hangs in the air between you, heavy with meaning.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('chance_evening_ending')">The Moment Fades</button>
+            </div>
+        `,
+        effects: { chance: 2 }
+    },
+
+    chance_evening_moment_curious: {
+        id: '5.6.6b',
+        title: 'Suspended in Time',
+        content: `
+                <div class="character-name">${gameState.playerName.toUpperCase()}</div>
+                <div class="character-speech">You lean forward, "Show me. I want to understand this kind of magic."</div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (softening)</div>
+                <div class="character-speech">"Such genuine curiosity. No fear, no judgment. Just...wonder. That's rare."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The music slows, becoming something softer, more intimate. The ballroom seems to contract around you until it feels like only the two of you exist. Chance's hand moves to brush a strand of hair from your face, their fingers lingering against your cheek.
+                    <br><br>
+                    Their lilac eyes hold yours, and for a heartbeat, the playful mask slips. There's something vulnerable beneath it, something almost desperate.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (whisper)</div>
+                <div class="character-speech">"I could show you everything. Dreams within dreams. Worlds that exist only in possibility. But first...what do <i>you</i> desire? Not what the others want for you. What do you want?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Their thumb traces along your jawline. The question hangs in the air between you, heavy with meaning.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('chance_evening_reality')">The Moment Fades</button>
+            </div>
+        `,
+        effects: { chance: 2 }
     },
 
     chance_evening_moment: {
@@ -874,11 +1019,11 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"What do you desire, I wonder? What dreams do you keep locked away?"</div>
+                <div class="character-speech">"What do you desire, I wonder?"</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    The question hangs in the air between you, heavy with implication. Chance's mismatched eyes hold yours, waiting, inviting.
+                    The question hangs in the air between you, heavy with implication. Chance's lilac eyes hold yours, waiting, and utterly inviting.
                 </div>
             </div>
             <div class="next-container">
@@ -912,10 +1057,44 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"Remember, darling—reality is just the dream we all agree to share. But you and I? We know better."</div>
+                <div class="character-speech">"Remember, love, reality is just the dream we all agree to share, but there is so much more to see."</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('chance_evening_goodbye')">Watch the Last Traces Fade</button>
+                <button class="next-button" onclick="goToScene('chance_evening_goodbye_reach')">Reach for Them</button>
+            </div>
+        `
+    },
+
+    chance_evening_goodbye_reach: {
+        id: '5.6.8a',
+        title: 'Goodnight',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You reach out instinctively, not wanting the moment to end.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (catching your hand)</div>
+                <div class="character-speech">"Don't worry, we'll dream together again. I promise."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    They lift your hand to their lips and press a gentle kiss to your knuckles. Then, with a playful wink, they blow you a kiss.
+                    <br><br>
+                    And simply cease to exist.
+                    <br><br>
+                    No dramatic exit. No puff of smoke. One moment they are there, smiling at you with those lilac eyes, and the next moment they are simply...gone. As if they had never been there at all.
+                    <br><br>
+                    You stand alone in the training room, the scent of jasmine still lingering in the air. The only proof that any of it happened.
+                    <br><br>
+                    Had any of it been real?
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">End of Evening</button>
             </div>
         `
     },
@@ -927,13 +1106,13 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"Sweet dreams, beautiful soul. And if you find yourself wanting to dance again... you know where to find me."</div>
+                <div class="character-speech">"Sweet dreams, ${gameState.playerName}. And if you find yourself wanting to dance again... you know where to find me."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    They blow you a kiss, theatrical and playful. Then they're gone—not walking away, but simply ceasing to be there, as if they were never more than a beautiful dream themselves.
+                    They blow you a kiss, theatrical and playful. Then they're gone, but not by walking away, but by simply ceasing to be there, as if they were never more than a beautiful dream themselves.
                     <br><br>
-                    You're alone in the training room once more. But the scent of night-blooming flowers still lingers in the air, and you can still feel the phantom warmth of Chance's hand in yours.
+                    You're alone in the training room once more. But the scent of jasmine still lingers in the air, and you can still feel the phantom warmth of Chance's hand in yours.
                     <br><br>
                     Had any of it been real? With Chance, you're never quite sure. And perhaps that's exactly how they like it.
                 </div>
@@ -991,7 +1170,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She extends her hand, and small ice crystals begin to form in her palm. They're delicate, beautiful—like snowflakes suspended in time. Her face transforms as she watches them, wonder replacing the usual tension.
+                    She extends her hand, and small ice crystals begin to form in her palm. They're delicate, beautiful, just like snowflakes suspended in time. Her face transforms as she watches them, wonder replacing the usual tension.
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
@@ -1012,7 +1191,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Encouraged by your presence, Ash grows bolder. Frost spreads across the floor in intricate patterns—not chaotic or dangerous, but artistic. Controlled. She creates shapes in the air: flowers of ice, delicate spirals, crystalline birds that hover for a moment before melting away.
+                    Encouraged by your presence, Ash grows bolder. Frost spreads across the floor in intricate patterns, but it's not chaotic or dangerous, it's artistic. Controlled. She creates shapes in the air: flowers of ice, delicate spirals, crystalline birds that hover for a moment before melting away.
                     <br><br>
                     Her laughter is unexpected, light and genuine. It transforms her entire face, making her look younger, freer.
                 </div>
@@ -1024,7 +1203,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    You show her your own magic in response—violet energy dancing between your fingers. For a moment, your powers intertwine, ice and lightning creating something entirely new and beautiful.
+                    You show her your own magic in response, you let violet energy dance between your fingers. For a moment, your powers intertwine, ice and lightning creating something entirely new and beautiful.
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
@@ -1123,7 +1302,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Neither of you moves. The training room feels suddenly smaller, more intimate. Ash's magic responds to her emotions—tiny ice crystals forming in the air around you both like stars.
+                    Neither of you moves. The training room feels suddenly smaller, more intimate. Ash's magic responds to her emotions and tiny ice crystals start forming in the air around you both like stars.
                     <br><br>
                     Her hand trembles as she reaches up, fingers hovering near your cheek, mirroring your earlier gesture. For a heartbeat, you think she might close the distance between you.
                 </div>
@@ -1135,7 +1314,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She can't finish the sentence. Her cheeks flush pink, almost matching her hair. The vulnerability in her expression is overwhelming—raw and honest and terrifying for someone who's spent her whole life being told to suppress everything.
+                    She can't finish the sentence. Her cheeks flush pink, almost matching her hair. The vulnerability in her expression is overwhelming, it is raw and honest and terrifying for someone who's spent her whole life being told to suppress everything.
                     <br><br>
                     The moment hangs between you, fragile and electric. Everything feels possible and impossible at once.
                 </div>
@@ -1153,7 +1332,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Then, suddenly, Ash steps back. Her hand falls away, and she wraps her arms around herself again—protective, defensive.
+                    Then, suddenly, Ash steps back. Her hand falls away, and she wraps her arms around herself again once again protective and defensive.
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
@@ -1215,16 +1394,14 @@ export const chapter5Scenes = {
                 <div class="narrator-text">
                     You finally leave the training room, your mind full of everything that just transpired. The safehouse is quiet, most of its inhabitants already asleep.
                     <br><br>
-                    As you make your way to your quarters, you find yourself thinking about the person who joined you tonight. Their words, their touch, the vulnerability or playfulness they shared.
-                    <br><br>
-                    Whatever tomorrow brings, you know one thing for certain—your relationships with the Morte Custodi are growing more complicated. More intimate. More real.
+                    As you make your way to your quarters, you find yourself thinking about all that transpired tonight. And you know that whatever tomorrow brings, one thing is sure: your relationships with the Morte Custodi are growing more substantial and more complicated. More intimate.
                     <br><br>
                     And somehow, that doesn't frighten you as much as it probably should.
+                    <br><br>
+                    <strong>END OF DEMO</strong>
                 </div>
             </div>
-            <div class="next-container">
-                <button class="next-button" onclick="goToScene('chapter3_morning')">Sleep and Dream</button>
-            </div>
+       
         `
     }
 };

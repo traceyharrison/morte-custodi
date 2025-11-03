@@ -10,6 +10,7 @@
 
     <div class="game-container">
           <button class="choice-button" onclick="window.openSaveMenu()" style="width: 120px; background: linear-gradient(45deg, #380202, #290101);">Save/Load</button>
+          <button class="choice-button" onclick="window.openCharacterBios()" style="position: absolute; top: 20px; right: 20px; width: 140px; background: linear-gradient(45deg, #4a0e4e, #2d0a2e);">Character Bios</button>
         <h1 class="title">Morte Custodi</h1>
         <h2 class="chapter-title" id="chapter-indicator"></h2> 
 
@@ -76,6 +77,15 @@
               <button class="choice-button" onclick="window.closeSaveMenu()" style="margin-top: 15px;">Close</button>
             <h3 style="color: #ffd700; margin-top: 0;">Save & Load</h3>
             <div id="save-slots-container"></div>
+        </div>
+    </div>
+
+    <!-- Character Bios Menu -->
+    <div id="character-bios-menu" class="save-menu" style="display: none;">
+        <div class="save-menu-content" style="max-width: 900px;">
+            <button class="choice-button" onclick="window.closeCharacterBios()" style="margin-top: 15px;">Close</button>
+            <h3 style="color: #ffd700; margin-top: 0;">Character Bios</h3>
+            <div id="character-bios-container"></div>
         </div>
     </div>
     
