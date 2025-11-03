@@ -4,7 +4,7 @@ export const characterBios = {
     
     fable: {
         name: "Fable Voss",
-        title: "Leader of the Morte Custodi",
+        title: "Leader of the Morte Custodi <br> he/him",
         image: CHARACTER_IMAGES.fable,
         description: `A warm and empathetic leader who carries the unbearable burden of centuries on his shoulders. Fable presents himself as a friendly, cheerful mentor to the rebellion, but beneath that mask lies a man haunted by unfathomable grief and an impossible burden.
         <br><br>
@@ -16,7 +16,7 @@ export const characterBios = {
     
     kit: {
         name: "Kit Alderidge",
-        title: "The Defector",
+        title: "The Defector <br> he/him",
         image: CHARACTER_IMAGES.kit,
         description: `Fable's second-in-command and a man whose past is written in the blood of those he once hunted. Kit is stoic, distant, and fiercely pragmatic. He knows what he is: a soldier. One who carries the weight of his sins like armor on his back. His sharp amber eyes and military bearing speak to years spent serving the very regime he now fights against.
         <br><br>
@@ -28,7 +28,7 @@ export const characterBios = {
     
     chance: {
         name: "Chance DeBeaux",
-        title: "The Dream Weaver",
+        title: "The Dream Weaver <br> they/them",
         image: CHARACTER_IMAGES.chance,
         description: `Charming, witty, and devastatingly flirtatious, Chance is the rebellion's trickster and dream-mage, someone who keeps everyone at arm's length with a roguish smile and glowing lilac eyes. With curly white hair and an easy demeanor, they seem approachable yet untouchable. That's the carefully constructed lie they want you to believe.
         <br><br>
@@ -40,7 +40,7 @@ export const characterBios = {
     
     tris: {
         name: "Tris Marian",
-        title: "The Healer",
+        title: "The Healer <br> she/her",
         image: CHARACTER_IMAGES.tris,
         description: `A skilled healer carrying the weight of every life she couldn't save. Tris is gruff, clinical, and often brusque, using her sharp tongue as armor against the emotional toll of her work. She often pushes herself to the point of exhaustion, driven by guilt and an unrelenting need to protect others.
         <br><br>
@@ -52,7 +52,7 @@ export const characterBios = {
     
     ash: {
         name: "Ash Juvadi",
-        title: "The Infiltrator",
+        title: "The Infiltrator <br> she/her",
         image: CHARACTER_IMAGES.ash,
         description: `Tall, thin, and pale with striking pink hair and eyes, Ash is fragile in a way that makes you want to protect her, and that fragility is both genuine and dangerous. She struggles with fractured loyalties, a woman yearning desperately for belonging but unsure where she truly fits.
         <br><br>

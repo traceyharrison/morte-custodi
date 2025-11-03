@@ -90,7 +90,7 @@ window.skipToChapter5 = () => {
     gameState.skipToChapter4(); // Use chapter 4 state as base
     relationshipManager.updateMoodDisplay();
     document.getElementById('chapter-indicator').textContent = 'Chapter 5: Hunted';
-    sceneManager.goToScene('evening_training_start');
+    sceneManager.goToScene('chapter5_start');
 };
 
 // Scene selector function

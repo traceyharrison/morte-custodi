@@ -17,7 +17,7 @@ body {
 .game-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 70px 20px 20px;
     min-height: 100vh;
     position: relative;
 }
@@ -123,6 +123,76 @@ body {
     box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
     background: linear-gradient(45deg, #4d0000, #330000);
     border-color: #ffd700;
+}
+
+.save-load-button {
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 120px;
+    padding: 12px 16px;
+    background: linear-gradient(45deg, #380202, #290101);
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    color: #f5f5dc;
+    font-size: 0.9em;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.save-load-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(45deg, #4d0000, #330000);
+    border-color: #ffd700;
+}
+
+.bios-button {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 100px;
+    padding: 8px 12px;
+    background: linear-gradient(45deg, #4a0e4e, #2d0a2e);
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    color: #f5f5dc;
+    font-size: 0.9em;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bios-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 14, 78, 0.4);
+    background: linear-gradient(45deg, #5a1e5e, #3d1a3e);
+    border-color: #ffd700;
+}
+
+.debug-buttons-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 998;
+    max-width: 130px;
+}
+
+.debug-buttons-container .choice-button {
+    margin: 0;
+    font-size: 0.8em;
+    padding: 8px 12px;
+    width: 120px !important;
 }
 
 .next-button {
@@ -485,6 +555,34 @@ body {
         padding-top: 80px;
     }
 
+    .save-load-button {
+        top: 10px !important;
+        left: 10px !important;
+        width: 100px;
+        padding: 10px 12px;
+        font-size: 0.8em;
+    }
+
+    .bios-button {
+        top: 10px !important;
+        right: 10px !important;
+        width: 80px;
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+
+    .debug-buttons-container {
+        bottom: 10px !important;
+        right: 10px !important;
+        max-width: 100px;
+    }
+
+    .debug-buttons-container .choice-button {
+        width: 100px !important;
+        font-size: 0.7em;
+        padding: 6px 8px;
+    }
+
     .title {
         font-size: 1.6em;
         margin-bottom: 15px;
@@ -560,26 +658,7 @@ body {
 
     .ash-mood { color: #e05ec4; }
 
-    /* Fix overlapping buttons */
-    .game-container > .choice-button:first-child {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        width: 90px !important;
-        font-size: 0.8em !important;
-        padding: 8px 6px !important;
-        z-index: 100;
-    }
 
-    .game-container > .choice-button:nth-child(2) {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        width: 70px !important;
-        font-size: 0.8em !important;
-        padding: 8px 6px !important;
-        z-index: 100;
-    }
 }
 
 /* Save/Load Menu */
@@ -667,7 +746,7 @@ body {
 /* Relationship Notifications */
 .relationship-notification {
     position: fixed;
-    top: 20px;
+    top: 70px;
     right: -300px;
     padding: 15px 25px;
     border-radius: 8px;
@@ -728,7 +807,7 @@ body {
         padding: 10px 15px;
         right: -250px;
         max-width: calc(100vw - 40px);
-        top: 60px;
+        top: 50px;
     }
     
     .relationship-notification.show {

@@ -92,6 +92,8 @@ export const chapter5Scenes = {
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('kit_evening_training')">Accept His Offer</button>
+                <button class="next-button" onclick="goToScene('kit_evening_training_tease')">Tease Him About Watching</button>
+                <button class="next-button" onclick="goToScene('kit_evening_training_grateful')">Thank Him for Coming</button>
             </div>
         `
     },
@@ -117,6 +119,107 @@ export const chapter5Scenes = {
                     He releases your wrist, but the ghost of his touch lingers. You reset your stance, trying again. This time, you listen to his advice. You remind yourself: Yield. Flow. Control.
                     <br><br>
                     The next exchange is smoother. Almost dance-like. When you finally land a hit, it is gentle, but precise, and Kit actually smiles. It's small and fleeting, but genuine.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_opening_up')">Catch Your Breath</button>
+            </div>
+        `,
+        effects: { kit: 1 }
+    },
+
+    kit_evening_training_tease: {
+        id: '5.3.2b',
+        title: 'Teasing Kit',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    You can't help but smile at his serious demeanor. Despite yourself, you find his intensity endearing rather than intimidating.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Were you watching me this whole time? I didn't realize I had an audience for my terrible form."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    For a moment, Kit looks caught off guard. A faint flush creeps up his neck, and you realize you've hit closer to the truth than you intended.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (clearing throat)</div>
+                <div class="character-speech">"I was... making sure you weren't going to hurt yourself. Your technique needs work."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    His attempt at returning to his professional tone is undermined by the way he avoids your eyes. You've successfully flustered the usually composed Kit Alderidge.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (clearing throat)</div>
+                <div class="character-speech">"Well, since I'm here anyway, I suppose some guidance wouldn't hurt."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_training_close')">Begin Sparring</button>
+            </div>
+        `,
+        effects: { kit: 1 }
+    },
+
+    kit_evening_training_grateful: {
+        id: '5.3.2c',
+        title: 'Gratitude',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Thank you, Kit. I... I wasn't expecting company, but I'm glad you're here."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Your sincerity seems to catch him off guard. His amber eyes soften, and for a moment, the walls he keeps carefully constructed seem to lower just a fraction.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"You don't need to thank me. We're... we look out for each other here."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He hesitates on the word 'we,' as if he's not quite sure where he fits in that equation, or perhaps where you fit in his carefully ordered world.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"Besides, late-night training sessions can be dangerous without a spotter. Come on."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_training_close')">Begin Sparring</button>
+            </div>
+        `,
+        effects: { kit: 2 }
+    },
+
+    kit_evening_training_close: {
+        id: '5.3.2d',
+        title: 'Close Combat Training',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Kit moves like water, each strike deliberate and controlled. But this time, there's an added awareness between you both. The air feels charged with something unspoken.
+                    <br><br>
+                    His hand catches your wrist mid-strike, redirecting your momentum. For a moment, you're close enough to see the faint scar along his jawline, to feel the warmth radiating from him despite his cool demeanor.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (voice low)</div>
+                <div class="character-speech">"You're too tense. Fighting like this isn't about force. It's about knowing when to yield and when to strike."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    He releases your wrist, but the ghost of his touch lingers. The lesson continues, but now every correction, every adjustment of your stance feels more intimate. You're hyper-aware of his presence, the way he moves around you, the occasional brush of his fingers when he corrects your form.
                 </div>
             </div>
             <div class="next-container">
@@ -187,6 +290,8 @@ export const chapter5Scenes = {
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('kit_evening_tension')">Step Closer</button>
+                <button class="next-button" onclick="goToScene('kit_evening_understanding')">Share Your Understanding</button>
+                <button class="next-button" onclick="goToScene('kit_evening_comfort')">Offer Comfort</button>
             </div>
         `,
         effects: { kit: 1 }
@@ -227,6 +332,192 @@ export const chapter5Scenes = {
         effects: { kit: 2 }
     },
 
+    kit_evening_understanding: {
+        id: '5.3.5b',
+        title: 'Shared Understanding',
+        content: `
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I understand that feeling. But you're not the same person who wore that uniform, Kit."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Kit's eyes widen slightly at your words. You can see him processing them, turning them over in his mind like stones in a river.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"How can you be so certain? You barely know me."</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"I know enough. I know you're here, training with me instead of getting rest. I know you care more than you let on."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    For a moment, Kit is quiet. The vulnerability in his expression is raw, unguarded. Then, slowly, he reaches out and touches your hand.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (quietly)</div>
+                <div class="character-speech">"Thank you."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_moment')">Hold His Gaze</button>
+                <button class="next-button" onclick="goToScene('kit_evening_goodbye_warm')">Let the Moment Settle</button>
+            </div>
+        `,
+        effects: { kit: 2 }
+    },
+
+    kit_evening_comfort: {
+        id: '5.3.5c',
+        title: 'Offering Comfort',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Without thinking, you reach out and place your hand on his arm. Kit tenses for a moment, then gradually relaxes under your touch.
+                </div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"The past doesn't have to define us, Kit. What matters is who you choose to be now."</div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"Easy to say. Harder to believe."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    But even as he says it, his eyes soften. Your touch seems to ground him, pulling him back from whatever dark memories were threatening to surface.
+              <br>    Kit stares at you for a long moment, something shifting in his expression. Surprise, gratitude, and something deeper you can't quite name.
+                    </div>
+            </div>
+
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (voice rough)</div>
+                <div class="character-speech">"How do you do that? You actually make it seem...possible"</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_moment')">Move Closer</button>
+                <button class="next-button" onclick="goToScene('kit_evening_goodbye_warm')">Give Him Space</button>
+            </div>
+        `,
+        effects: { kit: 3 }
+    },
+
+    kit_evening_moment: {
+        id: '5.3.5d',
+        title: 'A Tender Moment',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    The air between you shifts, becoming something electric and tender. Kit's breathing has changed, deeper and more careful. You're close enough to see the gold flecks in his amber eyes, close enough to feel the warmth radiating from him.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (barely a whisper)</div>
+                <div class="character-speech">"This is dangerous territory."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    His hand rises to cup your cheek, thumb brushing gently across your skin. For a heartbeat, the world narrows to just this moment, this touch, this possibility hanging between you.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"You're going to be the death of me, \${gameState.playerName}."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    But he doesn't pull away. Not this time.
+                </div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('kit_evening_goodbye_intimate')">Lean Into His Touch</button>
+            </div>
+        `,
+        effects: { kit: 3 }
+    },
+
+    kit_evening_goodbye_warm: {
+        id: '5.3.6b',
+        title: 'Warm Farewell',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Kit takes a step back, but his expression is softer now, more open than you've ever seen it. The walls are still there, but they're not as high as before.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"I should let you get some rest. But... thank you. For listening. For understanding."</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">"Anytime, Kit. We're in this together, remember?"</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    A genuine smile crosses his features – small, but real.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"I... I like the sound of that. Goodnight, \${gameState.playerName}."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Retire for the Night</button>
+            </div>
+        `,
+        effects: { kit: 1 }
+    },
+
+    kit_evening_goodbye_intimate: {
+        id: '5.3.6c',
+        title: 'Intimate Goodbye',
+        content: `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Kit's thumb traces along your jawline, and you lean into the touch. For a moment that feels like eternity, you exist in this bubble of warmth and possibility.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (voice soft)</div>
+                <div class="character-speech">"I want to stay. But if I do..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Understanding passes between you. This isn't rejection – it's restraint born of caring too much, not too little.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"When this is over... when we're not running for our lives..."</div>
+            </div>
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    It's a promise, unspoken but understood. He presses a gentle kiss to your forehead before pulling roughly away, as though surprised by his own impulsiveness.
+                </div>
+            </div>
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT</div>
+                <div class="character-speech">"Sweet dreams, \${gameState.playerName}."</div>
+            </div>
+            <div class="next-container">
+                <button class="next-button" onclick="goToScene('evening_end')">Retire for the Night</button>
+            </div>
+        `,
+        effects: { kit: 4 }
+    },
+
     kit_evening_goodbye: {
         id: '5.3.6',
         title: 'Goodnight',
@@ -239,7 +530,7 @@ export const chapter5Scenes = {
             <div class="character-scene kit-border fade-in">
                 <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
                 <div class="character-name">KIT</div>
-                <div class="character-speech">"Rest well, ${gameState.playerName}."</div>
+                <div class="character-speech">"Rest well, \${gameState.playerName}."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -393,7 +684,7 @@ export const chapter5Scenes = {
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE (voice soft)</div>
-                <div class="character-speech">"But you're not a monster, ${gameState.playerName}. You're magnificent. You just need to see yourself that way too."</div>
+                <div class="character-speech">"But you're not a monster, \${gameState.playerName}. You're magnificent. You just need to see yourself that way too."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -1106,7 +1397,7 @@ export const chapter5Scenes = {
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"Sweet dreams, ${gameState.playerName}. And if you find yourself wanting to dance again... you know where to find me."</div>
+                <div class="character-speech">"Sweet dreams, \${gameState.playerName}. And if you find yourself wanting to dance again... you know where to find me."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
