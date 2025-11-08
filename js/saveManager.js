@@ -92,7 +92,15 @@ class SaveManager {
             gameState.choices = [...saveData.gameState.choices];
             
             // Validate and fix stats if needed
-            const loadedStats = saveData.gameState.stats;
+            let loadedStats = { ...saveData.gameState.stats };
+            
+            // Migrate old "luck" stat to "control" if it exists
+            if (loadedStats.luck !== undefined && loadedStats.control === undefined) {
+                console.warn('Migrating old "luck" stat to "control"');
+                loadedStats.control = loadedStats.luck;
+                delete loadedStats.luck;
+            }
+            
             const allStatsZero = Object.values(loadedStats).every(stat => stat === 0);
             
             if (allStatsZero && gameState.backstory && ['noble', 'orphan', 'outsider'].includes(gameState.backstory)) {
@@ -100,7 +108,26 @@ class SaveManager {
                 // Reinitialize stats based on backstory
                 gameState.setBackstory(gameState.backstory);
             } else {
-                gameState.stats = { ...loadedStats };
+                // Ensure all required stats exist with default values
+                const defaultStats = {
+                    eloquence: 0,
+                    strength: 0,
+                    bravery: 0,
+                    agility: 0,
+                    control: 0,
+                    wisdom: 0
+                };
+                gameState.stats = { ...defaultStats, ...loadedStats };
+                
+                console.log('Loaded stats after validation:', gameState.stats);
+                
+                // If we still have zero stats after loading and there's a backstory, reinitialize
+                const stillAllZero = Object.values(gameState.stats).every(stat => stat === 0);
+                if (stillAllZero && gameState.backstory && ['noble', 'orphan', 'outsider'].includes(gameState.backstory)) {
+                    console.warn('Stats still zero after loading, reinitializing from backstory');
+                    gameState.setBackstory(gameState.backstory);
+                    console.log('Stats after backstory reinitialization:', gameState.stats);
+                }
             }
             
             gameState.lastRoll = saveData.gameState.lastRoll;

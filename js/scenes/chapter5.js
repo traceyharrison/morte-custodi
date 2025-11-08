@@ -1456,7 +1456,7 @@ export const chapter5Scenes = {
         title: 'Making a Promise',
         content: `
             <div class="character-scene fade-in">
-                <div class="player-speech">"I promise, Tris. I'll be more careful. I'll listen to your medical advice. I won't push myself to the point of collapse anymore."</div>
+                <div class="player-speech">"I promise, Tris. I'll be more careful. I'll listen to your medical advice."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -1469,7 +1469,7 @@ export const chapter5Scenes = {
                 <div class="character-speech">"You mean it? You're not just saying that to placate me?"</div>
             </div>
             <div class="character-scene fade-in">
-                <div class="player-speech">"I mean it. Your expertise has kept me alive this long. I trust you to keep me safe."</div>
+                <div class="player-speech">"I mean it. I trust you to keep me safe."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -1479,7 +1479,7 @@ export const chapter5Scenes = {
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS (voice soft)</div>
-                <div class="character-speech">"Thank you. That... that means more to me than you know."</div>
+                <div class="character-speech">"Thank you."</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('tris_evening_moment')">Share a Look of Understanding</button>

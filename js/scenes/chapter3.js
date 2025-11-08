@@ -256,10 +256,10 @@ choose_trainer: {
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">Who will be your first teacher?</h3>
-            <button class="choice-button" onclick="makeChoice('train_with_kit', 'kit_training_start')">Train with Kit—learn discipline and control through combat drills</button>
-            <button class="choice-button" onclick="makeChoice('train_with_fable', 'fable_training_start')">Train with Fable—explore the deeper nature of magic and history</button>
-            <button class="choice-button" onclick="makeChoice('train_with_tris', 'tris_training_start')">Let Tris examine you—understand the medical reality of your power</button>
-            <button class="choice-button" onclick="makeChoice('train_with_chance', 'chance_training_start')">Train with Chance—explore magic through dreams and meditation</button>
+            <button class="choice-button" onclick="makeChoice('train_with_kit', 'kit_training_start')">Train with Kit: learn discipline and control through combat drills</button>
+            <button class="choice-button" onclick="makeChoice('train_with_fable', 'fable_training_start')">Train with Fable: explore the deeper nature of magic and history</button>
+            <button class="choice-button" onclick="makeChoice('train_with_tris', 'tris_training_start')">Let Tris examine you: understand the medical reality of your power</button>
+            <button class="choice-button" onclick="makeChoice('train_with_chance', 'chance_training_start')">Train with Chance: explore magic through dreams and meditation</button>
         </div>
     `
 },
@@ -267,7 +267,8 @@ choose_trainer: {
 kit_training_start: {
     id: '3.7.0',
     title: 'Kit Training Start',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 Kit leads you to a cleared space in the safehouse's lower level. Stone walls bear scorch marks and blade scars, all evidence of previous training sessions. He's laid out a series of objects: candles, water bowls, stones, and metal rods.
@@ -288,7 +289,8 @@ kit_training_start: {
             'magic_control',
             'control'
         )}
-    `,
+    `;
+    },
     effects: { kit: 1 }
 },
 
@@ -415,7 +417,8 @@ fable_belonging_response: {
 fable_demonstration: {
     id: '3.9.0',
     title: 'Fable Demonstration',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 Fable extends his hand, and dark shadows gather around his fingers. It is not ordinary darkness, but something deeper, that shimmers like an oil slick. The shadows take shape, flowing into the form of soldiers, rebels, and friends long gone. They move like memories given form, dancing around Fable before disappearing into the darkness once more.
@@ -436,7 +439,8 @@ fable_demonstration: {
             'magic_control',
             'control'
         )}
-    `
+    `;
+    }
 },
 
 magic_harmony_success: {
@@ -927,7 +931,8 @@ wait_others_choice: {
 magic_attack_brave: {
     id: '3.16.1',
     title: 'Magic Attack - Brave Rush',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 You let your raw magic explode outward, violet lightning crackling toward the nearest Hollow. Your charge has filled you with determination and you will not let this woman suffer the same fate you nearly did.
@@ -943,13 +948,15 @@ magic_attack_brave: {
             'magic_control',
             'bravery'
         )}
-    `
+    `;
+    }
 },
 
 weapon_attack_brave: {
     id: '3.16.2',
     title: 'Weapon Attack - Brave Rush',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 You grab a fallen branch, channeling a bit of magic into it to make it solid as steel. Your rush gives you momentum as you swing at the nearest Hollow's glowing core.
@@ -965,13 +972,15 @@ weapon_attack_brave: {
             'strength',
             'bravery'
         )}
-    `
+    `;
+    }
 },
 
 magic_attack_wise: {
     id: '3.16.3',
     title: 'Magic Attack - Wise Observation',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 You focus your magic precisely, targeting the patterns you observed. Your knowledge from watching first guides your strike to their vulnerable moments when they slow down.
@@ -987,7 +996,8 @@ magic_attack_wise: {
             'magic_control',
             'wisdom'
         )}
-    `
+    `;
+    }
 },
 
 weapon_attack_wise: {
@@ -1015,7 +1025,8 @@ weapon_attack_wise: {
 magic_attack_group: {
     id: '3.16.5',
     title: 'Magic Attack - Group Coordination',
-    content: `
+    getContent: () => {
+        return `
         <div class="story-text fade-in">
             <div class="narrator-text">
                 You coordinate your magic with Kit's blade work, timing your strikes to support the group effort. Working together makes each attack more effective.
@@ -1031,7 +1042,8 @@ magic_attack_group: {
             'magic_control',
             'control'
         )}
-    `
+    `;
+    }
 },
 
 weapon_attack_group: {

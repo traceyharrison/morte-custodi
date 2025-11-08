@@ -30,7 +30,7 @@ fable_chase_1: {
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE</div>
-            <div class="character-speech">"Not exactly the most graceful of escapes, is it? Try not to trip over your own feet—it rather ruins the legend we're building!"</div>
+            <div class="character-speech">"Not exactly the most graceful of escapes, is it? Try not to trip over your own feet; it rather ruins the legend we're building!"</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('kit_chase_1')">Next</button>
@@ -903,7 +903,7 @@ kit_urgent: {
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
             <div class="character-name">KIT</div>
-            <div class="character-speech">"Walk faster. The Inquisition know these passages exist—they just don't know which ones we use...yet."</div>
+            <div class="character-speech">"Walk faster. The Inquisition know these passages exist; they just don't know which ones we use...yet."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('safehouse_arrival')">Next</button>
@@ -1133,7 +1133,7 @@ chance_dreams: {
         <div class="character-scene chance-border fade-in">
             <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
             <div class="character-name">CHANCE</div>
-            <div class="character-speech">"Hey, you never would have been found without me. I was the one who saw you first. In my dreams, no less. Woke up one night muttering about you and look—here you are. Exactly as I pictured. Just a little more... singed, perhaps."</div>
+            <div class="character-speech">"Hey, you never would have been found without me. I was the one who saw you first. In my dreams, no less. Woke up one night muttering about you and look, here you are. Exactly as I pictured. Just a little more... singed, perhaps."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('dreams_choice')">Next</button>
@@ -1327,7 +1327,7 @@ treatment_choice: {
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond to Tris's treatment?</h3>
             <button class="choice-button" onclick="makeChoice('grateful_treatment', 'grateful_treatment_response')">Sit politely, "Thank you. I appreciate the kindness."</button>
-            <button class="choice-button" onclick="makeChoice('cold_treatment', 'cold_treatment_response')">Pull roughly away from her, "I didn't ask for any of this."</button>
+            <button class="choice-button" onclick="makeChoice('cold_treatment', 'cold_treatment_response')">Pull roughly away from her in anger, "Enough. I didn't ask for any of this."</button>
             <button class="choice-button" onclick="makeChoice('observant_treatment', 'observant_treatment_response')">Look at Tris, "How often do you do this sort of thing?"</button>
         </div>
     `
@@ -1377,7 +1377,7 @@ cold_treatment_response: {
             <button class="next-button" onclick="goToScene('kit_independence')">Next</button>
         </div>
     `,
-    effects: { tris: -2, kit: -2, fable: -4, chance:-1}
+    effects: { tris: -4, kit: -2, fable: -4, chance:-1}
 },
 
 kit_independence: {
@@ -1701,7 +1701,7 @@ chance_night_scene: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                Before you can decide where to go, your door opens softly. Chance leans against the doorframe, silhouetted by corridor candlelight, their white curls catching the glow like a halo.
+                Just as you close your eyes, your door opens softly. Chance leans against the doorframe, silhouetted by corridor candlelight, their white curls catching the glow like a halo.
             </div>
         </div>
         <div class="character-scene chance-border fade-in">
@@ -1711,7 +1711,7 @@ chance_night_scene: {
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you respond?</h3>
-            <button class="choice-button" onclick="makeChoice('invite_in', 'chance_enters')">Invite them in—you could use the company</button>
+            <button class="choice-button" onclick="makeChoice('invite_in', 'chance_enters')">Invite them in, you could use the company</button>
             <button class="choice-button" onclick="makeChoice('wary_chance', 'chance_wary_response')">Ask suspiciously what they mean by "loud dreams"</button>
             <button class="choice-button" onclick="makeChoice('flirt_chance', 'chance_flirt_response')">Smile and say "Depends on your intentions"</button>
         </div>
@@ -1995,7 +1995,7 @@ tris_gift: {
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">Do you read the book?</h3>
-            <button class="choice-button" onclick="makeChoice('read_book', 'tris_book_consequence')">Read it—the mystery sounds intriguing</button>
+            <button class="choice-button" onclick="makeChoice('read_book', 'tris_book_consequence')">Read it, after all the mystery sounds intriguing</button>
             <button class="choice-button" onclick="makeChoice('sleep_instead', 'tris_obey_orders')">Take her advice and try to sleep instead</button>
         </div>
     `
@@ -2139,8 +2139,8 @@ kit_training_offer: {
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How do you approach this impromptu lesson?</h3>
             <button class="choice-button" onclick="makeChoice('eager_student', 'kit_good_student')">Pay careful attention and follow his instructions exactly</button>
-            <button class="choice-button" onclick="makeChoice('natural_fighter', 'kit_impressed')">Trust your instincts—you've been in fights before</button>
-            <button class="choice-button" onclick="makeChoice('nervous_blade', 'kit_patience')">Hesitate—you've never held a weapon like this</button>
+            <button class="choice-button" onclick="makeChoice('natural_fighter', 'kit_impressed')">Trust your instincts; you've been in fights before</button>
+            <button class="choice-button" onclick="makeChoice('nervous_blade', 'kit_patience')">Hesitate; you've never held a weapon like this</button>
         </div>
     `
 },
@@ -2172,7 +2172,7 @@ kit_impressed: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                You take the dagger and fall into a stance that feels natural—weight on your back foot, blade held defensively. Kit's eyebrows rise slightly.
+                You take the dagger and fall into a stance that feels natural, with the weight on your back foot, blade held defensively. Kit's eyebrows rise slightly.
             </div>
         </div>
         <div class="character-scene kit-border fade-in">
@@ -2256,7 +2256,7 @@ kit_gift: {
         <div class="character-scene kit-border fade-in">
             <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
             <div class="character-name">KIT (gesturing to the dagger you're holding)</div>
-            <div class="character-speech">"Keep it. You'll need a blade of your own. This one's well-balanced for a beginner—not too heavy, good steel. Wear it always. Even here, especially here."</div>
+            <div class="character-speech">"Keep it. You'll need a blade of your own. This one's well-balanced for a beginner, it's not too heavy, good steel. Wear it always. Even here, especially here."</div>
         </div>
         <div class="story-text fade-in">
             <div class="narrator-text">

@@ -21,15 +21,21 @@ class DiceSystem {
         const totalModifier = backstoryModifier + statModifier;
         
         let modifierText = '';
-        if (backstoryModifier !== 0 || statModifier !== 0) {
+        if (backstoryModifier !== 0 || statModifier !== 0 || statType) {
             modifierText = '<div class="dice-modifier">';
+            
+            // Always show the stat being used if specified
+            if (statType) {
+                const statName = statType.charAt(0).toUpperCase() + statType.slice(1);
+                modifierText += `<strong>Using ${statName} Stat</strong> (${statModifier >= 0 ? '+' : ''}${statModifier})<br>`;
+            }
+            
+            // Show backstory modifier if it exists
             if (backstoryModifier !== 0) {
                 modifierText += `Backstory Modifier: ${backstoryModifier >= 0 ? '+' : ''}${backstoryModifier}<br>`;
             }
-            if (statModifier !== 0 && statType) {
-                const statName = statType.charAt(0).toUpperCase() + statType.slice(1);
-                modifierText += `${statName} Bonus: ${statModifier >= 0 ? '+' : ''}${statModifier}<br>`;
-            }
+            
+            // Show total if there are any modifiers
             if (totalModifier !== 0) {
                 modifierText += `<strong>Total Modifier: ${totalModifier >= 0 ? '+' : ''}${totalModifier}</strong>`;
             }
