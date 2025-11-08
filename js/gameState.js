@@ -29,7 +29,7 @@ class GameState {
             strength: 0,     // Physical power, combat
             bravery: 0,      // Mental fortitude, resisting fear
             agility: 0,      // Dexterity, reflexes, acrobatics
-            luck: 0,         // Magic rolls, fortunate circumstances
+            control: 0,      // Magic rolls, magical control
             wisdom: 0        // Insight, knowledge, strategy
         };
     }
@@ -60,7 +60,7 @@ class GameState {
                         bravery: 2,
                         strength: 2,
                         agility: 1,
-                        luck: 2
+                        control: 2
                     };
                     break;
                 case 'orphan':
@@ -68,17 +68,17 @@ class GameState {
                     this.stats = {
                         agility: 4,
                         bravery: 4,
-                        luck: 2,
+                        control: 2,
                         eloquence: 1,
                         strength: 2,
                         wisdom: 2
                     };
                     break;
                 case 'outsider':
-                    // Outsider: Highest in strength and luck
+                    // Outsider: Highest in strength and control
                     this.stats = {
                         strength: 4,
-                        luck: 4,
+                        control: 4,
                         wisdom: 2,
                         bravery: 2,
                         eloquence: 2,
@@ -99,20 +99,15 @@ class GameState {
         const normalizedChar = character.toLowerCase();
         if (this.relationships[normalizedChar] !== undefined) {
             this.relationships[normalizedChar] += value;
-            this.relationships[normalizedChar] = Math.max(-15, Math.min(15, this.relationships[normalizedChar]));
+            this.relationships[normalizedChar] = Math.max(-100, Math.min(100, this.relationships[normalizedChar]));
         }
     }
 
     // Get stat modifier for a specific type of roll
     getStatModifier(statType) {
-        console.log('getStatModifier called with:', statType);
-        console.log('Current stats:', this.stats);
-        
         if (this.stats[statType] !== undefined) {
-            console.log(`Returning stat value for ${statType}:`, this.stats[statType]);
             return this.stats[statType];
         }
-        console.log('Stat type not found, returning 0');
         return 0;
     }
 
@@ -144,7 +139,7 @@ class GameState {
         this.stats = {
             agility: 4,
             bravery: 4,
-            luck: 2,
+            control: 2,
             eloquence: 1,
             strength: 2,
             wisdom: 2
@@ -160,7 +155,7 @@ class GameState {
         this.stats = {
             agility: 4,
             bravery: 4,
-            luck: 2,
+            control: 2,
             eloquence: 1,
             strength: 2,
             wisdom: 2
@@ -176,7 +171,7 @@ class GameState {
         this.stats = {
             agility: 4,
             bravery: 4,
-            luck: 2,
+            control: 2,
             eloquence: 1,
             strength: 2,
             wisdom: 2

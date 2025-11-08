@@ -19,6 +19,12 @@ class SaveManager {
 
     // Save the current game state to localStorage
     saveGame(slot = 'manual') {
+        // Validate gameState before saving
+        if (!gameState || !gameState.stats || !gameState.relationships) {
+            console.error('Invalid gameState detected during save:', gameState);
+            return false;
+        }
+
         const saveData = {
             version: '1.0',
             timestamp: new Date().toISOString(),
@@ -33,6 +39,13 @@ class SaveManager {
                 rollHistory: [...gameState.rollHistory]
             }
         };
+
+        // Log what we're about to save for debugging
+        console.log('Saving game data:', {
+            scene: saveData.gameState.currentScene,
+            stats: saveData.gameState.stats,
+            relationships: saveData.gameState.relationships
+        });
 
         try {
             const key = slot === 'auto' ? this.autoSaveKey : `${this.saveKey}_${slot}`;
@@ -58,13 +71,38 @@ class SaveManager {
 
             const saveData = JSON.parse(savedData);
             
+            // Validate loaded data
+            if (!saveData.gameState || !saveData.gameState.stats || !saveData.gameState.relationships) {
+                console.error('Invalid save data:', saveData);
+                return false;
+            }
+
+            // Log what we're loading for debugging
+            console.log('Loading game data:', {
+                scene: saveData.gameState.currentScene,
+                stats: saveData.gameState.stats,
+                relationships: saveData.gameState.relationships
+            });
+            
             // Restore game state
             gameState.currentScene = saveData.gameState.currentScene;
             gameState.playerName = saveData.gameState.playerName;
             gameState.backstory = saveData.gameState.backstory;
             gameState.relationships = { ...saveData.gameState.relationships };
             gameState.choices = [...saveData.gameState.choices];
-            gameState.stats = { ...saveData.gameState.stats };
+            
+            // Validate and fix stats if needed
+            const loadedStats = saveData.gameState.stats;
+            const allStatsZero = Object.values(loadedStats).every(stat => stat === 0);
+            
+            if (allStatsZero && gameState.backstory && ['noble', 'orphan', 'outsider'].includes(gameState.backstory)) {
+                console.warn('Detected old save with zero stats, reinitializing based on backstory:', gameState.backstory);
+                // Reinitialize stats based on backstory
+                gameState.setBackstory(gameState.backstory);
+            } else {
+                gameState.stats = { ...loadedStats };
+            }
+            
             gameState.lastRoll = saveData.gameState.lastRoll;
             gameState.rollHistory = [...saveData.gameState.rollHistory];
 
@@ -72,6 +110,22 @@ class SaveManager {
             
             // Update UI to reflect loaded state
             relationshipManager.updateMoodDisplay();
+            relationshipManager.updateStatsDisplay();
+            
+            // Update chapter indicator if it exists
+            const chapterIndicator = document.getElementById('chapter-indicator');
+            if (chapterIndicator) {
+                // Try to determine chapter from scene name
+                if (gameState.currentScene.startsWith('chapter2')) {
+                    chapterIndicator.textContent = 'Chapter 2: In the Shadows';
+                } else if (gameState.currentScene.startsWith('chapter3')) {
+                    chapterIndicator.textContent = 'Chapter 3: Awakening Power';
+                } else if (gameState.currentScene.startsWith('chapter4')) {
+                    chapterIndicator.textContent = 'Chapter 4: Revelations';
+                } else if (gameState.currentScene.startsWith('chapter5')) {
+                    chapterIndicator.textContent = 'Chapter 5: Bonds and Betrayals';
+                }
+            }
             
             // Navigate to the saved scene
             sceneManager.goToScene(gameState.currentScene);

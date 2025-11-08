@@ -392,7 +392,7 @@ export const chapter1Scenes = {
                     'magic_escape_failure',
                     difficulty,
                     'magic_control',
-                    'luck'
+                    'control'
                 )}
             `;
         }
@@ -626,7 +626,7 @@ export const chapter1Scenes = {
                     <div class="character-scene kit-border fade-in">
                         <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
                         <div class="character-name">KIT (curt but respectful)</div>
-                        <div class="character-speech">"Well met, \${gameState.playerName}. Now that introductions are done—we need to move. More guards coming. We can get to know each other later."</div>
+                        <div class="character-speech">"Well met, \${gameState.playerName}. Now that introductions are done, we need to move. More guards coming. We can get to know each other later."</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('final_choice_setup')">Next</button>
@@ -752,7 +752,7 @@ export const chapter1Scenes = {
                     <div class="character-scene fable-border fade-in">
                         <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                         <div class="character-name">FABLE (urgent, extending hand)</div>
-                        <div class="character-speech">"Choice time, spark. With us — or with them?"</div>
+                        <div class="character-speech">"Choice time, spark. With us or with them?"</div>
                     </div>
                     <div class="next-container">
                         <button class="next-button" onclick="goToScene('final_choice')">Next</button>

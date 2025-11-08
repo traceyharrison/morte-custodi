@@ -480,7 +480,11 @@ export const chapter5Scenes = {
     kit_evening_goodbye_intimate: {
         id: '5.3.6c',
         title: 'Intimate Goodbye',
-        content: `
+        getContent: () => {
+            const isHighRelationship = gameState.relationships.kit > 15;
+            console.log('Kit relationship check:', gameState.relationships.kit, 'High relationship:', isHighRelationship);
+            
+            return `
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     Kit's thumb traces along your jawline, and you lean into the touch. For a moment that feels like eternity, you exist in this bubble of warmth and possibility.
@@ -494,27 +498,36 @@ export const chapter5Scenes = {
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     Understanding passes between you. This isn't rejection – it's restraint born of caring too much, not too little.
+                    ${isHighRelationship ? '<br><br>But there\'s something deeper in his eyes tonight - a vulnerability you\'ve never seen before, as if all his careful walls are finally crumbling.' : ''}
                 </div>
             </div>
+            ${isHighRelationship ? `
+            <div class="character-scene kit-border fade-in">
+                <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+                <div class="character-name">KIT (whispered confession)</div>
+                <div class="character-speech">You've completely undone me, you know that? I've spent so long keeping everyone at arm's length, and then you... you just walked right through every defense I had.</div>
+            </div>
+            ` : ''}
             <div class="character-scene kit-border fade-in">
                 <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
                 <div class="character-name">KIT</div>
-                <div class="character-speech">"When this is over... when we're not running for our lives..."</div>
+                <div class="character-speech">${isHighRelationship ? 'When this is over... I want to try. To let someone in completely. To let you in.' : 'When this is over... when we\'re not running for our lives...'}</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    It's a promise, unspoken but understood. He presses a gentle kiss to your forehead before pulling roughly away, as though surprised by his own impulsiveness.
+                    ${isHighRelationship ? 'His confession hangs between you like a sacred vow. He cups your face in both hands, his thumb brushing across your cheek with reverent tenderness.' : 'It\'s a promise, unspoken but understood.'} He presses a gentle kiss to your forehead${isHighRelationship ? ', then lingers there, his breath warm against your skin' : ''} before pulling roughly away, as though surprised by his own impulsiveness.
                 </div>
             </div>
             <div class="character-scene kit-border fade-in">
                 <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
                 <div class="character-name">KIT</div>
-                <div class="character-speech">"Sweet dreams, \${gameState.playerName}."</div>
-            </div>
+                <div class="character-speech">${isHighRelationship ? 'Sweet dreams, my heart.' : `Good night, ${gameState.playerName}.`}</div>
+            </div> 
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('evening_end')">Retire for the Night</button>
             </div>
-        `,
+        `;
+        },
         effects: { kit: 4 }
     },
 
@@ -747,7 +760,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    He guides you through a series of movements—fluid, graceful, almost like a waltz. The violet magic follows your motion, no longer fighting but flowing. It's beautiful. Natural.
+                    He guides you through a series of movements, they're fluid, graceful, almost like a waltz. The violet magic follows your motion, no longer fighting but flowing. It's beautiful. Natural.
                     <br><br>
                     You're acutely aware of every point where Fable's body nearly touches yours. The warmth of his breath against your neck. The way his fingers press just slightly more firmly when correcting your posture.
                 </div>
@@ -835,19 +848,12 @@ export const chapter5Scenes = {
                 <div class="narrator-text">
                     You step closer, closing the distance between you. Fable's breath catches, his eyes widening slightly at your boldness.
                 </div>
-            </div>
-            <div class="character-scene fade-in">
-                <div class="player-speech">"Maybe I don't want you to see me as just another student, Fable."</div>
-            </div>
-            <div class="story-text fade-in">
-                <div class="narrator-text">
-                    The confession hangs in the air between you. Fable's composure wavers, and for once, he seems at a loss for words.
-                </div>
+                    You tell Fable that you want to be more than just a student to him. The confession hangs in the air between you. Fable's composure wavers, and for once, he seems at a loss for words.
             </div>
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE (voice rough)</div>
-                <div class="character-speech">"You're playing with fire, spark. And I'm not sure either of us is ready to burn."</div>
+                <div class="character-speech">"You're playing with fire, spark."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -900,39 +906,53 @@ export const chapter5Scenes = {
     fable_evening_intimate: {
         id: '5.4.6a',
         title: 'Intense Moment',
-        content: `
+        getContent: () => {
+            const isHighRelationship = gameState.relationships.fable > 15;
+            console.log('Fable relationship check:', gameState.relationships.fable, 'High relationship:', isHighRelationship);
+            
+            return `
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     The space between you disappears completely. Fable's hand slides fully around your waist, pulling you closer. His other hand comes up to cup your face.
+                    ${isHighRelationship ? '<br><br>There\'s an intensity in his silver eyes that makes your breath catch - raw, unguarded emotion that he\'s never let you see before.' : ''}
                 </div>
             </div>
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE (whisper against your lips)</div>
-                <div class="character-speech">"You're going to be the end of me, aren't you?"</div>
+                <div class="character-speech">${isHighRelationship ? `You're going to be the end of me, aren't you? And I find... I don't care anymore.` : `You're going to be the end of me, aren't you?`}</div>
+            </div>
+            <div class="character-scene fade-in">
+                <div class="player-speech">${isHighRelationship ? 'Then fall. I\'ll catch you.' : 'Only if you let me be.'}</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     The question hangs in the charged air. Your magic and his pulse around you both, silver and violet intertwining in impossible patterns.
+                    ${isHighRelationship ? '<br><br>His thumb traces your cheekbone with a tenderness that surprises you both.' : ''}
                 </div>
             </div>
-            <div class="character-scene fade-in">
-                <div class="player-speech">"Only if you let me be."</div>
+            ${isHighRelationship ? `
+            <div class="character-scene fable-border fade-in">
+                <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+                <div class="character-name">FABLE (voice breaking slightly)</div>
+                <div class="character-speech">I've spent my entire life in control. Planning every move, calculating every risk. But with you... I want to let go. I want to fall.</div>
             </div>
+            ` : ''}
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    For a heartbeat, you think he might close that final distance. But then responsibility crashes back over him like a cold wave.
+                    For a heartbeat, you think he might close that final distance. ${isHighRelationship ? 'His lips are barely a breath away from yours, and you can feel his heart racing against your chest.' : ''} But then responsibility crashes back over him like a cold wave.
                 </div>
             </div>
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE (reluctantly)</div>
-                <div class="character-speech">"Not here. Not yet. But... soon."</div>
+                <div class="character-speech">${isHighRelationship ? 'Not here. Not yet. But when we\'re safe... I want to explore what this could be. What we could be.' : 'Not here. Not yet. But... soon.'}</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('fable_evening_goodbye_promise')">Accept the Promise</button>
             </div>
-        `,
+        `;
+        },
         effects: { fable: 4 }
     },
 
@@ -967,7 +987,7 @@ export const chapter5Scenes = {
                 <button class="next-button" onclick="goToScene('fable_evening_goodbye_warm')">Treasure the Moment</button>
             </div>
         `,
-        effects: { fable: 3 }
+        effects: { fable: 2 }
     },
 
     fable_evening_goodbye_promise: {
@@ -1008,7 +1028,7 @@ export const chapter5Scenes = {
             <div class="character-scene fable-border fade-in">
                 <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
                 <div class="character-name">FABLE</div>
-                <div class="character-speech">"Thank you for seeing me, truly seeing me. It's a gift I don't take lightly."</div>
+                <div class="character-speech">"Thank you. It's a gift I don't take lightly."</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
@@ -1129,11 +1149,8 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    You straighten up, trying to project confidence despite the exhaustion weighing on your limbs.
+                    You straighten up, trying to project confidence despite the exhaustion weighing on your limbs. You tell Tris that you're perfectly fine and capable of handling a bit more practice.
                 </div>
-            </div>
-            <div class="character-scene fade-in">
-                <div class="player-speech">"I'm fine, Tris. Really. I need to practice. I can't afford to lose control again."</div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
@@ -1456,7 +1473,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Something shifts in Tris's expression—gratitude, respect, and something deeper that she quickly tries to hide.
+                    Something shifts in Tris's expression, you see gratitude, respect, and something else that she quickly tries to hide.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
@@ -1493,7 +1510,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Tris looks at you as if seeing something she hadn't noticed before—someone who understands her burden without trying to take it away.
+                    Tris looks at you as if seeing something she hadn't noticed before, that you're someone who understands her burden without trying to take it away.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
@@ -1547,31 +1564,49 @@ export const chapter5Scenes = {
     tris_evening_goodbye_intimate: {
         id: '5.5.7a',
         title: 'Intimate Goodbye',
-        content: `
+        getContent: () => {
+            const isHighRelationship = gameState.relationships.tris > 15;
+            console.log('Tris relationship check:', gameState.relationships.tris, 'High relationship:', isHighRelationship);
+            
+            return `
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     You ask her to stay with you, just for a moment longer. Tris's breath catches. Her careful composure wavers, revealing the longing she's been hiding.
+                    ${isHighRelationship ? '<br><br>For the first time since you\'ve known her, she looks truly vulnerable - all her medical detachment stripped away.' : ''}
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS</div>
-                <div class="character-speech">"You don't know what you're asking. I'm not... I don't do this."</div>
+                <div class="character-speech">${isHighRelationship ? 'You don\'t know what you\'re asking. I\'m not... I don\'t do this. But with you... maybe I want to try.' : 'You don\'t know what you\'re asking. I\'m not... I don\'t do this.'}</div>
             </div>
+            ${isHighRelationship ? `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She stays. For several heartbeats, you stand together in charged silence, her hand warm in yours. Finally, reluctantly, she pulls away.
+                    Her hand trembles slightly in yours, and you realize this admission costs her everything. Tris, who is always so controlled, so professional, is letting you see her heart.
+                </div>
+            </div>
+            <div class="character-scene tris-border fade-in">
+                <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+                <div class="character-name">TRIS (whispered)</div>
+                <div class="character-speech">I care about you more than I should. More than is wise.</div>
+            </div>
+            ` : ''}
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She stays. For several heartbeats, you stand together in charged silence, her hand warm in yours. ${isHighRelationship ? 'You can feel her pulse racing against your palm, matching your own.' : ''} Finally, reluctantly, she pulls away.
                 </div>
             </div>
             <div class="character-scene tris-border fade-in">
                 <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
                 <div class="character-name">TRIS (voice thick with emotion)</div>
-                <div class="character-speech">"Goodnight. And remember your promise, please take care of yourself. For both our sakes."</div>
+                <div class="character-speech">${isHighRelationship ? 'Goodnight, \${gameState.playerName}. And remember your promise, okay?' : 'Goodnight.'}</div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('evening_end')">Watch Her Leave</button>
             </div>
-        `,
+        `;
+        },
         effects: { tris: 3 }
     },
 
@@ -2037,38 +2072,58 @@ export const chapter5Scenes = {
     chance_evening_moment: {
         id: '5.6.6',
         title: 'Suspended in Time',
-        content: `
+        getContent: () => {
+            const isHighRelationship = gameState.relationships.chance > 15;
+            console.log('Chance relationship check:', gameState.relationships.chance, 'High relationship:', isHighRelationship);
+            
+            return `
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     The music slows, becoming softer, more intimate. Chance's movements match the shift, drawing you into something that feels less like dancing and more like floating.
                     <br><br>
                     Their fingers trace patterns on your back through the dream-fabric of your clothing. Each touch sends shivers through you that have nothing to do with cold.
+                    ${isHighRelationship ? '<br><br>Tonight feels different though - there\'s something deeper in their lilac eyes, a sincerity that cuts through their usual playful mystique.' : ''}
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE (whisper)</div>
-                <div class="character-speech">"In dreams, anything is possible. You could be anyone. Go anywhere. Feel anything you desire without fear or consequence."</div>
+                <div class="character-speech">${isHighRelationship ? 'In dreams, anything is possible. But with you... I find myself wanting something real. Something that exists beyond the dreamscape.' : 'In dreams, anything is possible. You could be anyone. Go anywhere. Feel anything you desire without fear or consequence.'}</div>
             </div>
+            ${isHighRelationship ? `
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    Their confession surprises you both. Chance, the master of illusion and dreams, speaking of wanting reality. Their hand finds yours, fingers interlacing with an intimacy that feels startlingly genuine.
+                </div>
+            </div>
+            <div class="character-scene chance-border fade-in">
+                <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+                <div class="character-name">CHANCE (vulnerable)</div>
+                <div class="character-speech">I've lived in dreams so long, I'd forgotten what it felt like to truly connect with someone. You make me want to be... real.</div>
+            </div>
+            ` : ''}
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     They lean in, and you can feel their breath against your ear. The world around you seems to pulse with possibility, the boundaries between dream and reality growing wonderfully thin.
+                    ${isHighRelationship ? '<br><br>But for once, you\'re not lost in the magic - you\'re anchored by the warmth of their touch, the sincerity in their voice.' : ''}
                 </div>
             </div>
             <div class="character-scene chance-border fade-in">
                 <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
                 <div class="character-name">CHANCE</div>
-                <div class="character-speech">"What do you desire, I wonder?"</div>
+                <div class="character-speech">${isHighRelationship ? 'What do you desire? Because I... I desire you. Not just in dreams, but in waking life too.' : 'What do you desire, I wonder?'}</div>
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     The question hangs in the air between you, heavy with implication. Chance's lilac eyes hold yours, waiting, and utterly inviting.
+                    ${isHighRelationship ? '<br><br>There\'s a vulnerability there that takes your breath away - the dream-weaver, stripped of all illusion.' : ''}
                 </div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('chance_evening_ending')">The Dream Begins to Fade</button>
             </div>
-        `,
+        `;
+        },
         effects: { chance: 2 }
     },
 
@@ -2311,7 +2366,7 @@ export const chapter5Scenes = {
             </div>
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    Tears glisten in her eyes—not from sadness, but from relief. She's rediscovering the gentle side of her abilities.
+                    Tears glisten in her eyes, but this time it's not from sadness, instead you see relief. She's rediscovering the gentle side of her abilities.
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
@@ -2396,7 +2451,7 @@ export const chapter5Scenes = {
         content: `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    As the training continues, Ash's expression grows more contemplative. The joy from moments ago fades into something more complicated—worry, confusion, doubt.
+                    As the training continues, Ash's expression grows more contemplative. The joy from moments ago fades into something more complicated, you see worry, confusion, doubt cross her face.
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
@@ -2747,30 +2802,49 @@ export const chapter5Scenes = {
     ash_evening_tension: {
         id: '5.7.6',
         title: 'Romantic Tension',
-        content: `
+        getContent: () => {
+            const isHighRelationship = gameState.relationships.ash > 15;
+            console.log('Ash relationship check:', gameState.relationships.ash, 'High relationship:', isHighRelationship);
+            
+            return `
             <div class="story-text fade-in">
                 <div class="narrator-text">
                     Neither of you moves. The training room feels suddenly smaller, more intimate. Ash's magic responds to her emotions and tiny ice crystals start forming in the air around you both like stars.
                     <br><br>
                     Her hand trembles as she reaches up, fingers hovering near your cheek, mirroring your earlier gesture. For a heartbeat, you think she might close the distance between you.
+                    ${isHighRelationship ? '<br><br>There\'s something different about the way she\'s looking at you tonight - less afraid, more trusting. As if she\'s finally ready to let someone truly see her.' : ''}
                 </div>
             </div>
             <div class="character-scene ash-border fade-in">
                 <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
                 <div class="character-name">ASH (barely audible)</div>
-                <div class="character-speech">"I've never... I mean, they never let me..."</div>
+                <div class="character-speech">${isHighRelationship ? 'I\'ve never... I mean, they never let me feel anything for anyone. But you... you make me want to try.' : 'I\'ve never... I mean, they never let me...'}</div>
             </div>
+            ${isHighRelationship ? `
             <div class="story-text fade-in">
                 <div class="narrator-text">
-                    She can't finish the sentence. Her cheeks flush pink, almost matching her hair. The vulnerability in her expression is overwhelming, it is raw and honest and terrifying for someone who's spent her whole life being told to suppress everything.
+                    Her confession is barely a whisper, but it hits you like a thunderclap. This girl who was taught to fear her own emotions is choosing vulnerability, choosing to trust you with her heart.
+                </div>
+            </div>
+            <div class="character-scene ash-border fade-in">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">ASH (gathering courage)</div>
+                <div class="character-speech">You make me feel safe enough to want things I was never allowed to want. To hope for things I thought were impossible.</div>
+            </div>
+            ` : ''}
+            <div class="story-text fade-in">
+                <div class="narrator-text">
+                    She can't finish the sentence. Her cheeks flush pink, almost matching her hair. The vulnerability in her expression is overwhelming${isHighRelationship ? ', but there\'s a new strength there too - the courage that comes from being truly seen and accepted' : ', it is raw and honest and terrifying for someone who\'s spent her whole life being told to suppress everything'}.
                     <br><br>
                     The moment hangs between you, fragile and electric. Everything feels possible and impossible at once.
+                    ${isHighRelationship ? '<br><br>Her fingers finally make contact with your cheek, cool and gentle, and you can see tears of relief in her pink eyes.' : ''}
                 </div>
             </div>
             <div class="next-container">
                 <button class="next-button" onclick="goToScene('ash_evening_retreat')">Wait</button>
             </div>
-        `,
+        `;
+        },
         effects: { ash: 2 }
     },
 

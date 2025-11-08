@@ -14,22 +14,11 @@ class DiceSystem {
         return Math.floor(Math.random() * 20) + 1;
     }
 
-    createDiceRoll(title, description, difficulty, successScene, failureScene, difficultyClass = 12, type = 'general', statType = null) {
+    createDiceRoll(title, description, backstoryType, successScene, failureScene, difficultyClass = 12, type = 'general', statType = null) {
         // Get both backstory modifier and stat modifier
-        const backstoryModifier = gameState.getBackstoryModifier(type);
+        const backstoryModifier = gameState.getBackstoryModifier(backstoryType);
         const statModifier = statType ? gameState.getStatModifier(statType) : 0;
         const totalModifier = backstoryModifier + statModifier;
-        
-        // Debug logging
-        console.log('Creating dice roll:', {
-            type,
-            statType,
-            backstoryModifier,
-            statModifier,
-            totalModifier,
-            gameStateStats: gameState.stats,
-            gameStateBackstory: gameState.backstory
-        });
         
         let modifierText = '';
         if (backstoryModifier !== 0 || statModifier !== 0) {
@@ -47,7 +36,7 @@ class DiceSystem {
             modifierText += '</div>';
         }
         
-        console.log('Modifier text HTML:', modifierText);
+        const bonusText = totalModifier >= 0 ? '+' + totalModifier : totalModifier;
         
         return `
             <div class="dice-container fade-in">
@@ -59,7 +48,7 @@ class DiceSystem {
                 </div>
                 <div style="color: #ffd700; margin: 10px 0;">Click the die to roll!</div>
                 <div style="color: #add8e6; font-size: 0.9em;">Need ${difficultyClass}+ to succeed</div>
-                <div style="color: #add8e6; font-size: 0.9em;">Bonus: ${statModifier}</div>
+                <div style="color: #add8e6; font-size: 0.9em;">Bonus: ${bonusText}</div>
                 <div id="dice-result-container"></div>
             </div>
         `;

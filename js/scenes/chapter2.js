@@ -143,10 +143,10 @@ noble_escape_success: {
     title: 'Noble Escape Success',
     content: `
         <div class="story-text fade-in">
-            <div class="narrator-text">The stone shifts under your touch, revealing a narrow staircase. Fable looks impressed as you guide them to safety.</div>
+            <div class="narrator-text">The stone shifts under your touch, slowly revealing a hidden passage. Fable looks impressed, but just as you are about to enter, a loud noise echoes from behind you. The guards have arrived.</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
+            <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
         </div>
     `
 },
@@ -242,7 +242,7 @@ outsider_escape_success: {
             <div class="narrator-text">You spot a flaw in the wall's construction, if exploited right it is a weakness that creates a perfect escape route. You point it out, and Fable grins at your ingenuity.</div>
         </div>
         <div class="next-container">
-            <button class="next-button" onclick="goToScene('escape_continue')">Next</button>
+            <button class="next-button" onclick="goToScene('courtyard_banter')">Next</button>
         </div>
     `
 },
@@ -368,7 +368,7 @@ magic_attack_roll: {
                 'magic_attack_failure',
                 14,
                 'magic_control',
-                'luck'
+                'control'
             )}
         `;
     }
@@ -449,7 +449,7 @@ fable_delight: {
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
             <div class="character-name">FABLE</div>
-            <div class="character-speech">"What a magnificent show!"</div>
+            <div class="character-speech">"Reign it in, Spark. We don't want the whole alley to go up in flames."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('sewer_escape')">Next</button>
@@ -936,7 +936,7 @@ safehouse_interior: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                Inside is the safehouse of the Morte Custodi. The room is everyone at once. It smells of smoke, ink, herbs, and parchment. It's an armory. It's a scholar's den hidden beneath the world. It's an infirmary. You see a table which overflows with maps and documents, potions, and candles burned low casting dancing shadows over the various supplies. Cots line the walls, and bundles of herbs hang from the beams, their scent sharp enough to sting your nose.
+                Inside is the safehouse of the Morte Custodi. It smells of smoke, ink, herbs, and parchment. The room is everything all at once. It's an armory. It's a scholar's den hidden beneath the world. It's an infirmary. You see a table which overflows with maps and documents, potions, and candles burned low casting dancing shadows over the various supplies. Cots line the walls, and bundles of herbs hang from the beams, their scent sharp enough to sting your nose.
                 <br><br>
                 Two figures wait in the amber light.
             </div>
@@ -1223,7 +1223,7 @@ tris_practical_2: {
         <div class="character-scene tris-border fade-in">
             <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
             <div class="character-name">TRIS</div>
-            <div class="character-speech">"Chance helped Kit and Fable found you. Their dreams are useful, at least."</div>
+            <div class="character-speech">"Chance helped Kit and Fable find you. Their dreams are useful, at least."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('fable_stories')">Next</button>
@@ -2058,8 +2058,8 @@ kit_night_scene: {
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">How honest are you?</h3>
             <button class="choice-button" onclick="makeChoice('honest_sore', 'kit_assessment')">Admit everything hurts and you're exhausted</button>
-            <button class="choice-button" onclick="makeChoice('downplay_pain', 'kit_sees_through')">Downplay it—say you're fine</button>
-            <button class="choice-button" onclick="makeChoice('deflect_to_kit', 'kit_about_himself')">Turn it around—ask how he's feeling</button>
+            <button class="choice-button" onclick="makeChoice('downplay_pain', 'kit_sees_through')">Downplay it, say you're fine</button>
+            <button class="choice-button" onclick="makeChoice('deflect_to_kit', 'kit_about_himself')">Turn it around and ask how he's feeling</button>
         </div>
     `
 },

@@ -286,7 +286,7 @@ kit_training_start: {
             'kit_training_failure',
             10,
             'magic_control',
-            'luck'
+            'control'
         )}
     `,
     effects: { kit: 1 }
@@ -434,7 +434,7 @@ fable_demonstration: {
             'magic_harmony_failure',
             12,
             'magic_control',
-            'luck'
+            'control'
         )}
     `
 },
@@ -725,10 +725,10 @@ stat_allocation: {
                 <button class="stat-button" id="plus-agility" onclick="allocateStatPoint('agility')">+</button>
             </div>
             <div class="stat-row">
-                <span class="stat-label">Luck (${stats.luck})</span>
-                <button class="stat-button" id="minus-luck" onclick="deallocateStatPoint('luck')">−</button>
-                <span class="stat-allocated" id="allocated-luck">0</span>
-                <button class="stat-button" id="plus-luck" onclick="allocateStatPoint('luck')">+</button>
+                <span class="stat-label">Control (${stats.control})</span>
+                <button class="stat-button" id="minus-control" onclick="deallocateStatPoint('control')">−</button>
+                <span class="stat-allocated" id="allocated-control">0</span>
+                <button class="stat-button" id="plus-control" onclick="allocateStatPoint('control')">+</button>
             </div>
             <div class="stat-row">
                 <span class="stat-label">Wisdom (${stats.wisdom})</span>
@@ -778,12 +778,592 @@ mysterious_arrival: {
                 It's a young woman, moving with strange, stuttering steps. Her pink hair is disheveled, her pale skin almost translucent in the dim light. She clutches at her arms as if trying to hold herself together.
                 <br><br>
                 She stumbles, catches herself against the wall, and you notice her fingers leave frost patterns on the stone. Magic, but... wrong somehow. Suppressed. Fighting to break free.
+                <br><br>
+                Then you hear it, a low, guttural moan echoing from the forest behind her. The woman spins around in terror, and you see what's following her.
             </div>
         </div>
         <div class="character-scene fable-border fade-in">
             <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
-            <div class="character-name">FABLE (whispering, suspicious)</div>
-            <div class="character-speech">"I don't recognize her. But she's clearly a mage. See? Look how the magic fights against something. Stay here. If this is a trap...I don't want you to get hurt."</div>
+            <div class="character-name">FABLE (whispering, alarmed)</div>
+            <div class="character-speech">"Hollows. Three of them. She's being hunted."</div>
+        </div>
+        <div class="choices-container fade-in">
+            <h3 style="color: #ffd700; margin-bottom: 15px;">You watch the terrifying creatures approaching the woman.</h3>
+            <button class="choice-button" onclick="goToScene('hollows_pursuit')">Continue watching</button>
+            <button class="choice-button" onclick="goToScene('ask_about_hollows')">Ask Fable what Hollows really are</button>
+        </div>
+    `
+},
+
+ask_about_hollows: {
+    id: '3.15.1a',
+    title: 'The Truth About Hollows',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You keep your voice to a whisper, but urgency creeps in as you watch the shambling figures close the distance.
+            </div>
+        </div>
+        <div class="dialogue fade-in">
+            <div class="character-name">YOU</div>
+            <div class="character-speech">"Wait, what are Hollows exactly? I thought they were held back by the Inquisitors... that's what everyone says..."</div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (bitter laugh, still whispering)</div>
+            <div class="character-speech">"That's exactly what the Crown wants people to think. The Inquisitors don't hold back Hollows, they create them.</div>
+            <div class="character-speech">Those were once mages, but now they're just... shells. Magic has consumed their minds, left them as hungry shadows. Magic suppression doesn't just lock away power, it corrupts it. Push down natural magic long enough, force it into unnatural patterns, and eventually it breaks the mind. Hollows are what happens when suppressed mages finally snap."</div>
+
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (voice hard)</div>
+            <div class="character-speech">"The Crown blames 'uncontrolled magic' and sends more Inquisitors to 'protect' people. It's a perfect cycle, they create the monsters, then offer protection from them. But we can discuss politics later. Right now, that woman is about to die."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('hollows_pursuit')">Continue</button>
+        </div>
+    `,
+    effects: { fable: 2 }
+},
+
+hollows_pursuit: {
+    id: '3.15.1',
+    title: 'Hollows Pursuit',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Three shambling figures emerge from the treeline. Once human, the Hollows now move with jerky, unnatural motions. Their eyes glow with sickly red light, and wisps of corrupted magic leak from their fingertips like smoke.
+                <br><br>
+                The woman trips, falling hard against the tunnel entrance. Ice explodes from her hands in panic, but it only seems to attract the creatures more. They groan in unison, a coarse and rattling sound like wind through broken bones.
+            </div>
+            <div class="dialogue">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">MYSTERIOUS WOMAN (terrified)</div>
+                <div class="character-speech">"No, no, no... they found me... the magic... they can sense it..."</div>
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (urgent)</div>
+            <div class="character-speech">"Hollows feed on magical energy. Right now she is like a beacon to them. We have to act fast."</div>
+        </div>
+        <div class="choices-container fade-in">
+            <h3 style="color: #ffd700; margin-bottom: 15px;">The Hollows close in on the helpless woman. What do you do?</h3>
+            <button class="choice-button" onclick="makeChoice('rush_attack', 'rush_attack_choice')">Rush out immediately to fight the Hollows</button>
+            <button class="choice-button" onclick="makeChoice('observe_first', 'observe_first_choice')">Watch their movement patterns before engaging</button>
+            <button class="choice-button" onclick="makeChoice('wait_others', 'wait_others_choice')">Wait for the other rebels to arrive and coordinate</button>
+        </div>
+    `
+},
+
+rush_attack_choice: {
+    id: '3.15.2',
+    title: 'Rush Attack Choice',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Without hesitation, you charge from the alcove. Your magic surges with you, violet energy crackling as you leap into action. The Hollows turn toward you, their corrupted faces twisting in gleeful hunger.
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (shouting after you)</div>
+            <div class="character-speech">"Brave, but reckless! Aim for their cores, it's the glowing spot in their chests!"</div>
+        </div>
+        <div class="choices-container fade-in">
+            <h3 style="color: #ffd700; margin-bottom: 15px;">How do you attack the Hollows?</h3>
+            <button class="choice-button" onclick="makeChoice('magic_attack_brave', 'magic_attack_brave')">Unleash your raw magic against them</button>
+            <button class="choice-button" onclick="makeChoice('weapon_attack_brave', 'weapon_attack_brave')">Grab a weapon and strike physically</button>
+        </div>
+    `
+},
+
+observe_first_choice: {
+    id: '3.15.3',
+    title: 'Observe First Choice',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You force yourself to watch and learn before acting. The Hollows move in a surprisingly coordinated pattern with two flanking while one approaches directly. You notice they favor their left sides, and their movements slow slightly when they're about to strike.
+                <br><br>
+                The woman's magic flares again, and the creatures surge forward hungrily. Now you move, armed with knowledge.
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (impressed)</div>
+            <div class="character-speech">"Smart."</div>
+        </div>
+        <div class="choices-container fade-in">
+            <h3 style="color: #ffd700; margin-bottom: 15px;">How do you attack the Hollows?</h3>
+            <button class="choice-button" onclick="makeChoice('magic_attack_wise', 'magic_attack_wise')">Use your magic strategically against their weakness</button>
+            <button class="choice-button" onclick="makeChoice('weapon_attack_wise', 'weapon_attack_wise')">Strike with a weapon at their vulnerable spots</button>
+        </div>
+    `
+},
+
+wait_others_choice: {
+    id: '3.15.4',
+    title: 'Wait Others Choice',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You stay back, waiting for Kit and the others to arrive. It's the tactically sound choice, but watching the woman's terror pulls at you. The Hollows are almost upon her when Kit's blade flashes in the tunnel entrance.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT</div>
+            <div class="character-speech">"Never engage Hollows alone if you can avoid it. But now, we all fight!"</div>
+        </div>
+        <div class="choices-container fade-in">
+            <h3 style="color: #ffd700; margin-bottom: 15px;">How do you support the group attack?</h3>
+            <button class="choice-button" onclick="makeChoice('magic_attack_group', 'magic_attack_group')">Add your magic to the coordinated assault</button>
+            <button class="choice-button" onclick="makeChoice('weapon_attack_group', 'weapon_attack_group')">Fight alongside Kit with weapons</button>
+        </div>
+    `
+},
+
+magic_attack_brave: {
+    id: '3.16.1',
+    title: 'Magic Attack - Brave Rush',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You let your raw magic explode outward, violet lightning crackling toward the nearest Hollow. Your charge has filled you with determination and you will not let this woman suffer the same fate you nearly did.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Magical Assault', 
+            'Channel your chaotic magic against the corrupted creatures. Your bravery in rushing to help adds power to your strike.',
+            'hollow_combat',
+            'magic_success_brave',
+            'magic_failure_brave',
+            12,
+            'magic_control',
+            'bravery'
+        )}
+    `
+},
+
+weapon_attack_brave: {
+    id: '3.16.2',
+    title: 'Weapon Attack - Brave Rush',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You grab a fallen branch, channeling a bit of magic into it to make it solid as steel. Your rush gives you momentum as you swing at the nearest Hollow's glowing core.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Weapon Strike', 
+            'Strike at the Hollows with improvised weapons. Your courage in charging forward strengthens your blow.',
+            'hollow_combat',
+            'weapon_success_brave',
+            'weapon_failure_brave',
+            12,
+            'strength',
+            'bravery'
+        )}
+    `
+},
+
+magic_attack_wise: {
+    id: '3.16.3',
+    title: 'Magic Attack - Wise Observation',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You focus your magic precisely, targeting the patterns you observed. Your knowledge from watching first guides your strike to their vulnerable moments when they slow down.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Tactical Magic', 
+            'Use your observations to strike strategically. Your knowledge in studying them first gives you a significant advantage.',
+            'hollow_combat',
+            'magic_success_wise',
+            'magic_failure_wise',
+            10,
+            'magic_control',
+            'wisdom'
+        )}
+    `
+},
+
+weapon_attack_wise: {
+    id: '3.16.4',
+    title: 'Weapon Attack - Wise Observation',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You move with calculated precision, striking at the left-side weakness you identified. Your patient observation pays off as you target their blind spots.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Tactical Strike', 
+            'Strike with knowledge of their weaknesses. Your wisdom in observing them makes your attack more effective.',
+            'hollow_combat',
+            'weapon_success_wise',
+            'weapon_failure_wise',
+            10,
+            'strength',
+            'wisdom'
+        )}
+    `
+},
+
+magic_attack_group: {
+    id: '3.16.5',
+    title: 'Magic Attack - Group Coordination',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You coordinate your magic with Kit's blade work, timing your strikes to support the group effort. Working together makes each attack more effective.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Coordinated Magic', 
+            'Support the group with magical attacks. Fighting as a team gives you better odds.',
+            'hollow_combat',
+            'magic_success_group',
+            'magic_failure_group',
+            8,
+            'magic_control',
+            'control'
+        )}
+    `
+},
+
+weapon_attack_group: {
+    id: '3.16.6',
+    title: 'Weapon Attack - Group Coordination',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You fight alongside Kit, matching his rhythm and covering his flanks. The coordinated assault is more effective than any solo effort could be.
+            </div>
+        </div>
+        ${diceSystem.createDiceRoll(
+            'Coordinated Strike', 
+            'Fight alongside the group with weapons. Teamwork makes your attacks more effective.',
+            'hollow_combat',
+            'weapon_success_group',
+            'weapon_failure_group',
+            8,
+            'strength'
+        )}
+    `,
+     effects: { kit: 1 }
+},
+
+magic_success_brave: {
+    id: '3.17.1',
+    title: 'Magic Success - Brave',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">VIOLET LIGHTNING TEARS THROUGH THE HOLLOWS</div>
+            <div class="narrator-text">
+                Your magic explodes outward in brilliant violet arcs. The raw power, amplified by your adrenaline, tears through the first Hollow's core. It crumbles to ash with a wailing shriek. The other two hesitate, sensing the danger you represent.
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE (arriving just as you finish)</div>
+            <div class="character-speech">"Incredible!"</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { fable: 1, kit: 1 }
+},
+
+magic_failure_brave: {
+    id: '3.17.2',
+    title: 'Magic Failure - Brave',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">MAGIC EXPLODES WILDLY IN ALL DIRECTIONS</div>
+            <div class="narrator-text">
+                Your magic surges chaotically, striking rocks, trees, and empty air. You manage to hit everywhere except the Hollows. Your bravery gave you power, but not precision. The creatures advance, drawn by the magical display.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (leaping into the fray)</div>
+            <div class="character-speech">"Reckless, remember control matters more than power. Watch and learn."</div>
+        </div>
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Kit's blade flashes, cutting down the Hollows with precise strikes to their cores. Within moments, the threat is ended.
+            </div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { kit: -1 }
+},
+
+weapon_success_brave: {
+    id: '3.17.3',
+    title: 'Weapon Success - Brave',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">MAGICAL BRANCH SMASHES THROUGH HOLLOW CORE</div>
+            <div class="narrator-text">
+                Your magically-enhanced branch crashes into the nearest Hollow's glowing core with devastating force. The creature implodes with a shriek, and your momentum carries you into the second one. Your brave charge has turned into a fierce assault.
+            </div>
+        </div>
+        <div class="character-scene chance-border fade-in">
+            <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+            <div class="character-name">CHANCE (appearing from the shadows)</div>
+            <div class="character-speech">"Well, well. Our new friend has the heart of a warrior. Quite the sight to behold."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { chance: 1, kit: 1 }
+},
+
+weapon_failure_brave: {
+    id: '3.17.4',
+    title: 'Weapon Failure - Brave',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">BRANCH SHATTERS AGAINST HOLLOW'S HIDE</div>
+            <div class="narrator-text">
+                Your improvised weapon shatters against the Hollow's corrupted flesh. The creature backhands you, sending you sprawling. Your courage was admirable, but the Hollows are stronger than they appear.
+            </div>
+        </div>
+        <div class="character-scene tris-border fade-in">
+            <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+            <div class="character-name">TRIS (healing your wounds)</div>
+            <div class="character-speech">"Brave, but foolish. Hollows have tough hides, so you need to hit the cores or use magic. Kit's handling them now."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { tris: 1, kit: -1 }
+},
+
+magic_success_wise: {
+    id: '3.17.5',
+    title: 'Magic Success - Wise',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">PRECISE VIOLET BOLTS STRIKE TRUE</div>
+            <div class="narrator-text">
+                Your magic strikes with surgical precision, targeting the Hollows during their vulnerable moments. Two cores shatter simultaneously, and the third creature stumbles into your follow-up blast. Your patience and observation have paid off perfectly.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (genuinely impressed)</div>
+            <div class="character-speech">"Remarkable tactical thinking."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { fable: 1, kit: 2 }
+},
+
+magic_failure_wise: {
+    id: '3.17.6',
+    title: 'Magic Failure - Wise',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Despite your careful observation, your magic still proves too chaotic to fully control. You manage to wound one Hollow, but the others press their attack. Your tactics were sound, but execution still needs work.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (finishing the fight)</div>
+            <div class="character-speech">"Good strategy, but your magic needs discipline. "</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { kit: 1 }
+},
+
+weapon_success_wise: {
+    id: '3.17.7',
+    title: 'Weapon Success - Wise',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">CALCULATED STRIKES FIND THEIR MARK</div>
+            <div class="narrator-text">
+                You strike with deadly precision, exploiting every weakness you observed. Your blade finds gaps in their defenses, and each hit counts. Within moments, all three Hollows lie crumbling to ash.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (nodding approvingly)</div>
+            <div class="character-speech">"Excellent technique. You fought smart, not just hard. That's how you survive against superior numbers."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { kit: 2 }
+},
+
+weapon_failure_wise: {
+    id: '3.17.8',
+    title: 'Weapon Failure - Wise',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Your strategy is sound, but your weapon skills aren't quite there yet. You land a few hits but can't penetrate their cores effectively. The Hollows adapt to your pattern faster than expected.
+            </div>
+        </div>
+        <div class="character-scene chance-border fade-in">
+            <img src="${CHARACTER_IMAGES.chance}" alt="chance" class="character-portrait" />
+            <div class="character-name">CHANCE (using dream magic to confuse the Hollows)</div>
+            <div class="character-speech">"Let me finish this with some... misdirection."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { chance: 1 }
+},
+
+magic_success_group: {
+    id: '3.17.9',
+    title: 'Magic Success - Group',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">COORDINATED MAGIC AND STEEL DEVASTATE THE HOLLOWS</div>
+            <div class="narrator-text">
+                Your magic weaves perfectly with Kit's blade work. As he strikes, you blast; as you channel, he covers. The Hollows cannot adapt to your coordinated assault and fall quickly to your combined might.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (breathing hard but satisfied)</div>
+            <div class="character-speech">"Excellent work. That's how the Morte Custodi fight."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { kit: 2, tris: 1 }
+},
+
+magic_failure_group: {
+    id: '3.17.10',
+    title: 'Magic Failure - Group',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                Your magic proves difficult to coordinate with the group's tactics. A few wild bolts nearly hit Kit, forcing him to adjust his strategy. Still, working together, you manage to bring down the Hollows.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (wiping ash from his blade)</div>
+            <div class="character-speech">"We won, but you need better control before fighting in formation. Friendly fire is still fire."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { kit: -1, chance: 1 }
+},
+
+weapon_success_group: {
+    id: '3.17.11',
+    title: 'Weapon Success - Group',
+    content: `
+        <div class="story-text fade-in">
+            <div class="sfx">SYNCHRONIZED STRIKES OVERWHELM THE HOLLOWS</div>
+            <div class="narrator-text">
+                You and Kit move like a well-oiled machine, covering each other's flanks and striking in perfect rhythm. The Hollows can't handle your coordinated assault and fall one by one to your combined blades.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (genuinely impressed)</div>
+            <div class="character-speech">"You have natural combat instincts. With training, you could be formidable with a blade."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('victory_aftermath')">Next</button>
+        </div>
+    `,
+    effects: { kit: 2, tris: 1 }
+},
+
+weapon_failure_group: {
+    id: '3.17.12',
+    title: 'Weapon Failure - Group',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                You try to match Kit's pace but find yourself more hindrance than help. Your inexperience shows as you get in each other's way. Kit compensates well, but the fight takes longer than it should have.
+            </div>
+        </div>
+        <div class="character-scene kit-border fade-in">
+            <img src="${CHARACTER_IMAGES.kit}" alt="kit" class="character-portrait" />
+            <div class="character-name">KIT (patient but firm)</div>
+            <div class="character-speech">"You have heart, but weapon work takes practice. We'll start with solo drills before group tactics."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('assisted_victory')">Next</button>
+        </div>
+    `,
+    effects: { kit: -1, tris: 1, chance: 1 }
+},
+
+victory_aftermath: {
+    id: '3.18.0',
+    title: 'Victory Aftermath',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                The last Hollow crumbles to dust, leaving only the acrid smell of burnt flesh and corrupted magic in the air. The mysterious woman stares at you with wide, fearful eyes, clutching at her arms where frost patterns still spread and fade.
+            </div>
+            <div class="dialogue">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">MYSTERIOUS WOMAN (shaking)</div>
+                <div class="character-speech">"You... you fought them. For me. I don't understand... why would you help someone you don't know?"</div>
+            </div>
+        </div>
+        <div class="character-scene tris-border fade-in">
+            <img src="${CHARACTER_IMAGES.tris}" alt="tris" class="character-portrait" />
+            <div class="character-name">TRIS (approaching with medical supplies)</div>
+            <div class="character-speech">"Because that's what we do. Now hold still, I think you're in magical withdrawal, and those Hollows' presence has made it worse."</div>
+        </div>
+        <div class="next-container">
+            <button class="next-button" onclick="goToScene('ash_collapse')">Next</button>
+        </div>
+    `
+},
+
+assisted_victory: {
+    id: '3.18.1',
+    title: 'Assisted Victory',
+    content: `
+        <div class="story-text fade-in">
+            <div class="narrator-text">
+                With help from the other rebels, the Hollows are defeated. Though you didn't succeed entirely on your own, your willingness to fight for a stranger has clearly impressed them. The mysterious woman watches in amazement as the dust settles.
+            </div>
+            <div class="dialogue">
+                <img src="${CHARACTER_IMAGES.ash}" alt="ash" class="character-portrait" />
+                <div class="character-name">MYSTERIOUS WOMAN (grateful)</div>
+                <div class="character-speech">"You helped me... even when you could have been hurt. I've never... no one has ever..."</div>
+            </div>
+        </div>
+        <div class="character-scene fable-border fade-in">
+            <img src="${CHARACTER_IMAGES.fable}" alt="fable" class="character-portrait" />
+            <div class="character-name">FABLE</div>
+            <div class="character-speech">"You're safe now. But we need to know who you are and why those things were chasing you."</div>
         </div>
         <div class="next-container">
             <button class="next-button" onclick="goToScene('ash_collapse')">Next</button>
@@ -810,7 +1390,7 @@ ash_collapse: {
         </div>
         <div class="choices-container fade-in">
             <h3 style="color: #ffd700; margin-bottom: 15px;">The woman needs help, but it could be a trap. What do you do?</h3>
-            <button class="choice-button" onclick="makeChoice('help_immediately', 'help_ash_response')">Rush to help her despite the warning, no one should suffer like that</button>
+            <button class="choice-button" onclick="makeChoice('help_immediately', 'help_ash_response')">Rush to help her, no one should suffer like that</button>
             <button class="choice-button" onclick="makeChoice('stay_cautious', 'cautious_ash_response')">Watch what the others do, Fable warned you it could be dangerous</button>
             <button class="choice-button" onclick="makeChoice('sense_magic', 'sense_ash_response')">Stay hidden, but try to see where she came from</button>
         </div>
@@ -823,7 +1403,7 @@ help_ash_response: {
     content: `
         <div class="story-text fade-in">
             <div class="narrator-text">
-                You ignore Fable's warning and rush down to the collapsed woman. Up close, you can see the pain etched on her face. You know for certain that this isn't an act. Her magic is tearing her apart from the inside.
+                You rush down to the collapsed woman. Up close, you can see the pain etched on her face. You know for certain that this isn't an act. Her magic is tearing her apart from the inside.
                 <br><br>
                 You kneel beside her, and she looks up at you with desperate pink eyes.
             </div>

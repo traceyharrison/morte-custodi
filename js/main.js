@@ -32,10 +32,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         relationshipManager.updateMoodDisplay();
         uiManager.setupEventListeners();
         
-        // Ensure content area is ready
+        // Try to auto-load the most recent save, otherwise go to character creation
         const contentArea = document.getElementById('content-area');
         if (!contentArea.innerHTML) {
-            sceneManager.goToScene('character_creation');
+            // Check if there's an auto-save to continue from
+            if (saveManager.getSaveData('auto')) {
+                console.log('Found auto-save, loading...');
+                if (saveManager.loadGame('auto')) {
+                    console.log('Auto-save loaded successfully');
+                } else {
+                    console.log('Auto-save failed to load, starting new game');
+                    sceneManager.goToScene('character_creation');
+                }
+            } else {
+                console.log('No auto-save found, starting new game');
+                sceneManager.goToScene('character_creation');
+            }
         }
     } catch (error) {
         console.error('Error loading scenes:', error);
@@ -318,7 +330,7 @@ let statAllocations = {
     strength: 0,
     bravery: 0,
     agility: 0,
-    luck: 0,
+    control: 0,
     wisdom: 0
 };
 
@@ -359,7 +371,7 @@ window.confirmStatAllocation = function() {
         strength: 0,
         bravery: 0,
         agility: 0,
-        luck: 0,
+        control: 0,
         wisdom: 0
     };
     
